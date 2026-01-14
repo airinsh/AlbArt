@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="HomePage.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">AlbArt</div>
+    <div class="toolbar">
+
+        <!-- Search me input që shfaqet brenda toolbar-it -->
+        <div class="toolbar-item search" onclick="toggleSearch(event)">
+            🔍 Search
+            <input type="text" id="searchInput" placeholder="Kërko..." style="display:none;">
+        </div>
+
+        <div class="toolbar-item cart">Cart</div>
+        <div class="toolbar-item profile">Profile</div>
+    </div>
+</header>
+
+<main>
+
+    <div class="Galeria Kryesore">
+        <div class="art-item">
+            <img src="Piktura.jpeg" alt="Foto 1">
+            <div class="art-caption">Piktura</div>
+        </div>
+        <div class="art-item">
+            <img src="Skulptura.jpeg" alt="Foto 2">
+            <div class="art-caption">Skulptura</div>
+        </div>
+        <div class="art-item">
+            <img src="Artizanale.jpeg" alt="Foto 3">
+            <div class="art-caption">Artizanale</div>
+        </div>
+    </div>
+
+
+    <section class="Seksioni i Artisteve">
+        <h2>Artist</h2>
+        <div class="artists-container">
+            <button class="artist">
+                <img src="artist1.jpg" alt="Artist 1">
+                <p>Emri 1</p>
+            </button>
+            <button class="artist">
+                <img src="artist2.jpg" alt="Artist 2">
+                <p>Emri 2</p>
+            </button>
+            <button class="artist">
+                <img src="artist3.jpg" alt="Artist 3">
+                <p>Emri 3</p>
+            </button>
+            <button class="artist">
+                <img src="artist4.jpg" alt="Artist 4">
+                <p>Emri 4</p>
+            </button>
+            <button class="artist">
+                <img src="artist5.jpg" alt="Artist 5">
+                <p>Emri 5</p>
+            </button>
+            <button class="artist">
+                <img src="artist6.jpg" alt="Artist 6">
+                <p>Emri 6</p>
+            </button>
+        </div>
+    </section>
+
+    <!-- Seksioni Vepra -->
+    <section class="Seksioni i Veprave">
+        <h2>Vepra</h2>
+        <div class="works-container">
+            <!-- Kutitë e veprave -->
+            <div class="work-item" onclick="openWorkDetails('Vepra 1')">
+                <div class="work-image">
+                    <img src="images/work1.jpg" alt="Vepra 1">
+                </div>
+                <div class="work-info">
+                    <p class="category">Pikturë</p>
+                    <p class="name">Vepra 1</p>
+                    <p class="price">$150</p>
+                    <button class="add-cart" onclick="addToCart(event,'Vepra 1')">Cart</button>
+                </div>
+            </div>
+
+            <div class="work-item" onclick="openWorkDetails('Vepra 2')">
+                <div class="work-image">
+                    <img src="images/work2.jpg" alt="Vepra 2">
+                </div>
+                <div class="work-info">
+                    <p class="category">Skulpturë</p>
+                    <p class="name">Vepra 2</p>
+                    <p class="price">$300</p>
+                    <button class="add-cart" onclick="addToCart(event,'Vepra 2')">Cart</button>
+                </div>
+            </div>
+
+            <div class="work-item" onclick="openWorkDetails('Vepra 3')">
+                <div class="work-image">
+                    <img src="images/work3.jpg" alt="Vepra 3">
+                </div>
+                <div class="work-info">
+                    <p class="category">Fotografi</p>
+                    <p class="name">Vepra 3</p>
+                    <p class="price">$120</p>
+                    <button class="add-cart" onclick="addToCart(event,'Vepra 3')">Cart</button>
+                </div>
+            </div>
+
+            <div class="work-item" onclick="openWorkDetails('Vepra 4')">
+                <div class="work-image">
+                    <img src="images/work4.jpg" alt="Vepra 4">
+                </div>
+                <div class="work-info">
+                    <p class="category">Fotografi</p>
+                    <p class="name">Vepra 4</p>
+                    <p class="price">$120</p>
+                    <button class="add-cart" onclick="addToCart(event,'Vepra 4')">Cart</button>
+                </div>
+            </div>
+
+            <div class="work-item" onclick="openWorkDetails('Vepra 5')">
+                <div class="work-image">
+                    <img src="images/work5.jpg" alt="Vepra 5">
+                </div>
+                <div class="work-info">
+                    <p class="category">Fotografi</p>
+                    <p class="name">Vepra 5</p>
+                    <p class="price">$120</p>
+                    <button class="add-cart" onclick="addToCart(event,'Vepra 5')">Cart</button>
+                </div>
+            </div>
+
+            <div class="work-item" onclick="openWorkDetails('Vepra 6')">
+                <div class="work-image">
+                    <img src="images/work6.jpg" alt="Vepra 6">
+                </div>
+                <div class="work-info">
+                    <p class="category">Fotografi</p>
+                    <p class="name">Vepra 6</p>
+                    <p class="price">$120</p>
+                    <button class="add-cart" onclick="addToCart(event,'Vepra 6')">Cart</button>
+                </div>
+            </div>
+
+            <div class="work-item" onclick="openWorkDetails('Vepra 7')">
+                <div class="work-image">
+                    <img src="images/work7.jpg" alt="Vepra 7">
+                </div>
+                <div class="work-info">
+                    <p class="category">Fotografi</p>
+                    <p class="name">Vepra 7</p>
+                    <p class="price">$120</p>
+                    <button class="add-cart" onclick="addToCart(event,'Vepra 7')">Cart</button>
+                </div>
+            </div>
+
+            <div class="work-item" onclick="openWorkDetails('Vepra 8')">
+                <div class="work-image">
+                    <img src="images/work8.jpg" alt="Vepra 8">
+                </div>
+                <div class="work-info">
+                    <p class="category">Fotografi</p>
+                    <p class="name">Vepra 8</p>
+                    <p class="price">$120</p>
+                    <button class="add-cart" onclick="addToCart(event,'Vepra 8')">Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<script>
+
+
+    // Funksionet për veprat dhe cart
+    function openWorkDetails(workName){
+        alert("Hap detajet e veprës: " + workName);
+    }
+
+    function addToCart(event, workName){
+        event.stopPropagation(); // ndalon klikimin e kutisë
+        alert("Shto në Cart: " + workName);
+    }
+
+    // Funksioni për Search input
+    function toggleSearch(event) {
+        event.stopPropagation(); // ndalon propagimin te body
+        const input = document.getElementById('searchInput');
+        if(input.style.display === 'none'){
+            input.style.display = 'inline-block';
+            input.focus();
+        } else {
+            input.style.display = 'none';
+        }
+    }
+
+    // Fsheh input-in nëse klikoj jashtë tij
+    document.body.addEventListener('click', function(){
+        const input = document.getElementById('searchInput');
+        input.style.display = 'none';
+    });
+</script>
+
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2026 AlbArt. Të gjitha të drejtat e rezervuara.</p>
+    </div>
+</footer>
+
+</body>
+</html>

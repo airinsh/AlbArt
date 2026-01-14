@@ -1,0 +1,284 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Segoe Print', cursive;
+    color: #333333;
+}
+
+.toolbar {
+    display: flex;
+    gap: 25px;
+}
+
+.toolbar-item {
+    padding: 10px 20px;
+    background-color: #333333;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+.toolbar-item:hover {
+    background-color: #555555;
+    transform: scale(1.05);
+}
+
+
+main {
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+
+.art-item {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.art-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.art-item:hover {
+    transform: scale(1.05);
+}
+
+.art-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    padding: 5px 0;
+    border-radius: 0 0 10px 10px;
+}
+
+.artists-section {
+    padding: 40px;
+    background-color: #f9f9f9;
+}
+
+.artists-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.artists-container {
+    display: flex;
+    gap: 90px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+
+.artist {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.artist img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.artist p {
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+}
+
+
+.artist:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+
+.artists-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.artists-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+.artists-container::-webkit-scrollbar-track {
+    background-color: #eee;
+}
+
+
+.works-section {
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.works-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.works-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+
+.work-item {
+    width: 250px;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.work-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.work-item:hover .work-image img {
+    transform: scale(1.05);
+}
+
+
+.work-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.work-info .category {
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.work-info .name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.work-info .price {
+    font-size: 14px;
+    color: #333;
+}
+
+
+.add-cart {
+    padding: 8px;
+    margin-top: 5px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-cart:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 40px;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
