@@ -1,0 +1,54 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* pa scroll */
+}
+
+body {
+    background-image: url('Sign Up.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.signup-section {
+    width: 300px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+}
+
+
+h1 {
+    font-size: 50px;
+    font-family: 'Brush Script MT', cursive;
+    color: black;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(255,255,255,0.5);
+}
+
+.subtitle {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.5);
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: rgba(0,0,0,0.9);
+}

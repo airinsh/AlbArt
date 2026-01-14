@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Sign Up - AlbArt</title>
+    <link rel="stylesheet" href="artist-signup.css">
+</head>
+<body>
+<div class="signup-section">
+    <h1>Artist</h1>
+    <form class="signup-form">
+        <div class="form-row">
+            <label>Emri</label>
+            <input type="text" name="name" required>
+        </div>
+
+        <div class="form-row">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <div class="form-row">
+            <label>Password</label>
+            <input type="password" name="password" required>
+        </div>
+
+        <div class="form-row">
+            <label>Description</label>
+            <textarea name="description" rows="4" placeholder="Tell us about yourself"></textarea>
+        </div>
+
+        <div class="form-row">
+            <label>Certifikime</label>
+            <input type="file" name="certification" accept=".pdf">
+        </div>
+
+        <div class="form-row checkbox-row">
+            <input type="checkbox" name="terms" required>
+            <span>I agree to <a href="#" title="Click to read AlbArt Terms and Conditions">AlbArt Terms and Conditions</a></span>
+        </div>
+
+        <button type="submit" class="btn">Continue</button>
+    </form>
+</div>
+</body>
+</html>
