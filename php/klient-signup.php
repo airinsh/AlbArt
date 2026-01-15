@@ -78,7 +78,7 @@
         <button type="submit" class="btn">Continue</button>
     </form>
 
-    <script src="signup.js"></script>
+    <script src="Klient-signup.js"></script>
 
 </div>
 
