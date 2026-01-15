@@ -61,7 +61,7 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
 
     // AJAX
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "../php/ajax.php", true);
+    xhr.open("POST", "../php/klient-signup-ajax.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onload = function () {
