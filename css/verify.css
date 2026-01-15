@@ -1,0 +1,102 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* pa scroll */
+}
+
+body {
+    background-image: url('../img/artist.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.verify-section {
+    width: 400px;
+    margin: 50px auto 0 auto;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.85);
+    border-radius: 10px;
+}
+
+.verify-section h1 {
+    font-size: 50px;
+    font-family: 'Brush Script MT', cursive;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(255,255,255,0.5);
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    width: 120px;
+    font-weight: bold;
+    margin-right: 10px;
+    text-align: left;
+}
+
+/* Input + textarea */
+.form-row input,
+.form-row textarea,
+.form-row input[type="number"] {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.form-row textarea {
+    resize: none;
+}
+
+/* Message */
+#verify-message {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+    color: #dc3545;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: rgba(0,0,0,0.9);
+}
+
+.verify-footer {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.verify-footer a {
+    color: blue;
+    text-decoration: underline;
+}
+
+.verify-footer a:hover {
+    text-decoration: none;
+}
