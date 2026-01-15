@@ -12,42 +12,37 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
     });
 
     const message = document.getElementById("message");
+    message.innerHTML = "";
 
-
+    // ---------------- VALIDIME
     if (name === "" || email === "" || password === "") {
-        message.innerHTML = "Plotëso të gjitha fushat.";
+        message.innerText = "Plotëso të gjitha fushat.";
         message.style.color = "red";
         return;
     }
 
-    const errors = []; // array për të mbledhur të gjitha gabimet
+    const errors = [];
 
     if (password.length < 6) {
-        errors.push("Të ketë minimum 6 karaktere");
+        errors.push("Minimum 6 karaktere");
     }
-
-    const uppercaseRegex = /[A-Z]/;
-    const symbolRegex = /[!@#$%^&*(),.?\":{}|<>]/;
-
-    if (!uppercaseRegex.test(password)) {
-        errors.push("Të ketë të paktën një shkronjë të madhe");
+    if (!/[A-Z]/.test(password)) {
+        errors.push("Të paktën një shkronjë të madhe");
     }
-
-    if (!symbolRegex.test(password)) {
-        errors.push("Të ketë të paktën një simbol special (!@#$%^&* etj.)");
+    if (!/[!@#$%^&*(),.?\":{}|<>]/.test(password)) {
+        errors.push("Të paktën një simbol special");
     }
 
     if (errors.length > 0) {
-        // Shfaq mesazhet si listë
-        message.innerHTML = "Password duhet të përmbajë: <ul><li>" + errors.join("</li><li>") + "</li></ul>";
+        message.innerHTML = "Password duhet të përmbajë:<ul><li>" +
+            errors.join("</li><li>") +
+            "</li></ul>";
         message.style.color = "red";
         return;
     }
 
-
-    // Kontroll për të paktën një preferencë
     if (prefs.length === 0) {
-        message.innerHTML = "Duhet të zgjedhësh të paktën një preferencë.";
+        message.innerText = "Duhet të zgjedhësh të paktën një preferencë.";
         message.style.color = "red";
         return;
     }
@@ -58,8 +53,7 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
         return;
     }
 
-
-    // AJAX
+    // ---------------- AJAX
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "../php/klient-signup-ajax.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -68,18 +62,22 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
         const res = JSON.parse(this.responseText);
 
         if (res.status === "error") {
-            message.innerHTML = res.message; // <--- Këtu innerHTML në vend të innerText
+            message.innerHTML = res.message;
             message.style.color = "red";
-        } else {
+        }
+
+        if (res.status === "verify") {
             message.innerHTML = res.message;
             message.style.color = "green";
 
             setTimeout(() => {
-                window.location.href = "login.php";
+                window.location.href =
+                    "verify.php?email=" + encodeURIComponent(res.email);
             }, 1500);
         }
-    }
-        xhr.send(JSON.stringify({
+    };
+
+    xhr.send(JSON.stringify({
         name: name,
         email: email,
         password: password,

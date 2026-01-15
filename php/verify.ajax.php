@@ -2,22 +2,28 @@
 $conn = new mysqli("localhost", "root", "", "albart");
 
 if (isset($_POST['email']) && isset($_POST['code'])) {
-    $email = $_POST['email'];
-    $code  = $_POST['code'];
 
-    $stmt = $conn->prepare("SELECT id FROM Users WHERE email=? AND verification_code=?");
+    $email = trim($_POST['email']);
+    $code  = trim($_POST['code']);
+
+    $stmt = $conn->prepare(
+        "SELECT id FROM Users 
+         WHERE email=? AND verification_code=? AND email_verified=0"
+    );
     $stmt->bind_param("ss", $email, $code);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
 
-        $stmt_update = $conn->prepare(
-                "UPDATE Users SET email_verified=1, verification_code=NULL WHERE email=?"
+        $update = $conn->prepare(
+            "UPDATE Users 
+             SET email_verified=1, verification_code=NULL 
+             WHERE email=?"
         );
-        $stmt_update->bind_param("s", $email);
-        $stmt_update->execute();
-        $stmt_update->close();
+        $update->bind_param("s", $email);
+        $update->execute();
+        $update->close();
 
         echo "Email u verifikua me sukses!";
     } else {
@@ -28,4 +34,3 @@ if (isset($_POST['email']) && isset($_POST['code'])) {
 }
 
 $conn->close();
-?>
