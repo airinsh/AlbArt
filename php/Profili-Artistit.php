@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profili-Artist</title>
-    <link rel="stylesheet" href="Profili-Artistit.css">
+    <link rel="stylesheet" href="../css/Profili-Artistit.css">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
 
 
         <div class="profile-header">
-            <img src="Piktura.jpeg" alt="Foto Profilit" class="profile-photo">
+            <img src="../img/Piktura.jpeg" alt="Foto Profilit" class="profile-photo">
             <h2 class="profile-name">X Y</h2>
             <p class="profile-role">Artist / Piktore</p>
         </div>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profili</title>
-    <link rel="stylesheet" href="Profili-Klient.css">
+    <link rel="stylesheet" href="../css/Profili-Klient.css">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
 
 
         <div class="profile-header">
-            <img src="Piktura.jpeg" alt="Foto Klienti" class="profile-photo">
+            <img src="../img/Piktura.jpeg" alt="Foto Klienti" class="profile-photo">
             <h2 class="profile-name">Emri i Klientit</h2>
         </div>
 

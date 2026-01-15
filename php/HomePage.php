@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    <link rel="stylesheet" href="HomePage.css">
+    <link rel="stylesheet" href="../css/HomePage.css">
 </head>
 <body>
 
@@ -27,15 +27,15 @@
 
     <div class="gallery">
         <div class="art-item">
-            <img src="Piktura.jpeg" alt="Foto 1">
+            <img src="../img/Piktura.jpeg" alt="Foto 1">
             <div class="art-caption">Piktura</div>
         </div>
         <div class="art-item">
-            <img src="Skulptura.jpeg" alt="Foto 2">
+            <img src="../img/Skulptura.jpeg" alt="Foto 2">
             <div class="art-caption">Skulptura</div>
         </div>
         <div class="art-item">
-            <img src="Artizanale.jpeg" alt="Foto 3">
+            <img src="../img/Artizanale.jpeg" alt="Foto 3">
             <div class="art-caption">Artizanale</div>
         </div>
     </div>

@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-    background-image: url('artist.jpeg');
+    background-image: url('../img/artist.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -88,4 +88,11 @@ h1 {
 
 .btn:hover {
     background-color: rgba(0,0,0,0.9);
+}
+
+.text-danger {
+    display: block;
+    color: #dc3545; /* red */
+    font-size: 13px;
+    margin-top: 4px;
 }

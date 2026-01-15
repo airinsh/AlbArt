@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Sign Up - AlbArt</title>
-    <link rel="stylesheet" href="klient-signup.css">
+    <link rel="stylesheet" href="../css/klient-signup.css">
 </head>
 <body>
 
@@ -36,43 +36,43 @@
 
         <div class="preferences">
             <div class="pref-item">
-                <img src="NatyreDhePeisazhe.jpeg">
+                <img src="../img/NatyreDhePeisazhe.jpeg">
                 <span>Natyrë dhe peisazhe</span>
                 <input type="checkbox" class="pref-check">
             </div>
 
             <div class="pref-item">
-                <img src="SkulptureKlasike.jpeg">
+                <img src="../img/SkulptureKlasike.jpeg">
                 <span>Skulpturë Klasike</span>
                 <input type="checkbox" class="pref-check">
             </div>
 
             <div class="pref-item">
-                <img src="Pocari.jpeg">
+                <img src="../img/Pocari.jpeg">
                 <span>Poçari</span>
                 <input type="checkbox" class="pref-check">
             </div>
 
             <div class="pref-item">
-                <img src="Portrete.jpeg">
+                <img src="../img/Portrete.jpeg">
                 <span>Portrete</span>
                 <input type="checkbox" class="pref-check">
             </div>
 
             <div class="pref-item">
-                <img src="DhurataTePersonalizuara.jpeg">
+                <img src="../img/DhurataTePersonalizuara.jpeg">
                 <span>Dhurata të personalizuara</span>
                 <input type="checkbox" class="pref-check">
             </div>
 
             <div class="pref-item">
-                <img src="SkulptureAbstrakte.jpeg">
+                <img src="../img/SkulptureAbstrakte.jpeg">
                 <span>Skulpturë Abstrakte</span>
                 <input type="checkbox" class="pref-check">
             </div>
         </div>
 
-        <button class="btn">Continue</button>
+        <button class="btn" onclick="window.location.href='Profili-Klient.html'">Continue</button>
     </form>
 </div>
 
