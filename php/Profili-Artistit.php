@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profili Artist</title>
 
-    <!-- CSS -->
+
     <link rel="stylesheet" href="../css/Profili-Artistit.css">
 </head>
 <body>
 
-<!-- ================= HEADER ================= -->
+
 <header class="site-header">
     <div class="header-left">
         <button onclick="window.location.href='../php/Homepage.php'"
@@ -18,36 +18,57 @@
             Homepage
         </button>
     </div>
-        <div class="header-center">
+    <div class="header-center">
         <h1>Profili i Artistit</h1>
     </div>
 </header>
 
 
-<!-- ================= MAIN ================= -->
+
+
 <main class="profile-page">
 
-    <!-- ===== CARD PROFILI ===== -->
+
+
     <section class="profile-card">
 
+
+
         <div class="profile-header">
+
+            <!-- FOTO -->
             <img src="../img/Piktura.jpeg" alt="Foto Profilit" class="profile-photo" id="profile-photo">
+
+
+            <!-- LINK PËR EDITO FOTON -->
+            <p>
+                <a href="#" id="edit-photo-link" style="color:#fff; text-decoration:underline; cursor:pointer;">Edito foton</a>
+            </p>
+
+
+            <input type="file" id="photo-input" accept="image/*" style="display:none;">
+
 
             <h2 class="profile-name" id="artist-name">
                 Duke u ngarkuar...
             </h2>
+
 
             <p class="profile-role" id="artist-role">
                 Artist
             </p>
         </div>
 
+
         <div class="profile-body">
+
+
             <p class="profile-description" id="artist-description">
                 Duke u ngarkuar përshkrimi...
             </p>
 
-            <!-- ⭐ VLERËSIMI -->
+
+
             <div class="profile-rating">
                 <span class="star">★</span>
                 <span class="star">★</span>
@@ -55,30 +76,28 @@
                 <span class="star">★</span>
                 <span class="star">★</span>
 
-                <span class="rating-score" id="rating-score">
-                    0.0
-                </span>
+                <span class="rating-score" id="rating-score">0.0</span>
             </div>
         </div>
 
     </section>
 
-    <!-- ===== PËRMBAJTJE PROFILI ===== -->
+
     <section class="profile-content">
 
-        <!-- VEPRAT -->
+
         <div class="tab-content" id="veprat">
             <h3>Veprat</h3>
             <p class="placeholder">Nuk ka ende vepra.</p>
         </div>
 
-        <!-- CERTIFIKIME -->
+
         <div class="tab-content" id="certifikime">
             <h3>Certifikime</h3>
             <p class="placeholder">Nuk ka certifikime.</p>
         </div>
 
-        <!-- REVIEWS -->
+
         <div class="tab-content" id="reviews">
             <h3>Reviews</h3>
             <p class="placeholder">Nuk ka ende vlerësime.</p>
@@ -88,7 +107,32 @@
 
 </main>
 
+
 <!-- ================= JS ================= -->
+<script>
+
+    const editLink = document.getElementById('edit-photo-link');
+    const fileInput = document.getElementById('photo-input');
+    const profilePhoto = document.getElementById('profile-photo');
+
+    editLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                profilePhoto.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+
 <script src="../php/Profili-Artistit.js"></script>
 </body>
 </html>

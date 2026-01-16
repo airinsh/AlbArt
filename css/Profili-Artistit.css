@@ -1,4 +1,4 @@
-
+/* ================= BODY ================= */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f2f5;
@@ -6,14 +6,15 @@ body {
     padding: 0;
 }
 
-
+/* ================= HEADER ================= */
 .site-header {
     background-color: #a2b5cc;
     color: #fff;
     text-align: center;
     padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
 }
-
 
 .profile-page {
     display: flex;
@@ -32,12 +33,12 @@ body {
     margin-bottom: 20px;
 }
 
-
 .profile-header {
     background-color: #a2b5cc;
     color: #fff;
     text-align: center;
     padding: 25px 20px 15px;
+    position: relative;
 }
 
 .profile-photo {
@@ -49,9 +50,18 @@ body {
     margin-bottom: 10px;
 }
 
+.profile-header a {
+    display: inline-block;
+    margin-top: 5px;
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .profile-name {
     margin: 5px 0;
     font-size: 24px;
+    font-weight: bold;
 }
 
 .profile-role {
@@ -59,7 +69,6 @@ body {
     font-size: 16px;
     color: #e0e0e0;
 }
-
 
 .profile-body {
     padding: 20px;
@@ -71,31 +80,17 @@ body {
     color: #333;
 }
 
-
 .profile-rating {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 22px;
-    position: relative;
 }
 
 .star {
-    color: #ccc;
-    position: relative;
-}
-
-
-.profile-rating::before {
-    content: "★★★★★";
     color: gold;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    width: calc(attr(data-rating number) / 5 * 100%);
 }
+
 
 .rating-score {
     margin-left: 10px;
@@ -110,10 +105,20 @@ body {
     margin-bottom: 20px;
 }
 
+/* Sekcionet e veprave, certifikimeve dhe reviews */
 .tab-content {
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
     margin-top: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.tab-content h3 {
+    margin-top: 0;
+}
+
+.placeholder {
+    color: gray;
+    font-style: italic;
 }
