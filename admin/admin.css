@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url("../img/artist.jpeg") center/cover no-repeat;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* TITLE */
+.welcome {
+    margin-top: 30px;
+    font-size: 38px;
+    color: black;
+    background: white;
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 10px;
+}
+
+/* BUTTONS */
+.buttons {
+    margin-top: 30px;
+}
+
+.buttons button {
+    background: #444;
+    color: white;
+    padding: 12px 25px;
+    margin: 0 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background: #222;
+}
+
+/* USERS SECTION */
+.users-section {
+    margin-top: 40px;
+}
+
+.users-section h2 {
+    background: white;
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 10px;
+}
+
+/* USERS TABLE */
+.users-container {
+    width: 80%;
+    margin: 20px auto;
+    max-height: 300px;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,.3);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background: #eee;
+    position: sticky;
+    top: 0;
+}
+
+/* ACTION BUTTONS */
+td button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.modify {
+    background: #555;
+    color: white;
+}
+
+.delete {
+    background: darkred;
+    color: white;
+}
+
+/* ADD USER */
+.add-user {
+    background: rgba(255,255,255,0.95);
+    width: 300px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.add-user input, .add-user select {
+    width: 95%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+.add-user button {
+    background: #444;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.add-user button:hover {
+    background: #222;
+}
+
+.hidden {
+    display: none;
+}

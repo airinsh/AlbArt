@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<h1 class="welcome">Welcome Admin!</h1>
+
+<!-- BUTTONS -->
+<div class="buttons">
+    <button onclick="loadUsers()">View Users</button>
+    <button onclick="showAddUser()">Add User</button>
+</div>
+
+<!-- ADD USER FORM -->
+<div id="addUserForm" class="add-user hidden">
+    <input id="name" placeholder="Name">
+    <input id="surname" placeholder="Surname">
+    <input id="email" placeholder="Email">
+    <input id="password" placeholder="Password">
+    <select id="role">
+        <option value="client">Client</option>
+        <option value="artist">Artist</option>
+    </select>
+    <button onclick="addUser()">Add User</button>
+</div>
+
+<!-- USERS LIST -->
+<div class="users-section">
+    <h2>Users List</h2>
+
+    <div class="users-container">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="usersTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
