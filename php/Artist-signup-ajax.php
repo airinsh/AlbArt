@@ -3,13 +3,14 @@ header("Content-Type: application/json");
 
 // Marrja e të dhënave
 $name = isset($_POST["name"]) ? trim($_POST["name"]) : "";
+$surname = isset($_POST["surname"]) ? trim($_POST["surname"]) : "";
 $email = isset($_POST["email"]) ? trim($_POST["email"]) : "";
 $password = $_POST["password"] ?? "";
 $description = isset($_POST["description"]) ? trim($_POST["description"]) : "";
 $certification = $_FILES["certification"] ?? null;
 
 // Kontroll fushash required
-if ($name === "" || $email === "" || $password === "" || $description === "" || !$certification) {
+if ($name === "" || $surname === "" || $email === "" || $password === "" || $description === "" || !$certification) {
     echo json_encode(["status"=>"error","message"=>"Plotëso të gjitha fushat e detyrueshme."]);
     exit;
 }
@@ -26,7 +27,6 @@ $check = $conn->prepare("SELECT id FROM Users WHERE email=? LIMIT 1");
 $check->bind_param("s",$email);
 $check->execute();
 $check->store_result();
-
 if($check->num_rows>0){
     echo json_encode([
         "status"=>"error",
@@ -41,9 +41,9 @@ $check->close();
 // Hash password
 $hashedPassword = password_hash($password,PASSWORD_DEFAULT);
 
-// INSERT në Users
-$stmt = $conn->prepare("INSERT INTO Users (name, email, password) VALUES (?, ?, ?)");
-$stmt->bind_param("sss",$name,$email,$hashedPassword);
+// INSERT në Users me mbiemrin
+$stmt = $conn->prepare("INSERT INTO Users (name, surname, email, password) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssss",$name, $surname, $email, $hashedPassword);
 
 if($stmt->execute()){
     $user_id = $stmt->insert_id;
@@ -52,10 +52,7 @@ if($stmt->execute()){
     $certPath = null;
     if($certification["error"] == 0){
         $ext = pathinfo($certification["name"], PATHINFO_EXTENSION);
-
-        // Hiq hapësirat dhe karakteret të veçanta nga emri
-        $safeName = preg_replace("/[^a-zA-Z0-9_-]/", "_", $name);
-
+        $safeName = preg_replace("/[^a-zA-Z0-9_-]/", "_", $name . "_" . $surname);
         $certPath = "uploads/certifikime_" . $safeName . "." . $ext;
 
         if(!is_dir("../uploads")) {
@@ -64,7 +61,6 @@ if($stmt->execute()){
 
         move_uploaded_file($certification["tmp_name"], "../" . $certPath);
     }
-
 
     // INSERT në Artisti
     $stmt2 = $conn->prepare("INSERT INTO Artisti (Description, Certifikime, User_ID, Vleresimi_Total) VALUES (?, ?, ?, 0)");

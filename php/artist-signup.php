@@ -17,6 +17,11 @@
         </div>
 
         <div class="form-row">
+            <label>Mbiemri</label>
+            <input type="text" name="surname" id="surname" required>
+        </div>
+
+        <div class="form-row">
             <label>Email</label>
             <input type="email" name="email" id="email" required>
         </div>

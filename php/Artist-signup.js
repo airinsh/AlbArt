@@ -2,6 +2,7 @@ document.getElementById("artistSignupForm").addEventListener("submit", function(
     e.preventDefault();
 
     const name = document.getElementById("name");
+    const surname = document.getElementById("surname"); // **fusha e re**
     const email = document.getElementById("email");
     const password = document.getElementById("password");
     const description = document.getElementById("description");
@@ -13,6 +14,7 @@ document.getElementById("artistSignupForm").addEventListener("submit", function(
 
     // Kontroll fushash required
     if (!name.value.trim()) { message.innerText = "Fusha 'Emri' është e detyrueshme."; message.style.color="red"; name.focus(); return; }
+    if (!surname.value.trim()) { message.innerText = "Fusha 'Mbiemri' është e detyrueshme."; message.style.color="red"; surname.focus(); return; }
     if (!email.value.trim()) { message.innerText = "Fusha 'Email' është e detyrueshme."; message.style.color="red"; email.focus(); return; }
     if (!password.value) { message.innerText = "Fusha 'Password' është e detyrueshme."; message.style.color="red"; password.focus(); return; }
     if (!description.value.trim()) { message.innerText = "Fusha 'Description' është e detyrueshme."; message.style.color="red"; description.focus(); return; }
@@ -36,6 +38,7 @@ document.getElementById("artistSignupForm").addEventListener("submit", function(
     // FormData për AJAX
     const formData = new FormData();
     formData.append("name", name.value.trim());
+    formData.append("surname", surname.value.trim()); // **shtuar**
     formData.append("email", email.value.trim());
     formData.append("password", password.value);
     formData.append("description", description.value.trim());
@@ -45,15 +48,26 @@ document.getElementById("artistSignupForm").addEventListener("submit", function(
     xhr.open("POST", "../php/Artist-signup-ajax.php", true);
 
     xhr.onload = function() {
-        const res = JSON.parse(this.responseText);
-        if(res.status === "error") {
-            message.innerHTML = res.message;
+        try {
+            const res = JSON.parse(this.responseText);
+            if(res.status === "error") {
+                message.innerHTML = res.message;
+                message.style.color = "red";
+            } else {
+                message.innerHTML = res.message;
+                message.style.color = "green";
+                setTimeout(() => { window.location.href = "login.php"; }, 1500);
+            }
+        } catch(err) {
+            console.error("Gabim në JSON:", err, this.responseText);
+            message.innerText = "Diçka shkoi gabim. Provoni përsëri.";
             message.style.color = "red";
-        } else {
-            message.innerHTML = res.message;
-            message.style.color = "green";
-            setTimeout(() => { window.location.href = "login.php"; }, 1500);
         }
+    };
+
+    xhr.onerror = function() {
+        message.innerText = "Gabim gjatë dërgimit. Provoni përsëri.";
+        message.style.color = "red";
     };
 
     xhr.send(formData);
