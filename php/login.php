@@ -39,6 +39,10 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_token'])) {
         <label for="remember">Remember me</label>
     </div>
 
+    <div class="forgot-password">
+        <a href="forgot-password.php">Forgot Password?</a>
+    </div>
+
     <p id="message"></p>
 
     <button type="submit" class="btn">Continue</button>

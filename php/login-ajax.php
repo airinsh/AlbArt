@@ -58,7 +58,7 @@ $_SESSION['email'] = $user['email'];
 $_SESSION['last_activity'] = time();
 
 /* ================= ROLE DETECTION ================= */
-$role = "client";
+$role = "klient";
 
 if ($conn->query("SELECT 1 FROM Admin WHERE User_ID=".$user['id'])->num_rows > 0) {
     $role = "admin";
@@ -67,7 +67,7 @@ elseif ($conn->query("SELECT 1 FROM Artisti WHERE User_ID=".$user['id'])->num_ro
     $role = "artist";
 }
 elseif ($conn->query("SELECT 1 FROM Klient WHERE User_ID=".$user['id'])->num_rows > 0) {
-    $role = "client";
+    $role = "klient";
 }
 
 $_SESSION['role'] = $role;
@@ -85,10 +85,16 @@ if ($remember) {
 /* ================= LOG ================= */
 logAction($conn, $user['id'], "LOGIN_SUCCESS");
 
+/* ================= REDIRECT ================= */
+$redirect = match($role) {
+    "admin" => "Profili-Adminit.php",
+    "artist" => "Profili-Artistit.php",
+    "klient" => "Profili-Klient.php"
+};
 
 echo json_encode([
     "status"=>"success",
-    "redirect"=>"HomePage.php"
+    "redirect"=>$redirect
 ]);
 
 /* ================= LOG FUNCTION ================= */
