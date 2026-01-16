@@ -10,8 +10,8 @@
 <div class="signup-section">
     <h1>Sign Up</h1>
     <p class="subtitle">Continue as</p>
-    <button class="btn" onclick="window.location.href='artist-signup.html'">Artist</button>
-    <button class="btn" onclick="window.location.href='klient-signup.html'">Klient</button>
+    <button class="btn" onclick="window.location.href='artist-signup.php'">Artist</button>
+    <button class="btn" onclick="window.location.href='Klient-signup.php'">Klient</button>
 </div>
 </body>
 </html>

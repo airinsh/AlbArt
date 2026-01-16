@@ -9,8 +9,8 @@
 <body>
 <h1>AlbArt</h1>
 <div>
-    <button class="btn" onclick="window.location.href='login.html'">Log In</button>
-    <button class="btn" onclick="window.location.href='signup.html'">Sign Up</button>
+    <button class="btn" onclick="window.location.href='login.php'">Log In</button>
+    <button class="btn" onclick="window.location.href='signup.php'">Sign Up</button>
 </div>
 </body>
 </html>
