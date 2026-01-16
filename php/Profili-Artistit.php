@@ -12,8 +12,17 @@
 
 <!-- ================= HEADER ================= -->
 <header class="site-header">
-    <h1>Profili i Artistit</h1>
+    <div class="header-left">
+        <button onclick="window.location.href='../php/Homepage.php'"
+                style="background-color:#fff; color:#a2b5cc; font-family:'Segoe Print', cursive; font-size:16px; font-weight:bold; padding:10px 20px; border:none; border-radius:12px; cursor:pointer; box-shadow:0 4px 8px rgba(0,0,0,0.2); transition:0.3s;">
+            Homepage
+        </button>
+    </div>
+        <div class="header-center">
+        <h1>Profili i Artistit</h1>
+    </div>
 </header>
+
 
 <!-- ================= MAIN ================= -->
 <main class="profile-page">
