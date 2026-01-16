@@ -14,17 +14,22 @@
     <form class="signup-form" id="signupForm">
 
         <div class="form-row">
-            <label>Emri</label>
+            <label for="name">Emri</label>
             <input type="text" name="name" id="name" required>
         </div>
 
         <div class="form-row">
-            <label>Email</label>
+            <label for="surname">Mbiemri</label>
+            <input type="text" name="surname" id="surname" required>
+        </div>
+
+        <div class="form-row">
+            <label for="email">Email</label>
             <input type="email" name="email" id="email" required>
         </div>
 
         <div class="form-row">
-            <label>Password</label>
+            <label for="password">Password</label>
             <input type="password" name="password" id="password" required>
         </div>
 
@@ -33,9 +38,9 @@
             <span>I agree to <a href="#">AlbArt Terms and Conditions</a></span>
         </div>
 
-        <!-- Preferenca -->
         <h2>Preferenca</h2>
         <div class="preferences">
+
             <div class="pref-item">
                 <img src="../img/NatyreDhePeisazhe.jpeg">
                 <span>Natyrë dhe peisazhe</span>
@@ -71,17 +76,15 @@
                 <span>Skulpturë Abstrakte</span>
                 <input type="checkbox" class="pref-check" name="preferenca[]" value="Skulpturë Abstrakte">
             </div>
+
         </div>
 
         <p id="message"></p>
 
         <button type="submit" class="btn">Continue</button>
     </form>
-
-
 </div>
 
 <script src="Klient-signup.js"></script>
-
 </body>
 </html>
