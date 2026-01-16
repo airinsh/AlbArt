@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$email = $_SESSION['email'];
 ?>
 <!DOCTYPE html>
 <html lang="sq">
@@ -16,7 +23,8 @@ session_start();
     <form id="forgotForm">
         <div class="form-row">
             <label>Email:</label>
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" id="email"
+                   value="<?= htmlspecialchars($email) ?>" readonly>
         </div>
         <button class="btn" type="submit">Dërgo Kod</button>
     </form>
@@ -28,7 +36,7 @@ session_start();
         const message = document.getElementById("message");
         const formData = new FormData(this);
 
-        fetch("forgot-password.ajax.php", {
+        fetch("../php/forgot-password.ajax.php", {
             method: "POST",
             body: formData
         })
@@ -38,7 +46,7 @@ session_start();
                 message.style.color = data.status === "success" ? "green" : "red";
                 if(data.status === "success") {
                     setTimeout(() => {
-                        window.location.href = `verify-reset.php?email=${encodeURIComponent(document.getElementById("email").value)}`;
+                        window.location.href = "verify-reset.php";
                     }, 1500);
                 }
             })

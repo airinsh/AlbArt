@@ -1,27 +1,39 @@
 <?php
+session_start();
 $conn = new mysqli("localhost", "root", "", "albart");
 
-$email = trim($_POST['email']);
+if (!isset($_SESSION['reset_email']) || !isset($_POST['code'])) {
+    echo "Session ka skaduar ose kodi mungon.";
+    exit;
+}
+
+$email = $_SESSION['reset_email'];
 $code  = trim($_POST['code']);
 
-$stmt = $conn->prepare("SELECT id, code_date FROM Users WHERE email=? AND verification_code=?");
-$stmt->bind_param("ss",$email,$code);
+$stmt = $conn->prepare(
+    "SELECT id, code_date FROM Users 
+     WHERE email=? AND verification_code=?"
+);
+$stmt->bind_param("ss", $email, $code);
 $stmt->execute();
 $stmt->store_result();
 
-if($stmt->num_rows > 0){
-    $stmt->bind_result($user_id,$code_date);
+if ($stmt->num_rows > 0) {
+
+    $stmt->bind_result($user_id, $code_date);
     $stmt->fetch();
 
-    // Kontrollo koha e skadimit (30 min)
-    if(strtotime($code_date) + 1800 < time()){
-        echo json_encode(["status"=>"error","message"=>"Kodi ka skaduar. Provo përsëri."]);
+    // Kontrollo nëse kodi ka skaduar (30 minuta)
+    if (strtotime($code_date) + 1800 < time()) {
+        echo "Kodi ka skaduar. Provo përsëri.";
     } else {
-        echo json_encode(["status"=>"success","message"=>"Kodi i saktë. Mund të ndryshosh password-in."]);
+        $_SESSION['reset_verified'] = true;
+        echo "Kodi u verifikua me sukses!";
     }
+
 } else {
-    echo json_encode(["status"=>"error","message"=>"Kodi nuk është i saktë."]);
+    echo "Kodi i verifikimit nuk është i saktë.";
 }
+
 $stmt->close();
 $conn->close();
-?>

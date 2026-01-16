@@ -1,33 +1,55 @@
 <?php
+session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+header("Content-Type: application/json");
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php'; // PHPMailer
+require '../vendor/autoload.php';
+require __DIR__ . '/../PHPMailer/Exception.php';
+require __DIR__ . '/../PHPMailer/PHPMailer.php';
+require __DIR__ . '/../PHPMailer/SMTP.php';
 
 $conn = new mysqli("localhost", "root", "", "albart");
+if ($conn->connect_error) {
+    echo json_encode(["status"=>"error","message"=>"Gabim lidhjeje me databazën."]);
+    exit;
+}
 
-if(isset($_POST['email'])) {
-    $email = trim($_POST['email']);
+if (!isset($_SESSION['email'])) {
+    echo json_encode(["status"=>"error","message"=>"Sessionit i mungon email-i. Logohu përsëri."]);
+    exit;
+}
 
-    $stmt = $conn->prepare("SELECT id FROM Users WHERE email=?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $user = $stmt->get_result()->fetch_assoc();
+$email = $_SESSION['email'];
 
-    if(!$user){
-        echo json_encode(["status"=>"error","message"=>"Email nuk ekziston."]);
-        exit;
-    }
+$stmt = $conn->prepare("SELECT id FROM Users WHERE email=?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$user = $stmt->get_result()->fetch_assoc();
 
-    // Gjenero kodin 6-shifror
-    $code = rand(100000,999999);
+if (!$user) {
+    echo json_encode(["status"=>"error","message"=>"Email nuk ekziston në sistem."]);
+    exit;
+}
 
-    $update = $conn->prepare("UPDATE Users SET verification_code=?, code_date=NOW() WHERE email=?");
-    $update->bind_param("ss",$code,$email);
-    $update->execute();
+// Ruaj email për reset
+$_SESSION['reset_email'] = $email;
 
-    // Dërgo email
+// Gjenero kodin
+$code = rand(100000, 999999);
+
+$update = $conn->prepare("UPDATE Users SET verification_code=?, code_date=NOW() WHERE email=?");
+$update->bind_param("ss", $code, $email);
+$update->execute();
+
+// Dërgo email
+function sendVerificationEmail($email, $code) {
     $mail = new PHPMailer(true);
+
     try {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
@@ -41,14 +63,20 @@ if(isset($_POST['email'])) {
         $mail->addAddress($email);
 
         $mail->isHTML(true);
-        $mail->Subject = 'Kod për Reset Password';
+        $mail->Subject = 'Kod per Reset Password';
         $mail->Body = "Kodi juaj për resetimin e password-it është: <b>$code</b>";
 
         $mail->send();
-        echo json_encode(["status"=>"success","message"=>"Kod verifikimi u dërgua në email."]);
     } catch (Exception $e) {
-        echo json_encode(["status"=>"error","message"=>"Gabim gjatë dërgimit të email-it."]);
+        error_log("Email verification error: {$mail->ErrorInfo}");
     }
 }
+sendVerificationEmail($email, $code);
+
+$stmt->close();
 $conn->close();
-?>
+
+echo json_encode([
+    "status" => "success",
+    "message" => "Kodi u dërgua në email."
+]);

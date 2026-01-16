@@ -1,5 +1,9 @@
 <?php
-$email = isset($_GET['email']) ? $_GET['email'] : '';
+session_start();
+if (!isset($_SESSION['reset_email']) || !isset($_SESSION['reset_verified'])) {
+    header("Location: forgot-password.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="sq">
@@ -15,11 +19,6 @@ $email = isset($_GET['email']) ? $_GET['email'] : '';
     <span id="reset-message"></span>
 
     <form id="resetForm">
-        <div class="form-row">
-            <label>Email:</label>
-            <input type="email" name="email" id="email" value="<?= htmlspecialchars($email) ?>" readonly>
-        </div>
-
         <div class="form-row">
             <label>Password i ri:</label>
             <input type="password" name="password" id="password" required>
