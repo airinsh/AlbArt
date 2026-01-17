@@ -128,26 +128,54 @@ if (!$artist_id) {
 
 <!-- ================= JS ================= -->
 <script>
-
     const editLink = document.getElementById('edit-photo-link');
-    const fileInput = document.getElementById('photo-input');
     const profilePhoto = document.getElementById('profile-photo');
 
+    // Krijo një input file të përhershëm (një herë vetëm)
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+    fileInput.style.display = 'none';
+    document.body.appendChild(fileInput);
+
+    // Event listener për ndryshimin e file-it
+    fileInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (!file) return;
+
+        // Shfaq menjëherë imazhin e ri
+        const reader = new FileReader();
+        reader.onload = e => profilePhoto.src = e.target.result;
+        reader.readAsDataURL(file);
+
+        // Dërgo POST në PHP
+        const formData = new FormData();
+        formData.append("photo", file);
+
+        fetch("../php/update-artist-profile-photo.php", {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(resp => {
+                if (resp.status !== "success") {
+                    alert("Gabim gjatë ruajtjes së fotos: " + resp.message);
+                } else {
+                    console.log("Foto u ruajt në DB: " + resp.path);
+                }
+            })
+            .catch(err => console.error("Gabim gjatë POST foto:", err));
+
+        // Fshi vlerën e file-it që mund të zgjedhet i njëjti file përsëri
+        fileInput.value = '';
+    });
+
+    // Klikimi i linkut hap input-in
     editLink.addEventListener('click', function(e) {
         e.preventDefault();
         fileInput.click();
     });
 
-    fileInput.addEventListener('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                profilePhoto.src = e.target.result;
-            }
-            reader.readAsDataURL(file);
-        }
-    });
 </script>
 
 
