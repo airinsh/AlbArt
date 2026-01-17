@@ -22,19 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 `;
 
-                worksContainer.appendChild(workDiv);
+                // Klikimi hap faqen e detajeve
+                workDiv.addEventListener("click", () => {
+                    window.location.href = `DetajeProdukti.php?id=${product.Produkt_ID}`;
+                });
 
-                // Klikimi për të hapur detajet
-                workDiv.addEventListener("click", () => openWorkDetails(product.Emri));
+                worksContainer.appendChild(workDiv);
             });
         })
         .catch(err => console.error("Gabim fetch:", err));
 });
-
-
-function openWorkDetails(workName){
-    alert("Hap detajet e veprës: " + workName);
-}
 
 function addToCart(event, workName){
     event.stopPropagation();

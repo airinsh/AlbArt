@@ -1,5 +1,5 @@
 <?php
-require_once "auth.php"
+require_once "auth.php";
 ?>
 <!DOCTYPE html>
 <html lang="sq">
@@ -43,7 +43,6 @@ require_once "auth.php"
         </div>
     </div>
 
-
     <section class="artists-section">
         <h2>Artist</h2>
         <div class="artists-container">
@@ -74,132 +73,17 @@ require_once "auth.php"
         </div>
     </section>
 
-
     <!-- Seksioni Vepra -->
     <section class="works-section">
         <h2>Vepra</h2>
         <div class="works-container">
 
-            <!-- Kutitë e veprave -->
-            <div class="work-item" onclick="openWorkDetails('Vepra 1')">
-                <div class="work-image">
-                    <img src="images/work1.jpg" alt="Vepra 1">
-                </div>
-                <div class="work-info">
-                    <p class="category">Pikturë</p>
-                    <p class="name">Vepra 1</p>
-                    <p class="price">$150</p>
-                    <button class="add-cart" onclick="addToCart(event,'Vepra 1')">Cart</button>
-                </div>
-            </div>
-
-            <div class="work-item" onclick="openWorkDetails('Vepra 2')">
-                <div class="work-image">
-                    <img src="images/work2.jpg" alt="Vepra 2">
-                </div>
-                <div class="work-info">
-                    <p class="category">Skulpturë</p>
-                    <p class="name">Vepra 2</p>
-                    <p class="price">$300</p>
-                    <button class="add-cart" onclick="addToCart(event,'Vepra 2')">Cart</button>
-                </div>
-            </div>
-
-
-            <div class="work-item" onclick="openWorkDetails('Vepra 3')">
-                <div class="work-image">
-                    <img src="images/work3.jpg" alt="Vepra 3">
-                </div>
-                <div class="work-info">
-                    <p class="category">Fotografi</p>
-                    <p class="name">Vepra 3</p>
-                    <p class="price">$120</p>
-                    <button class="add-cart" onclick="addToCart(event,'Vepra 3')">Cart</button>
-                </div>
-            </div>
-
-
-            <div class="work-item" onclick="openWorkDetails('Vepra 4')">
-                <div class="work-image">
-                    <img src="images/work4.jpg" alt="Vepra 4">
-                </div>
-                <div class="work-info">
-                    <p class="category">Fotografi</p>
-                    <p class="name">Vepra 4</p>
-                    <p class="price">$120</p>
-                    <button class="add-cart" onclick="addToCart(event,'Vepra 4')">Cart</button>
-                </div>
-            </div>
-
-
-            <div class="work-item" onclick="openWorkDetails('Vepra 5')">
-                <div class="work-image">
-                    <img src="images/work5.jpg" alt="Vepra 5">
-                </div>
-                <div class="work-info">
-                    <p class="category">Fotografi</p>
-                    <p class="name">Vepra 5</p>
-                    <p class="price">$120</p>
-                    <button class="add-cart" onclick="addToCart(event,'Vepra 5')">Cart</button>
-                </div>
-            </div>
-
-
-            <div class="work-item" onclick="openWorkDetails('Vepra 6')">
-                <div class="work-image">
-                    <img src="images/work6.jpg" alt="Vepra 6">
-                </div>
-                <div class="work-info">
-                    <p class="category">Fotografi</p>
-                    <p class="name">Vepra 6</p>
-                    <p class="price">$120</p>
-                    <button class="add-cart" onclick="addToCart(event,'Vepra 6')">Cart</button>
-                </div>
-            </div>
-
-
-            <div class="work-item" onclick="openWorkDetails('Vepra 7')">
-                <div class="work-image">
-                    <img src="images/work7.jpg" alt="Vepra 7">
-                </div>
-                <div class="work-info">
-                    <p class="category">Fotografi</p>
-                    <p class="name">Vepra 7</p>
-                    <p class="price">$120</p>
-                    <button class="add-cart" onclick="addToCart(event,'Vepra 7')">Cart</button>
-                </div>
-            </div>
-
-
-            <div class="work-item" onclick="openWorkDetails('Vepra 8')">
-                <div class="work-image">
-                    <img src="images/work8.jpg" alt="Vepra 8">
-                </div>
-                <div class="work-info">
-                    <p class="category">Fotografi</p>
-                    <p class="name">Vepra 8</p>
-                    <p class="price">$120</p>
-                    <button class="add-cart" onclick="addToCart(event,'Vepra 8')">Cart</button>
-                </div>
-            </div>
-
+            <!-- Kutitë e veprave do të ngarkohen dinamikisht nga HomePage.js -->
         </div>
     </section>
 </main>
 
 <script>
-
-
-    // Funksionet për veprat dhe cart
-    function openWorkDetails(workName){
-        alert("Hap detajet e veprës: " + workName);
-    }
-
-    function addToCart(event, workName){
-        event.stopPropagation(); // ndalon klikimin e kutisë
-        alert("Shto në Cart: " + workName);
-    }
-
     // Funksioni për Search input
     function toggleSearch(event) {
         event.stopPropagation(); // ndalon propagimin te body
@@ -217,8 +101,13 @@ require_once "auth.php"
         const input = document.getElementById('searchInput');
         input.style.display = 'none';
     });
-</script>
 
+    // Funksioni Add to Cart
+    function addToCart(event, workName){
+        event.stopPropagation(); // ndalon klikimin e kutisë
+        alert("Shto në Cart: " + workName);
+    }
+</script>
 
 <footer>
     <div class="footer-content">
@@ -226,6 +115,7 @@ require_once "auth.php"
     </div>
 </footer>
 
+<!-- JS që ngarkon produktet nga DB dhe hap DetajeProdukti.php -->
 <script src="../php/HomePage.js"></script>
 
 </body>
