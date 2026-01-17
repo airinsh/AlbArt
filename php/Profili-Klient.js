@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("../php/get-klient-profile.php")
         .then(res => res.json())
         .then(data => {
+            console.log(data); // ⬅️ për debug nëse prap nuk shfaqet
             if (data.status !== "success") {
                 alert(data.message);
                 return;
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("klient-email").innerText =
                 "Email: " + k.email;
 
-            /* ========== BLERJET ========== */
+            /* ================= BLERJET ================= */
             const blerjetDiv = document.getElementById("blerjet");
             blerjetDiv.innerHTML = "<h3>Blerjet e mia</h3>";
 
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div style="margin-bottom:15px">
                             <img src="../${b.Foto_Produktit}" width="120">
                             <p><strong>${b.Emri}</strong></p>
-                            <p>${b.Cmimi} €</p>
+                            <p>${parseFloat(b.Cmimi).toFixed(2)} €</p>
                         </div>
                     `;
                 });
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 blerjetDiv.innerHTML += `<p class="placeholder">Nuk ka ende blerje.</p>`;
             }
 
-            /* ========== REVIEWS ========== */
+            /* ================= REVIEWS ================= */
             const reviewsDiv = document.getElementById("reviews");
             reviewsDiv.innerHTML = "<h3>Vlerësimet e mia</h3>";
 
@@ -49,5 +50,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
         })
-        .catch(err => console.error(err));
+        .catch(err => console.error("Gabim JS:", err));
 });

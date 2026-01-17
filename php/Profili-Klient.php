@@ -23,8 +23,8 @@
     <section class="profile-card">
 
         <div class="profile-header">
-            <img src="../img/Piktura.jpeg" alt="Foto Klienti" class="profile-photo" id="client-photo">
-            <h2 class="profile-name" id="client-name">Duke u ngarkuar...</h2>
+            <img src="../img/Piktura.jpeg" alt="Foto Klienti" class="profile-photo" id="klient-photo">
+            <h2 class="profile-name" id="klient-name">Duke u ngarkuar...</h2>
         </div>
 
         <div class="profile-body">

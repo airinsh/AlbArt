@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 
 $klient_id = getKlientID($conn);
 if (!$klient_id) {
-    echo json_encode(["status"=>"error","message"=>"User nuk është klient"]);
+    echo json_encode(["status"=>"error","message"=>"User nuk është klient ose nuk është loguar"]);
     exit;
 }
 
@@ -23,14 +23,21 @@ $stmt = $conn->prepare("
 ");
 $stmt->bind_param("i", $klient_id);
 $stmt->execute();
-$klient = $stmt->get_result()->fetch_assoc();
+$res = $stmt->get_result();
+
+if ($res->num_rows === 0) {
+    echo json_encode(["status"=>"error","message"=>"Klient nuk u gjet"]);
+    exit;
+}
+
+$klient = $res->fetch_assoc();
 
 /* ================= BLERJET ================= */
 $b = $conn->prepare("
     SELECT p.Emri, p.Foto_Produktit, p.Cmimi
-    FROM Blerje bl
-    JOIN Produkti p ON bl.Produkt_ID = p.Produkt_ID
-    WHERE bl.Klient_ID = ?
+    FROM Artikull_Cart ac
+    JOIN Produkti p ON ac.Produkt_ID = p.Produkt_ID
+    WHERE ac.Klient_ID = ?
 ");
 $b->bind_param("i", $klient_id);
 $b->execute();
@@ -46,9 +53,10 @@ $r->bind_param("i", $klient_id);
 $r->execute();
 $reviews = $r->get_result()->fetch_all(MYSQLI_ASSOC);
 
+/* ================= JSON ================= */
 echo json_encode([
-    "status"=>"success",
-    "klient"=>$klient,
-    "blerjet"=>$blerjet,
-    "reviews"=>$reviews
+    "status" => "success",
+    "klient" => $klient,
+    "blerjet" => $blerjet,
+    "reviews" => $reviews
 ]);
