@@ -11,9 +11,15 @@ if (!$artist_id) {
 $conn = new mysqli("localhost", "root", "", "albart");
 if ($conn->connect_error) { echo json_encode(["status"=>"error","message"=>"Gabim lidhjeje me DB"]); exit; }
 
-$category = $_POST['category'] ?? '';
+$name = $_POST["name"] ?? '';
+$category_id = intval($_POST['category_id'] ?? 0); // merr ID e kategorisë
 $description = $_POST['description'] ?? '';
 $price = floatval($_POST['price'] ?? 0);
+
+if ($category_id <= 0) {
+    echo json_encode(["status"=>"error","message"=>"Zgjidh një kategori."]);
+    exit;
+}
 
 if (!isset($_FILES['image']) || $_FILES['image']['error'] !== 0) {
     echo json_encode(["status"=>"error","message"=>"Imazhi nuk u ngarkua."]);
@@ -31,9 +37,10 @@ if (!move_uploaded_file($_FILES['image']['tmp_name'], $targetPath)) {
     exit;
 }
 
-// Shkruaj produktin në DB
-$stmt = $conn->prepare("INSERT INTO Produkti (Emri, Pershkrimi, Cmimi, Foto_Produktit, Artist_ID) VALUES (?,?,?,?,?)");
-$stmt->bind_param("ssdsi", $category, $description, $price, $filename, $artist_id);
+// Shkruaj produktin në DB (tani me Kategori_ID)
+$stmt = $conn->prepare("INSERT INTO Produkti (Emri, Pershkrimi, Cmimi, Foto_Produktit, Artist_ID, Kategori_ID) VALUES (?,?,?,?,?,?)");
+$stmt->bind_param("ssdsii", $name, $description, $price, $filename, $artist_id, $category_id);
+
 if ($stmt->execute()) {
     echo json_encode(["status"=>"success"]);
 } else {

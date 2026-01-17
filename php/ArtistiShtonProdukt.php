@@ -33,21 +33,16 @@ if (!$artist_id) die("Ky user nuk është artist ose nuk ekziston.");
             <div class="mb-3">
                 <label class="form-label fw-semibold">Kategoria</label>
                 <div class="form-check">
-                    <input class="form-check-input category" type="checkbox" value="Pikture" id="catPainting">
+                    <input class="form-check-input category" type="checkbox" value="1" id="catPainting">
                     <label class="form-check-label" for="catPainting">Pikturë</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input category" type="checkbox" value="Sculpture" id="catSculpture">
-                    <label class="form-check-label" for="catSculpture">Sculpture</label>
+                    <input class="form-check-input category" type="checkbox" value="2" id="catSculpture">
+                    <label class="form-check-label" for="catSculpture">Skulpturë</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input category" type="checkbox" value="Handmade" id="catHandmade">
+                    <input class="form-check-input category" type="checkbox" value="3" id="catHandmade">
                     <label class="form-check-label" for="catHandmade">Punë artizanale</label>
-                </div>
-                <div class="form-check d-flex align-items-center mt-2">
-                    <input class="form-check-input me-2 category" type="checkbox" id="catOther">
-                    <label class="form-check-label me-2" for="catOther">Tjetër</label>
-                    <input type="text" class="form-control" id="otherCategory" placeholder="Shkruaj tjetër kategorinë">
                 </div>
             </div>
 
@@ -92,25 +87,27 @@ if (!$artist_id) die("Ky user nuk është artist ose nuk ekziston.");
     document.getElementById('productForm').addEventListener('submit', function(e) {
         e.preventDefault();
 
-        const category = Array.from(checkboxes).find(c => c.checked)?.value || '';
-        const otherCategory = document.getElementById('otherCategory').value.trim();
+        const category_id = Array.from(checkboxes).find(c => c.checked)?.value || '';
         const description = document.getElementById('description').value.trim();
         const image = document.getElementById('image').files[0];
         const price = parseFloat(document.getElementById('price').value);
+        const name = document.getElementById('product-name').value.trim();
 
         const message = document.getElementById('message');
         message.style.color = 'red';
 
-        if (!category && !otherCategory) { message.innerText = "Zgjidh një kategori."; return; }
+        if (!name) { message.innerText = "Shkruaj emrin e veprës."; return; }
+        if (!category_id) { message.innerText = "Zgjidh një kategori."; return; }
         if (!description) { message.innerText = "Shkruaj përshkrimin."; return; }
         if (!image) { message.innerText = "Ngarko një imazh."; return; }
         if (!price || price <= 0) { message.innerText = "Vendos një çmim të vlefshëm."; return; }
 
         const formData = new FormData();
-        formData.append('category', otherCategory || category);
+        formData.append('category_id', category_id);
         formData.append('description', description);
         formData.append('image', image);
         formData.append('price', price);
+        formData.append('name', name);
 
         fetch('../php/add-product.php', {
             method: 'POST',
@@ -121,12 +118,16 @@ if (!$artist_id) die("Ky user nuk është artist ose nuk ekziston.");
                 if (data.status === 'success') {
                     message.style.color = 'green';
                     message.innerText = 'Produkti u shtua me sukses!';
+                    window.location.href = "Profili-Artistit.php";
                     this.reset();
                 } else {
                     message.innerText = data.message;
                 }
             })
-            .catch(err => { message.innerText = 'Gabim me serverin.'; console.error(err); });
+            .catch(err => {
+                message.innerText = 'Gabim me serverin.';
+                console.error(err);
+            });
     });
 </script>
 </body>
