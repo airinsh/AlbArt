@@ -1,0 +1,54 @@
+/* BODY */
+body {
+    background-color: #f2f2f2;
+}
+
+/* NGJYRA KRYESORE */
+.main-color {
+    background-color: #a2b5cc !important;
+}
+
+/* FOTO ARTISTI */
+.artist-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+}
+
+/* YJET */
+.star {
+    font-size: 32px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.star:hover {
+    color: gold;
+    transform: scale(1.15);
+}
+
+.star.active {
+    color: gold;
+}
+
+/* BUTON DERGO */
+.btn-send {
+    background-color: #a2b5cc;
+    color: white;
+    transition: all 0.25s ease;
+    border: none;
+}
+
+.btn-send:hover {
+    background-color: #8fa5bf;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-send:active {
+    transform: translateY(0);
+    box-shadow: none;
+}

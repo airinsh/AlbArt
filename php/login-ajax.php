@@ -72,6 +72,17 @@ elseif ($conn->query("SELECT 1 FROM Klient WHERE User_ID=".$user['id'])->num_row
 
 $_SESSION['role'] = $role;
 
+/* ================= SET KLENT_ID ================= */
+if ($role === "klient") {
+    $stmt = $conn->prepare("SELECT Klient_ID FROM Klient WHERE User_ID = ?");
+    $stmt->bind_param("i", $user['id']);
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_assoc();
+    if ($res) {
+        $_SESSION['Klient_ID'] = $res['Klient_ID'];
+    }
+}
+
 /* ================= REMEMBER ME ================= */
 if ($remember) {
     $token = bin2hex(random_bytes(32));
