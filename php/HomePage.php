@@ -74,10 +74,12 @@ require_once "auth.php"
         </div>
     </section>
 
+
     <!-- Seksioni Vepra -->
     <section class="works-section">
         <h2>Vepra</h2>
         <div class="works-container">
+
             <!-- Kutitë e veprave -->
             <div class="work-item" onclick="openWorkDetails('Vepra 1')">
                 <div class="work-image">
@@ -103,6 +105,7 @@ require_once "auth.php"
                 </div>
             </div>
 
+
             <div class="work-item" onclick="openWorkDetails('Vepra 3')">
                 <div class="work-image">
                     <img src="images/work3.jpg" alt="Vepra 3">
@@ -114,6 +117,7 @@ require_once "auth.php"
                     <button class="add-cart" onclick="addToCart(event,'Vepra 3')">Cart</button>
                 </div>
             </div>
+
 
             <div class="work-item" onclick="openWorkDetails('Vepra 4')">
                 <div class="work-image">
@@ -127,6 +131,7 @@ require_once "auth.php"
                 </div>
             </div>
 
+
             <div class="work-item" onclick="openWorkDetails('Vepra 5')">
                 <div class="work-image">
                     <img src="images/work5.jpg" alt="Vepra 5">
@@ -138,6 +143,7 @@ require_once "auth.php"
                     <button class="add-cart" onclick="addToCart(event,'Vepra 5')">Cart</button>
                 </div>
             </div>
+
 
             <div class="work-item" onclick="openWorkDetails('Vepra 6')">
                 <div class="work-image">
@@ -151,6 +157,7 @@ require_once "auth.php"
                 </div>
             </div>
 
+
             <div class="work-item" onclick="openWorkDetails('Vepra 7')">
                 <div class="work-image">
                     <img src="images/work7.jpg" alt="Vepra 7">
@@ -162,6 +169,7 @@ require_once "auth.php"
                     <button class="add-cart" onclick="addToCart(event,'Vepra 7')">Cart</button>
                 </div>
             </div>
+
 
             <div class="work-item" onclick="openWorkDetails('Vepra 8')">
                 <div class="work-image">
@@ -217,6 +225,8 @@ require_once "auth.php"
         <p>&copy; 2026 AlbArt. Të gjitha të drejtat e rezervuara.</p>
     </div>
 </footer>
+
+<script src="../php/HomePage.js"></script>
 
 </body>
 </html>

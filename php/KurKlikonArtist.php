@@ -61,9 +61,12 @@
             </div>
 
             <!-- BUTON REVIEW -->
-            <button class="btn btn-light fw-semibold px-4">
+            <a href="../php/KlientiJepReview.php?Artist_ID=25"
+               class="btn btn-light fw-semibold px-4">
                 Review
-            </button>
+            </a>
+
+
         </div>
 
         <!-- CONTENT -->
