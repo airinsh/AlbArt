@@ -1,16 +1,11 @@
 <?php
+require_once 'auth.php';
+
 header("Content-Type: application/json");
 
 // Kontrollo POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(["status" => "error", "message" => "POST kërkohet"]);
-    exit;
-}
-
-// Merr user_id dhe file
-$user_id = $_POST['user_id'] ?? null;
-if (!$user_id) {
-    echo json_encode(["status" => "error", "message" => "ID e artistit mungon"]);
     exit;
 }
 
@@ -25,6 +20,7 @@ if ($conn->connect_error) {
     echo json_encode(["status" => "error", "message" => "Gabim lidhjeje me DB"]);
     exit;
 }
+$artist_id = getArtistID($conn); // Merr ID nga session
 
 // Folder ku do ruhen fotot
 $uploadDir = "../uploads/";
@@ -34,7 +30,7 @@ if (!is_dir($uploadDir)) {
 
 // Emri unik i fotos për të mos e mbishkruar
 $ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
-$filename = "profile_" . $user_id . "_" . time() . "." . $ext;
+$filename = "profile_" . $artist_id . "_" . time() . "." . $ext;
 $targetPath = $uploadDir . $filename;
 
 // Lëviz file-in në folderin e uploads
@@ -45,8 +41,8 @@ if (!move_uploaded_file($_FILES['photo']['tmp_name'], $targetPath)) {
 
 // Ruaj path-in në DB (vetëm link relativ)
 $relativePath = "uploads/" . $filename;
-$stmt = $conn->prepare("UPDATE Artisti SET Fotografi = ? WHERE User_ID = ?");
-$stmt->bind_param("si", $relativePath, $user_id);
+$stmt = $conn->prepare("UPDATE Artisti SET Fotografi = ? WHERE Artist_ID = ?");
+$stmt->bind_param("si", $relativePath, $artist_id);
 if ($stmt->execute()) {
     echo json_encode(["status" => "success", "message" => "Foto e ruajtur me sukses", "path" => $relativePath]);
 } else {

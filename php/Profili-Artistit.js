@@ -1,12 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const params = new URLSearchParams(window.location.search);
-    const User_ID = params.get("id");
-    if (!User_ID) {
-        alert("ID e artistit nuk është dhënë në URL!");
-        return;
-    }
-
     const profilePhoto = document.getElementById("profile-photo");
     const editLink = document.getElementById('edit-photo-link');
     const fileInput = document.getElementById('photo-input');
@@ -14,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hap file picker
     editLink.addEventListener('click', e => {
         e.preventDefault();
-        fileInput.value = ""; // <-- RESET para se të hapet
+        fileInput.value = "";
         fileInput.click();
     });
 
@@ -22,15 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const file = fileInput.files[0];
         if (!file) return;
 
-        // Shfaq menjëherë imazhin e ri
         const reader = new FileReader();
         reader.onload = e => profilePhoto.src = e.target.result;
         reader.readAsDataURL(file);
 
-        // Dërgo POST në PHP për të ruajtur në DB
         const formData = new FormData();
         formData.append("photo", file);
-        formData.append("user_id", User_ID);
 
         fetch("../php/update-artist-profile-photo.php", {
             method: "POST",
@@ -47,27 +37,28 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(err => console.error("Gabim gjatë POST foto:", err));
     });
 
-    // ===== FETCH PROFILI I ARTISTIT =====
-    fetch(`../php/get-artist-profile.php?id=${User_ID}`)
+    // FETCH PROFILI I ARTISTIT – pa id nga URL
+    fetch("../php/get-artist-profile.php")
         .then(res => res.json())
         .then(data => {
             if (data.status !== "success") {
                 alert(data.message);
                 return;
             }
+
             const artist = data.artist;
             document.getElementById("artist-name").innerText =
                 artist.name + (artist.surname ? " " + artist.surname : "");
             document.getElementById("artist-description").innerText = artist.Description;
             if (artist.Fotografi) profilePhoto.src = "../" + artist.Fotografi;
 
-            // ⭐ Rating
+            // Rating
             const score = parseFloat(artist.Vleresimi_Total) || 0;
             const stars = document.querySelectorAll(".star");
             stars.forEach((star, i) => star.style.color = i < Math.floor(score) ? "gold" : "#ccc");
             document.getElementById("rating-score").innerText = score.toFixed(1);
 
-            // 📜 Certifikime
+            // Certifikime
             const certContainer = document.getElementById("certifikime");
             certContainer.innerHTML = "<h3>Certifikime</h3>";
             if (artist.Certifikime) {
@@ -76,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 certContainer.innerHTML += `<p class="placeholder">Nuk ka certifikime.</p>`;
             }
 
-            // 🎨 Veprat
+            // Veprat
             const vepratContainer = document.getElementById("veprat");
             vepratContainer.innerHTML = "<h3>Veprat</h3>";
             if (data.produkti && data.produkti.length) {
@@ -94,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 vepratContainer.innerHTML += `<p class="placeholder">Nuk ka ende vepra.</p>`;
             }
 
-            // 💬 Reviews
+            // Reviews
             const reviewsContainer = document.getElementById("reviews");
             reviewsContainer.innerHTML = "<h3>Reviews</h3>";
             if (data.reviews && data.reviews.length) {

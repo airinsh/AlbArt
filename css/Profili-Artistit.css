@@ -122,3 +122,28 @@ body {
     color: gray;
     font-style: italic;
 }
+
+.profile-rating-container {
+    display: flex;
+    justify-content: space-between; /* rating left, button right */
+    align-items: center;
+    margin-top: 15px;
+}
+
+.add-product-btn button {
+    background-color: #4d5b6e;
+    color: white;
+    font-family: 'Segoe Print', cursive;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.add-product-btn button:hover {
+    background-color: #1b2b3a;
+    color: white;
+}

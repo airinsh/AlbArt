@@ -1,3 +1,14 @@
+<?php
+require_once '../php/auth.php';
+$conn = new mysqli("localhost", "root", "", "albart");
+if ($conn->connect_error) die("Gabim lidhjeje me DB");
+
+$artist_id = getArtistID($conn);
+if (!$artist_id) {
+    die("Ky user nuk është artist ose nuk ekziston.");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="sq">
 <head>
@@ -68,16 +79,23 @@
             </p>
 
 
+            <div class="profile-rating-container">
+                <div class="profile-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="rating-score" id="rating-score">0.0</span>
+                </div>
 
-            <div class="profile-rating">
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
-
-                <span class="rating-score" id="rating-score">0.0</span>
+                <div class="add-product-btn">
+                    <button onclick="window.location.href='ArtistiShtonProdukt.php'">
+                        Shto Produkt
+                    </button>
+                </div>
             </div>
+
         </div>
 
     </section>

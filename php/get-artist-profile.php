@@ -1,17 +1,16 @@
 <?php
+require_once 'auth.php'; // siguro session + $conn
 header("Content-Type: application/json");
-
-// Merr ID e artistit nga URL (?id=NUM)
-$user_id = $_GET['id'] ?? null;
-if (!$user_id) {
-    echo json_encode(["status" => "error", "message" => "ID mungon"]);
-    exit;
-}
 
 // Lidhja me DB
 $conn = new mysqli("localhost", "root", "", "albart");
 if ($conn->connect_error) {
     echo json_encode(["status" => "error", "message" => "Gabim lidhjeje me DB"]);
+    exit;
+}
+$artist_id = getArtistID($conn);
+if (!$artist_id) {
+    echo json_encode(["status" => "error", "message" => "Ky user nuk është artist."]);
     exit;
 }
 
@@ -20,9 +19,9 @@ $stmt = $conn->prepare("
     SELECT a.Artist_ID, u.name, u.surname, a.Description, a.Certifikime, a.Fotografi
     FROM Artisti a
     JOIN Users u ON a.User_ID = u.id
-    WHERE u.id = ?
+    WHERE a.Artist_ID = ?
 ");
-$stmt->bind_param("i", $user_id);
+$stmt->bind_param("i", $artist_id);
 $stmt->execute();
 $res = $stmt->get_result();
 
@@ -32,22 +31,21 @@ if ($res->num_rows === 0) {
 }
 
 $artist = $res->fetch_assoc();
-$artist_id = $artist['Artist_ID'];
 
-// ⭐ Rating mesatar
+// Rating mesatar
 $r = $conn->prepare("SELECT AVG(Vleresimi) as avg FROM Review WHERE Artist_ID=?");
 $r->bind_param("i", $artist_id);
 $r->execute();
 $ratingRes = $r->get_result()->fetch_assoc();
 $artist['Vleresimi_Total'] = floatval($ratingRes['avg'] ?? 0);
 
-// 🎨 Produkte
+// Produkte
 $p = $conn->prepare("SELECT Emri, Pershkrimi, Foto_Produktit FROM Produkti WHERE Artist_ID=?");
 $p->bind_param("i", $artist_id);
 $p->execute();
 $produkti = $p->get_result()->fetch_all(MYSQLI_ASSOC);
 
-// 💬 Reviews
+// Reviews
 $rev = $conn->prepare("
     SELECT r.Vleresimi, r.Koment, u.name AS klient_emri
     FROM Review r
@@ -59,7 +57,7 @@ $rev->bind_param("i", $artist_id);
 $rev->execute();
 $reviews = $rev->get_result()->fetch_all(MYSQLI_ASSOC);
 
-// Kthe JSON
+// JSON
 echo json_encode([
     "status" => "success",
     "artist" => $artist,
