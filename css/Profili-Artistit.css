@@ -226,3 +226,50 @@ body {
     border-radius: 4px;
 }
 
+#veprat {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Bëjmë që titulli të zërë gjithë rreshtin */
+#veprat h3 {
+    grid-column: 1 / -1;
+}
+
+/* Kartat */
+#veprat > div {
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#veprat > div:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+#veprat img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+/* Kategoria – më e zbehtë */
+#veprat .category {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 4px;
+}
+
+/* Çmimi – poshtë, i theksuar */
+#veprat .price {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #333;
+}
+

@@ -18,7 +18,7 @@ if ($action == 'get') {
     // Marrim listën e userve me role
     $sql = "SELECT u.id, u.name, u.surname, u.email, 
                    CASE 
-                       WHEN k.Klient_ID IS NOT NULL THEN 'client' 
+                       WHEN k.Klient_ID IS NOT NULL THEN 'klient' 
                        WHEN a.Artist_ID IS NOT NULL THEN 'artist' 
                        ELSE 'unknown' 
                    END AS role
@@ -48,7 +48,7 @@ elseif ($action == 'add') {
         $user_id = $conn->insert_id;
 
         // Vendos rolin
-        if ($role == 'client') {
+        if ($role == 'klient') {
             $conn->query("INSERT INTO Klient (User_ID) VALUES ($user_id)");
         } elseif ($role == 'artist') {
             $conn->query("INSERT INTO Artisti (User_ID) VALUES ($user_id)");
@@ -72,7 +72,7 @@ elseif ($action == 'update') {
         $conn->query("DELETE FROM Artisti WHERE User_ID = $id");
 
         // Vendos rolin e ri
-        if ($value == 'client') {
+        if ($value == 'klient') {
             $conn->query("INSERT INTO Klient (User_ID) VALUES ($id)");
         } elseif ($value == 'artist') {
             $conn->query("INSERT INTO Artisti (User_ID) VALUES ($id)");

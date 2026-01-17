@@ -73,17 +73,21 @@ document.addEventListener("DOMContentLoaded", () => {
             if (data.produkti && data.produkti.length) {
                 data.produkti.forEach(p => {
                     const div = document.createElement("div");
-                    div.style.marginBottom = "15px";
                     div.innerHTML = `
-                        <h4>${p.Emri}</h4>
-                        <img src="../${p.Foto_Produktit}" width="180" style="border-radius:8px; margin-top:5px;">
-                        <p>${p.Pershkrimi}</p>
-                    `;
+    <div class="work-info">
+        <p class="category">${p.Kategoria_Emri ?? ''}</p>
+        <h4 class="name">${p.Emri}</h4>
+        <img src="../uploads/${p.Foto_Produktit}" alt="${p.Emri}">
+        <p>${p.Pershkrimi}</p>
+        <p class="price">€${p.Cmimi}</p>
+    </div>
+`;
                     vepratContainer.appendChild(div);
                 });
             } else {
                 vepratContainer.innerHTML += `<p class="placeholder">Nuk ka ende vepra.</p>`;
             }
+
 
             // Reviews
             const reviewsContainer = document.getElementById("reviews");
