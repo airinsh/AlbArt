@@ -5,14 +5,13 @@ body {
     padding: 0;
 }
 
-
 .site-header {
     background-color: #a2b5cc;
     color: #fff;
     text-align: center;
     padding: 20px;
+    position: relative; /* ⬅️ vetëm kjo shtohet */
 }
-
 
 .profile-page {
     display: flex;
@@ -20,7 +19,6 @@ body {
     align-items: center;
     padding: 20px;
 }
-
 
 .profile-card {
     background-color: #fff;
@@ -31,7 +29,6 @@ body {
     overflow: hidden;
     margin-bottom: 20px;
 }
-
 
 .profile-header {
     background-color: #a2b5cc;
@@ -53,7 +50,6 @@ body {
     margin: 5px 0;
     font-size: 24px;
 }
-
 
 .profile-body {
     padding: 20px;
@@ -79,4 +75,22 @@ body {
     padding: 10px 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* ================= VETËM BUTONI HOMEPAGE ================= */
+.homepage-btn {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    color: #a2b5cc;
+    font-family: 'Segoe Print', cursive;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
