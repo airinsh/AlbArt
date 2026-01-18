@@ -110,3 +110,39 @@ h1 {
     font-size: 13px;
     margin-top: 4px;
 }
+
+
+
+.terms-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+
+    /* popup-i ka scroll-in e vet */
+    overflow-y: auto;
+}
+
+.terms-box {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.terms-content {
+    max-height: 300px;
+    overflow-y: auto; /* scroll vetëm tek teksti */
+    margin: 15px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.back-btn {
+    width: 100%;
+}
+
+

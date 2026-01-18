@@ -129,3 +129,19 @@ document.getElementById("artistSignupForm").addEventListener("submit", function 
 
     xhr.send(formData);
 });
+
+
+function openTerms() {
+    const modal = document.getElementById("termsModal");
+    if (modal) {
+        modal.style.display = "block";
+    }
+}
+
+function closeTerms() {
+    const modal = document.getElementById("termsModal");
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
