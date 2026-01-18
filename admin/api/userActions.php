@@ -108,6 +108,55 @@ elseif ($action == 'delete') {
     echo json_encode(["success" => true]);
 }
 
+elseif ($action == "getSingleUser") {
+    $id = intval($_POST['id']);
+
+    $sql = "
+        SELECT u.id, u.name, u.surname, u.email,
+        CASE 
+            WHEN a.Artist_ID IS NOT NULL THEN 'artist'
+            WHEN k.Klient_ID IS NOT NULL THEN 'client'
+        END AS role
+        FROM Users u
+        LEFT JOIN Artisti a ON u.id = a.User_ID
+        LEFT JOIN Klient k ON u.id = k.User_ID
+        WHERE u.id = $id
+    ";
+
+    $res = $conn->query($sql)->fetch_assoc();
+    echo json_encode($res);
+}
+
+elseif ($action == "updateUser") {
+
+    $id = intval($_POST['id']);
+    $name = $conn->real_escape_string($_POST['name']);
+    $surname = $conn->real_escape_string($_POST['surname']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $role = $_POST['role'];
+
+    $conn->query("UPDATE Users SET name='$name', surname='$surname', email='$email' WHERE id=$id");
+
+    // Role
+    $conn->query("DELETE FROM Artisti WHERE User_ID=$id");
+    $conn->query("DELETE FROM Klient WHERE User_ID=$id");
+
+    if ($role === "artist")
+        $conn->query("INSERT INTO Artisti (User_ID) VALUES ($id)");
+    else
+        $conn->query("INSERT INTO Klient (User_ID) VALUES ($id)");
+
+    // FOTO (vetëm upload)
+    if (!empty($_FILES['photo']['name'])) {
+        $path = "uploads/profile_" . $id . "_" . time() . ".jpg";
+        move_uploaded_file($_FILES['photo']['tmp_name'], "../".$path);
+
+        $conn->query("UPDATE Users SET profile_photo='$path' WHERE id=$id");
+    }
+
+    echo json_encode(["success" => true]);
+}
+
 else {
     echo json_encode(["error" => "Invalid action"]);
 }

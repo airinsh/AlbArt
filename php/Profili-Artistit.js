@@ -298,3 +298,38 @@ saveWorkBtn.addEventListener("click", () => {
         .catch(() => alert("Gabim gjatë komunikimit me serverin."));
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    const modifyBtn = document.getElementById("modifyBtn");
+    const modal = document.getElementById("editModal");
+    const closeModal = document.getElementById("closeModal");
+
+    if (!modifyBtn) {
+        console.error("❌ Modify button nuk u gjet");
+        return;
+    }
+
+    // HAP POPUP
+    modifyBtn.addEventListener("click", () => {
+        modal.style.display = "flex";
+
+        // 👉 MBUSH TE DHENAT NGA PROFILI (shembull)
+        document.getElementById("name").value = artist.name;
+        document.getElementById("surname").value = artist.surname;
+        document.getElementById("email").value = artist.email;
+    });
+
+    // MBYLL POPUP
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // Mbyll kur klikon jashtë
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
+
+

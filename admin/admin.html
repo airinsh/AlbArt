@@ -45,6 +45,43 @@
     </div>
 </div>
 
+<!-- ================= MODAL MODIFY USER ================= -->
+<!-- ================= MODAL MODIFY USER ================= -->
+<div id="modifyModal" class="modify-modal">
+
+    <div class="modify-modal-content">
+        <h3>Modify User</h3>
+
+        <input type="hidden" id="edit-user-id">
+
+        <label>Name</label>
+        <input type="text" id="edit-name">
+
+        <label>Surname</label>
+        <input type="text" id="edit-surname">
+
+        <label>Email</label>
+        <input type="email" id="edit-email">
+
+        <label>Role</label>
+        <select id="edit-role">
+            <option value="klient">Klient</option>
+            <option value="artist">Artist</option>
+        </select>
+
+        <label>Profile Photo (upload only)</label>
+        <input type="file" id="edit-photo" accept="image/*">
+
+        <div class="modify-modal-actions">
+            <button class="modify-save-btn" id="saveModify">Save</button>
+            <button class="modify-cancel-btn" id="cancelModify">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
+
 <script src="admin.js"></script>
+
 </body>
 </html>
