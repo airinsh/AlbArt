@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // NGARKON VEPRAT (PRODUCTS)
-
     const worksContainer = document.querySelector(".works-container");
 
+    // NGARKON VEPRAT (PRODUCTS)
     fetch('../php/get-product-details.php')
         .then(res => res.json())
         .then(products => {
-            worksContainer.innerHTML = "";
+            worksContainer.innerHTML = ""; // fshi kutitë ekzistuese
 
             products.forEach(product => {
                 const workDiv = document.createElement("div");
@@ -21,12 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p class="category">${product.Kategori_Emri}</p>
                         <p class="name">${product.Emri}</p>
                         <p class="price">$${product.Cmimi}</p>
-                        <button class="add-cart" onclick="addToCart(event,'${product.Emri}')">Cart</button>
+                        <button class="details-btn">Details</button>
                     </div>
                 `;
 
-                // Klikimi hap faqen e detajeve të produktit
-                workDiv.addEventListener("click", () => {
+                // Klikimi i butonit Details hap faqen e detajeve
+                const detailsBtn = workDiv.querySelector(".details-btn");
+                detailsBtn.addEventListener("click", (e) => {
+                    e.stopPropagation(); // ndalon propagimin në div
                     window.location.href = `DetajeProdukti.php?id=${product.Produkt_ID}`;
                 });
 
@@ -35,9 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(err => console.error("Gabim fetch veprat:", err));
 
-
     // NGARKON ARTISTËT
-
     const artistsContainer = document.querySelector(".artists-container");
 
     fetch('../php/get-artist-photo.php')
@@ -49,11 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 const artistBtn = document.createElement("button");
                 artistBtn.classList.add("artist");
 
-                   artistBtn.innerHTML = `
+                artistBtn.innerHTML = `
                     <img src="../${artist.Fotografi}" alt="${artist.name} ${artist.surname}">
                     <p>${artist.name} ${artist.surname}</p>
                 `;
-
 
                 // Klikimi hap faqen e detajeve të artistit
                 artistBtn.addEventListener("click", () => {
@@ -65,10 +63,3 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(err => console.error("Gabim fetch artistët:", err));
 });
-
-
-
-function addToCart(event, workName){
-    event.stopPropagation(); // ndalon klikimin e kutisë që hap faqen
-    alert("Shto në Cart: " + workName);
-}

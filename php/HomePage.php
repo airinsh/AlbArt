@@ -118,5 +118,31 @@ require_once "auth.php";
 <!-- JS që ngarkon produktet nga DB dhe hap DetajeProdukti.php -->
 <script src="../php/HomePage.js"></script>
 
+<script>
+    // Funksioni për Search input
+    function toggleSearch(event) {
+        event.stopPropagation(); // ndalon propagimin te body
+        const input = document.getElementById('searchInput');
+        if(input.style.display === 'none'){
+            input.style.display = 'inline-block';
+            input.focus();
+        } else {
+            input.style.display = 'none';
+        }
+    }
+
+    // Fsheh input-in nëse klikoj jashtë tij
+    document.body.addEventListener('click', function(){
+        const input = document.getElementById('searchInput');
+        input.style.display = 'none';
+    });
+
+    // Klikimi i ikonës Cart
+    const cartBtn = document.querySelector(".toolbar-item.cart");
+    cartBtn.addEventListener("click", () => {
+        window.location.href = "ShoppingCart.php"; // redirect te faqja e Cart
+    });
+</script>
+
 </body>
 </html>
