@@ -46,7 +46,6 @@
 
                 <div class="bg-light p-3 rounded-3 mb-3">
                     <p class="mb-1"><strong>Kategori:</strong> <span id="product-category">...</span></p>
-                    <p class="mb-1"><strong>Statusi:</strong> <span id="product-status">...</span></p>
                 </div>
 
                 <div class="d-flex align-items-center justify-content-between mt-3">

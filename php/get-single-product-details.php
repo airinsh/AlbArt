@@ -24,22 +24,24 @@ $imgFolder = "../uploads/"; // folderi ku ruhen fotot
 
 $sql = "
     SELECT 
-        p.Produkt_ID,
-        p.Emri,
-        p.Pershkrimi,
-        p.Cmimi,
-        p.Foto_Produktit,
-        p.Statusi,
-        k.Emri AS Kategori_Emri,
-        a.Artist_ID,
-        u.name AS Artist_Name,
-        u.surname AS Artist_Surname,
-        a.Vleresimi_Total AS Artist_Rating
-    FROM Produkti p
-    LEFT JOIN Kategoria k ON p.Kategori_ID = k.Kategori_ID
-    LEFT JOIN Artisti a ON p.Artist_ID = a.Artist_ID
-    LEFT JOIN Users u ON a.User_ID = u.id
-    WHERE p.Produkt_ID = ?
+    p.Produkt_ID,
+    p.Emri,
+    p.Pershkrimi,
+    p.Cmimi,
+    p.Foto_Produktit,
+    p.Statusi,
+    k.Emri AS Kategori_Emri,
+    a.Artist_ID,
+    a.Fotografi AS Artist_Fotografi,
+    u.name AS Artist_Name,
+    u.surname AS Artist_Surname,
+    a.Vleresimi_Total AS Artist_Rating
+FROM Produkti p
+LEFT JOIN Kategoria k ON p.Kategori_ID = k.Kategori_ID
+LEFT JOIN Artisti a ON p.Artist_ID = a.Artist_ID
+LEFT JOIN Users u ON a.User_ID = u.id
+WHERE p.Produkt_ID = ?
+
 ";
 
 $stmt = $conn->prepare($sql);
@@ -53,11 +55,24 @@ if(!$product){
     exit;
 }
 
-// Shto rrugën e plotë për foton e produktit
+
+$projectRoot = "/AlbArt/AlbArt/"; // path për browser (URL)
+
+
+// ==================== FOTO PRODUKTI ====================
+$imgFolder = "../uploads/"; // relative nga DetajeProdukti.php
 $product['Foto_Produktit'] = $imgFolder . $product['Foto_Produktit'];
 
-// Vendos default për Artist_Foto pasi tabela nuk ka kolonën
-$product['Artist_Foto'] = '../img/default-artist.png';
+
+// ==================== FOTO ARTIST ====================
+$artistFolder = "uploads/"; // relative nga root i projektit
+if (!empty($product['Artist_Fotografi']) && file_exists("../" . $artistFolder . $product['Artist_Fotografi'])) {
+    $product['Artist_Foto'] = $projectRoot . $artistFolder . $product['Artist_Fotografi'];
+} else {
+    // default image për artistin
+    $product['Artist_Foto'] = $projectRoot . "uploads/profile_32_1768705082.jpeg";
+}
+
 
 echo json_encode($product, JSON_UNESCAPED_UNICODE);
 $conn->close();

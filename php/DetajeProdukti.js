@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('product-img').src = product.Foto_Produktit;
             document.getElementById('product-desc').textContent = product.Pershkrimi;
             document.getElementById('product-category').textContent = product.Kategori_Emri;
-            document.getElementById('product-status').textContent = product.Statusi;
             document.getElementById('product-price').textContent = product.Cmimi + " €";
 
 
