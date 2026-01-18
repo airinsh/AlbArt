@@ -1,0 +1,14 @@
+# Vendor folder (Composer dependencies)
+/vendor/
+
+# XAMPP / PHP temporary files
+*.log
+*.cache
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files (p.sh PhpStorm, VSCode)
+.idea/
+.vscode/

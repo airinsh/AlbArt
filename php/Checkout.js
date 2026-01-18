@@ -5,9 +5,7 @@ const confirmBtn = document.getElementById("confirmBtn");
 
 let cart = [];
 
-
-// LOAD CART
-
+// ---------------- LOAD CART ----------------
 function loadCheckout() {
     fetch('../php/get-details-for-shopping-cart.php')
         .then(res => res.json())
@@ -16,13 +14,11 @@ function loadCheckout() {
             worksContainer.innerHTML = "";
 
             let total = 0;
-
             products.forEach(p => {
                 total += parseFloat(p.Cmimi);
 
                 const div = document.createElement("div");
                 div.classList.add("work-card");
-
                 div.innerHTML = `
                     <img src="${p.Foto_Produktit}">
                     <div>
@@ -31,7 +27,6 @@ function loadCheckout() {
                         <strong>$${p.Cmimi}</strong>
                     </div>
                 `;
-
                 worksContainer.appendChild(div);
             });
 
@@ -41,40 +36,61 @@ function loadCheckout() {
         .catch(err => console.error("Gabim checkout:", err));
 }
 
+// ---------------- STRIPE SETUP ----------------
+const stripe = Stripe("STRIPE_PUBLISHABLE_KEY"); // 🔴 Vendos Publishable Key këtu
+const elements = stripe.elements();
+const cardElement = elements.create("card", { hidePostalCode: true });
+cardElement.mount("#card-element");
 
-// CONFIRM ORDER
 
-confirmBtn.addEventListener("click", () => {
-    const cardInput = document.getElementById("cardNumber");
-    const card = cardInput.value.trim();
+// ---------------- CONFIRM ORDER ----------------
+confirmBtn.addEventListener("click", async () => {
+    confirmBtn.disabled = true;
 
-    // vetëm 16 shifra
-    const cardRegex = /^\d{16}$/;
+    try {
+        const res = await fetch("../php/create-payment-intent.php");
+        const data = await res.json();
+        console.log("PaymentIntent response:", data);
 
-    if (!cardRegex.test(card)) {
-        alert("Numri i kartës duhet të përmbajë saktësisht 16 shifra!");
-        cardInput.focus();
-        return;
-    }
+        if (!data.clientSecret) {
+            alert("Nuk u krijua PaymentIntent: " + (data.error || "Gabim i panjohur"));
+            confirmBtn.disabled = false;
+            return;
+        }
 
-    fetch('../php/confirm-checkout.php', {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ card })
-    })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                alert("Porosia u krye me sukses ✅");
+        const result = await stripe.confirmCardPayment(data.clientSecret, {
+            payment_method: { card: cardElement }
+        });
+
+        console.log("Stripe result:", result);
+
+        if (result.error) {
+            alert("Stripe error: " + result.error.message);
+            confirmBtn.disabled = false;
+        } else if (result.paymentIntent.status === "succeeded") {
+            const saveRes = await fetch("../php/confirm-checkout.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ payment_intent_id: result.paymentIntent.id })
+            });
+
+            const saveData = await saveRes.json();
+            console.log("Save response:", saveData);
+
+            if (saveData.success) {
+                alert("Pagesa u krye me sukses ✅");
                 window.location.href = "HomePage.php";
             } else {
-                alert(data.error || "Gabim gjatë kryerjes së porosisë");
+                alert(saveData.error || "Gabim gjatë ruajtjes së porosisë");
+                confirmBtn.disabled = false;
             }
-        })
-        .catch(err => console.error("Gabim confirm:", err));
+        }
+    } catch (err) {
+        console.error("Gabim i përgjithshëm:", err);
+        alert("Ndodhi një gabim gjatë pagesës.");
+        confirmBtn.disabled = false;
+    }
 });
 
-
-// LOAD ON START
-
+// ---------------- LOAD ON START ----------------
 document.addEventListener("DOMContentLoaded", loadCheckout);

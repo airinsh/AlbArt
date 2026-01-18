@@ -46,6 +46,10 @@ if(!isset($_SESSION['user_id'])){
             border-radius:10px;
         }
     </style>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        const STRIPE_PUBLISHABLE_KEY = "<?= getenv('STRIPE_PUBLISHABLE_KEY') ?>";
+    </script>
 </head>
 <body>
 
@@ -79,17 +83,10 @@ if(!isset($_SESSION['user_id'])){
         <h5 class="mb-3">Payment</h5>
 
         <div class="mb-3">
-            <label class="form-label">Numri i Kartës</label>
-            <input
-                type="text"
-                id="cardNumber"
-                class="form-control"
-                placeholder="XXXX-XXXX-XXXX-XXXX"
-                maxlength="16"
-                inputmode="numeric"
-                required
-            >
+            <label class="form-label">Kartë krediti / debiti</label>
+            <div id="card-element" class="form-control"></div>
         </div>
+
 
         <button class="btn btn-success w-100" id="confirmBtn">
             Confirm Order
