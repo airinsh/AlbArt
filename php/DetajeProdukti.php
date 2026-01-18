@@ -10,6 +10,23 @@
         .main-color { background-color: #a2b5cc !important; }
         .product-img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 16px; }
         .artist-photo { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; }
+
+        .return-btn {
+            background-color: #ffffff;
+            color: #a2b5cc;
+            border: 2px solid #ffffff;
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .return-btn:hover {
+            background-color: transparent;
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
         .price { font-size: 26px; font-weight: bold; color: #4a90e2; }
         .btn-main { background-color: #a2b5cc; color: white; border: none; cursor: pointer; transition: 0.3s; }
         .btn-main:hover { background-color: #357ABD; color: white; }
@@ -17,9 +34,16 @@
 </head>
 <body>
 
-<nav class="navbar navbar-dark main-color px-4">
+<nav class="navbar navbar-dark main-color px-4 d-flex justify-content-between align-items-center">
     <span class="navbar-brand mb-0 h1">Product</span>
+
+    <!-- Butoni Homepage -->
+    <button class="return-btn"
+            onclick="window.location.href='../php/HomePage.php'">
+        HomePage
+    </button>
 </nav>
+
 
 <div class="container my-5">
     <div class="card shadow-lg rounded-4 p-4">

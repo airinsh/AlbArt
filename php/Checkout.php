@@ -23,6 +23,22 @@ if(!isset($_SESSION['user_id'])){
             gap:15px;
             align-items:center;
         }
+        .return-btn {
+            background-color: #ffffff;
+            color: #a2b5cc;
+            border: 2px solid #ffffff;
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .return-btn:hover {
+            background-color: transparent;
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
         .work-card img {
             width:120px;
             height:120px;
@@ -34,9 +50,16 @@ if(!isset($_SESSION['user_id'])){
 <body>
 
 <!-- TOOLBAR -->
-<nav class="navbar navbar-dark main-color px-4">
-    <span class="navbar-brand mx-auto">Checkout</span>
+<nav class="navbar navbar-dark main-color px-4 d-flex justify-content-between align-items-center">
+    <span class="navbar-brand mb-0 h1">Checkout</span>
+
+    <!-- Butoni Return to ShoppingCart -->
+    <button class="return-btn"
+            onclick="window.location.href='../php/ShoppingCart.php'">
+        Shopping Cart
+    </button>
 </nav>
+
 
 <div class="container my-5">
 

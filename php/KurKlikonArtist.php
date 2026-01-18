@@ -17,6 +17,22 @@
             background-color: #a2b5cc !important;
         }
 
+        .return-btn {
+            background-color: #ffffff;
+            color: #a2b5cc;
+            border: 2px solid #ffffff;
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .return-btn:hover {
+            background-color: transparent;
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
         .artist-photo {
             width: 140px;
             height: 140px;
@@ -54,9 +70,15 @@
 <body>
 
 <!-- TOOLBAR -->
-<nav class="navbar navbar-dark main-color px-4">
+<nav class="navbar navbar-dark main-color px-4 d-flex justify-content-between">
     <span class="navbar-brand mb-0 h1">ARTIST</span>
+
+    <button class="return-btn"
+            onclick="window.location.href='../php/HomePage.php'">
+        Homepage
+    </button>
 </nav>
+
 
 <!-- PAGE -->
 <div class="container my-5">

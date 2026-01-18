@@ -59,12 +59,30 @@ if(!isset($_SESSION['user_id'])){
             border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
+
         .checkout-btn:hover {
             background-color: #8ca0b4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgb(182, 15, 28);
+        }
+
+        /* Për butonin Homepage që është gri fillimisht */
+        #returnBtn {
+            background-color: #888888;
+            transition: all 0.3s ease;
+        }
+
+        #returnBtn:hover {
+            background-color: #6f768a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgb(5, 57, 94);
         }
     </style>
+
 </head>
+
 <body>
 
 <nav class="navbar navbar-dark main-color px-4">
@@ -78,7 +96,7 @@ if(!isset($_SESSION['user_id'])){
 
     <!-- Summary + Checkout + Return -->
     <div class="summary-card d-flex justify-content-between align-items-center">
-        <button class="checkout-btn" id="returnBtn" style="background-color:#888888;">Return to Homepage</button>
+        <button class="checkout-btn" id="returnBtn" style="background-color:#888888;">Homepage</button>
 
         <div class="text-end">
             <p>Total Produkte: <span id="total-items">0</span></p>
