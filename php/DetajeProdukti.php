@@ -62,8 +62,8 @@
                     <img id="artist-img" src="../img/default-artist.png" class="artist-photo me-3" alt="Artist">
                     <div class="d-flex align-items-center gap-3">
                         <span id="artist-name" class="fw-semibold">Loading Artist...</span>
-                        <button id="artist-profile-btn" class="btn btn-sm btn-outline-primary">Open Profile</button>
                     </div>
+
                 </div>
 
                 <p id="product-desc">Loading description...</p>

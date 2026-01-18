@@ -27,9 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('artist-name').textContent = product.Artist_Name + " " + product.Artist_Surname;
             document.getElementById('artist-img').src = product.Artist_Foto;
 
-            document.getElementById('artist-profile-btn').addEventListener('click', () => {
-                window.location.href = `ArtistProfile.php?id=${product.Artist_ID}`;
-            });
 
             // Select butonin Add to Cart
             const addToCartBtn = document.querySelector('.btn-main');
