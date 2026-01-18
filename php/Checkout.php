@@ -1,0 +1,102 @@
+<?php
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header("Location: login.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background:#f2f2f2; }
+        .main-color { background:#a2b5cc; }
+        .work-card {
+            background:white;
+            border-radius:12px;
+            padding:15px;
+            margin-bottom:15px;
+            display:flex;
+            gap:15px;
+            align-items:center;
+        }
+        .work-card img {
+            width:120px;
+            height:120px;
+            object-fit:cover;
+            border-radius:10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOOLBAR -->
+<nav class="navbar navbar-dark main-color px-4">
+    <span class="navbar-brand mx-auto">Checkout</span>
+</nav>
+
+<div class="container my-5">
+
+    <!-- PRODUKTET -->
+    <div class="works-container mb-4">
+        <!-- ngarkohen nga Checkout.js -->
+    </div>
+
+    <!-- TOTAL -->
+    <div class="card mb-4 p-3 text-end">
+        <h5>Total Produkte: <span id="total-items">0</span></h5>
+        <h4>Total Cmimi: $<span id="total-price">0.00</span></h4>
+    </div>
+
+    <!-- PAYMENT -->
+    <div class="card p-4">
+        <h5 class="mb-3">Payment</h5>
+
+        <div class="mb-3">
+            <label class="form-label">Numri i Kartës</label>
+            <input
+                type="text"
+                id="cardNumber"
+                class="form-control"
+                placeholder="XXXX-XXXX-XXXX-XXXX"
+                maxlength="16"
+                inputmode="numeric"
+                required
+            >
+        </div>
+
+        <button class="btn btn-success w-100" id="confirmBtn">
+            Confirm Order
+        </button>
+    </div>
+
+</div>
+
+<script src="../php/Checkout.js"></script>
+
+<script>
+    document.getElementById("confirmBtn").addEventListener("click", () => {
+        const cardInput = document.getElementById("cardNumber");
+        const cardNumber = cardInput.value.trim();
+
+        // Vetëm 16 shifra
+        const regex = /^\d{16}$/;
+
+        if(!regex.test(cardNumber)){
+            alert("Numri i kartës duhet të ketë saktësisht 16 shifra!");
+            cardInput.focus();
+            return;
+        }
+
+        // Nëse është OK
+        alert("Pagesa u krye me sukses ✅");
+        // këtu mund të bësh redirect ose fetch për pagesën
+        // window.location.href = "Success.php";
+    });
+</script>
+
+</body>
+</html>

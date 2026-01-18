@@ -97,7 +97,7 @@ if(!isset($_SESSION['user_id'])){
             return;
         }
         // Redirekto në faqen e pagesës ose krye Checkout
-        window.location.href = "Payment.php"; // ndrysho në faqen reale të pagesës
+        window.location.href = "../php/Checkout.php"; // ndrysho në faqen reale të pagesës
     });
 </script>
 </body>
