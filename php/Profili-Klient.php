@@ -1,3 +1,14 @@
+<?php
+require_once '../php/auth.php';
+$conn = new mysqli("localhost", "root", "", "albart");
+if ($conn->connect_error) die("Gabim lidhjeje me DB");
+
+$klient_id = getKlientID($conn);
+if (!$klient_id) {
+    die("Ky user nuk është klient ose nuk ekziston.");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="sq">
 <head>
