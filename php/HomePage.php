@@ -22,7 +22,7 @@ require_once "auth.php";
         </div>
 
         <div class="toolbar-item cart">Cart</div>
-        <div class="toolbar-item profile">Profile</div>
+        <div class="toolbar-item profile" id="profileBtn">Profile</div>
     </div>
 </header>
 
@@ -176,6 +176,28 @@ require_once "auth.php";
     });
     });
 
+</script>
+
+<script>
+    document.getElementById("profileBtn").addEventListener("click", () => {
+        // Thërrasim PHP për të marrë tipin e userit
+        fetch("../php/get-user-type.php")
+            .then(res => res.json())
+            .then(data => {
+                if(data.status === "success") {
+                    if(data.type === "artist") {
+                        window.location.href = "Profili-Artistit.php";
+                    } else if(data.type === "klient") {
+                        window.location.href = "Profili-Klient.php";
+                    } else {
+                        alert("Tip useri i panjohur!");
+                    }
+                } else {
+                    alert("Gabim: " + data.message);
+                }
+            })
+            .catch(err => console.error("Gabim fetch user type:", err));
+    });
 </script>
 
 </body>
