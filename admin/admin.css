@@ -130,3 +130,93 @@ td button {
 .hidden {
     display: none;
 }
+/* ================= MODIFY USER POPUP ================= */
+/* ================= MODIFY USER POPUP ================= */
+.modify-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(3px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modify-modal.show {
+    display: flex;
+}
+
+.modify-modal-content {
+    background: #fff;
+    padding: 25px 28px;
+    width: 380px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    position: relative;
+    animation: modifyPopupFade 0.25s ease;
+}
+
+@keyframes modifyPopupFade {
+    from { transform: translateY(-10px) scale(0.97); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.modify-modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.modify-modal-content label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+.modify-modal-content input,
+.modify-modal-content select {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+}
+
+.modify-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.modify-save-btn {
+    background-color: #6a4cff;
+    color: white;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modify-save-btn:hover {
+    background-color: #5a3ce0;
+}
+
+.modify-cancel-btn {
+    background-color: #e5e5e5;
+    color: #333;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modify-cancel-btn:hover {
+    background-color: #d6d6d6;
+}
+
+
