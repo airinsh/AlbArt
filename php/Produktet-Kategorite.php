@@ -60,8 +60,7 @@ $kategoriId = intval($_GET['kategori']);
 <script>
     const kategoriId = <?= $kategoriId ?>;
 
-    fetch(ProduktetSipasKategorise.php?kategori=${kategoriId})
-
+    fetch(`ProduktetSipasKategorise.php?kategori=${kategoriId}`)
         .then(res => res.json())
         .then(products => {
             const container = document.querySelector(".works-container");
@@ -77,19 +76,19 @@ $kategoriId = intval($_GET['kategori']);
                 div.className = "work-item";
 
                 div.innerHTML = `
-                <div class="work-image">
-                    <img src="../uploads/${p.Foto_Produktit}" alt="${p.Emri}">
-                </div>
-                <div class="work-info">
-                    <p class="category">${p.Kategori_Emri}</p>
-                    <p class="name">${p.Emri}</p>
-                    <p class="price">$${p.Cmimi}</p>
-                    <button class="details-btn">Details</button>
-                </div>
-            `;
+                    <div class="work-image">
+                        <img src="../uploads/${p.Foto_Produktit}" alt="${p.Emri}">
+                    </div>
+                    <div class="work-info">
+                        <p class="category">${p.Kategori_Emri}</p>
+                        <p class="name">${p.Emri}</p>
+                        <p class="price">$${p.Cmimi}</p>
+                        <button class="details-btn">Details</button>
+                    </div>
+                `;
 
                 div.querySelector(".details-btn").onclick = () => {
-                    window.location.href = DetajeProdukti.php?id=${p.Produkt_ID};
+                    window.location.href = `../php/DetajeProdukti.php?id=${p.Produkt_ID}`;
                 };
 
                 container.appendChild(div);
@@ -97,6 +96,7 @@ $kategoriId = intval($_GET['kategori']);
         })
         .catch(err => console.error("Gabim fetch:", err));
 </script>
+
 
 </body>
 </html>
