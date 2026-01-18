@@ -68,20 +68,27 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // Veprat
+            // Veprat
             const vepratContainer = document.getElementById("veprat");
             vepratContainer.innerHTML = "<h3>Veprat</h3>";
+
             if (data.produkti && data.produkti.length) {
                 data.produkti.forEach(p => {
                     const div = document.createElement("div");
+                    div.classList.add("work-info-container");
                     div.innerHTML = `
-    <div class="work-info">
-        <p class="category">${p.Kategoria_Emri ?? ''}</p>
-        <h4 class="name">${p.Emri}</h4>
-        <img src="../uploads/${p.Foto_Produktit}" alt="${p.Emri}">
-        <p>${p.Pershkrimi}</p>
-        <p class="price">€${p.Cmimi}</p>
-    </div>
-`;
+            <div class="work-info">
+                <p class="category">${p.Kategoria_Emri ?? ''}</p>
+                <h4 class="name">${p.Emri}</h4>
+                <img src="../uploads/${p.Foto_Produktit}" alt="${p.Emri}">
+                <p class="desc">${p.Pershkrimi}</p>
+                <p class="price">€${p.Cmimi}</p>
+                <div class="work-actions">
+                    <button class="edit-work-btn" data-id="${p.Produkt_ID}">Edit</button>
+                    <button class="delete-work-btn" data-id="${p.Produkt_ID}">Delete</button>
+                </div>
+            </div>
+        `;
                     vepratContainer.appendChild(div);
                 });
             } else {
@@ -110,3 +117,184 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(err => console.error("Gabim gjatë marrjes së të dhënave:", err));
 });
+
+//edit emri
+const editNameBtn = document.getElementById("edit-name-btn");
+const modal = document.getElementById("editNameModal");
+const cancelBtn = document.getElementById("cancel-name-btn");
+const saveBtn = document.getElementById("save-name-btn");
+
+editNameBtn.addEventListener("click", () => {
+    const fullName = document.getElementById("artist-name").innerText;
+    const parts = fullName.split(" ");
+    document.getElementById("edit-name-input").value = parts[0] || "";
+    document.getElementById("edit-surname-input").value = parts[1] || "";
+
+    modal.style.display = "flex";
+});
+
+cancelBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+saveBtn.addEventListener("click", () => {
+    const newName = document.getElementById("edit-name-input").value.trim();
+    const newSurname = document.getElementById("edit-surname-input").value.trim();
+
+    if (!newName || !newSurname) {
+        alert("Ju lutem plotësoni emrin dhe mbiemrin.");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("type", "name");
+    formData.append("name", newName);
+    formData.append("surname", newSurname);
+
+    fetch("../php/update-artist-profile.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                document.getElementById("artist-name").innerText = newName + " " + newSurname;
+                modal.style.display = "none";
+            } else {
+                alert(data.message || "Ndodhi një gabim.");
+            }
+        })
+        .catch(() => alert("Gabim gjatë komunikimit me serverin."));
+});
+
+//edit description
+const editDescBtn = document.getElementById("edit-desc-btn");
+const descModal = document.getElementById("editDescModal");
+const cancelDescBtn = document.getElementById("cancel-desc-btn");
+const saveDescBtn = document.getElementById("save-desc-btn");
+
+cancelDescBtn.addEventListener("click", () => {
+    descModal.style.display = "none";
+});
+
+editDescBtn.addEventListener("click", () => {
+    document.getElementById("edit-desc-input").value =
+        document.getElementById("artist-description").innerText.trim();
+    descModal.style.display = "flex";
+});
+
+saveDescBtn.addEventListener("click", () => {
+    const newDesc = document.getElementById("edit-desc-input").value.trim();
+    if (!newDesc) {
+        alert("Përshkrimi nuk mund të jetë bosh.");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("type", "description");
+    formData.append("description", newDesc);
+
+    fetch("../php/update-artist-profile.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                document.getElementById("artist-description").innerText = newDesc;
+                descModal.style.display = "none";
+            } else {
+                alert(data.message || "Ndodhi një gabim.");
+            }
+        })
+        .catch(() => alert("Gabim gjatë komunikimit me serverin."));
+});
+
+//edit dhe delete produkt
+let currentWorkId = null;
+const editWorkModal = document.getElementById("editWorkModal");
+const saveWorkBtn = document.getElementById("save-work-btn");
+const cancelWorkBtn = document.getElementById("cancel-work-btn");
+
+document.addEventListener("click", (e) => {
+
+    // Edit
+    if (e.target.classList.contains("edit-work-btn")) {
+        const workDiv = e.target.closest(".work-info");
+        currentWorkId = e.target.dataset.id;
+
+        document.getElementById("edit-work-name").value = workDiv.querySelector(".name").innerText;
+        document.getElementById("edit-work-desc").value = workDiv.querySelector(".desc").innerText;
+        document.getElementById("edit-work-price").value = workDiv.querySelector(".price").innerText.replace("€","");
+
+        editWorkModal.style.display = "flex";
+    }
+
+    // Delete
+    if (e.target.classList.contains("delete-work-btn")) {
+        const workId = e.target.dataset.id;
+        if (!workId) return alert("ID e veprës nuk është e saktë.");
+
+        if (confirm("A jeni të sigurt që doni ta fshini këtë vepër?")) {
+            const formData = new FormData();
+            formData.append("action", "delete");
+            formData.append("id", workId);
+
+            fetch("../php/update-artist-profile.php", {
+                method: "POST",
+                body: formData
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        e.target.closest(".work-info-container").remove();
+                    } else {
+                        alert(data.message || "Gabim gjatë fshirjes.");
+                    }
+                })
+                .catch(() => alert("Gabim gjatë komunikimit me serverin."));
+        }
+    }
+});
+
+// Ruaj Edit Work
+cancelWorkBtn.addEventListener("click", () => editWorkModal.style.display = "none");
+
+saveWorkBtn.addEventListener("click", () => {
+    const name = document.getElementById("edit-work-name").value.trim();
+    const desc = document.getElementById("edit-work-desc").value.trim();
+    const price = parseFloat(document.getElementById("edit-work-price").value.trim());
+
+    if (!name || !desc || isNaN(price) || price <= 0) {
+        return alert("Plotësoni të gjitha fushat me vlerë të saktë.");
+    }
+
+    if (!currentWorkId) return alert("ID e veprës nuk është e saktë.");
+
+    const formData = new FormData();
+    formData.append("action", "edit");
+    formData.append("id", currentWorkId.toString());
+    formData.append("name", name);
+    formData.append("desc", desc);
+    formData.append("price", price.toString());
+
+
+    fetch("../php/update-artist-profile.php", {  // NOTE: PHP file i njëjti
+        method: "POST",
+        body: formData
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                const workDiv = document.querySelector(`.edit-work-btn[data-id='${currentWorkId}']`).closest(".work-info");
+                workDiv.querySelector(".name").innerText = name;
+                workDiv.querySelector(".desc").innerText = desc;
+                workDiv.querySelector(".price").innerText = "€" + price;
+                editWorkModal.style.display = "none";
+            } else {
+                alert(data.message || "Gabim gjatë ruajtjes së veprës.");
+            }
+        })
+        .catch(() => alert("Gabim gjatë komunikimit me serverin."));
+});
+

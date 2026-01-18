@@ -60,8 +60,9 @@ if (!$artist_id) {
             <input type="file" id="photo-input" accept="image/*" style="display:none;">
 
 
-            <h2 class="profile-name" id="artist-name">
-                Duke u ngarkuar...
+            <h2 class="profile-name">
+                <span id="artist-name">Duke u ngarkuar...</span>
+                <button id="edit-name-btn" class="edit-btn">Edit</button>
             </h2>
 
 
@@ -74,9 +75,13 @@ if (!$artist_id) {
         <div class="profile-body">
 
 
-            <p class="profile-description" id="artist-description">
-                Duke u ngarkuar përshkrimi...
-            </p>
+            <div class="profile-description-container">
+                <p id="artist-description">Duke u ngarkuar përshkrimi...</p>
+                <button id="edit-desc-btn" class="edit-btn">Edit</button>
+            </div>
+
+
+
 
 
             <div class="profile-rating-container">
@@ -124,6 +129,55 @@ if (!$artist_id) {
     </section>
 
 </main>
+
+<!--popup edit emri-->
+<div id="editNameModal" class="modal">
+    <div class="modal-content">
+        <h3>Edit Emrin</h3>
+
+        <label>Emri:</label>
+        <input type="text" id="edit-name-input">
+
+        <label>Mbiemri:</label>
+        <input type="text" id="edit-surname-input">
+
+        <div class="modal-actions">
+            <button id="save-name-btn">Save</button>
+            <button id="cancel-name-btn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!--popup edit description-->
+<div id="editDescModal" class="modal">
+    <div class="modal-content">
+        <h3>Edit Përshkrimin</h3>
+        <textarea id="edit-desc-input" rows="5" placeholder="Shkruaj përshkrimin e artistit..."></textarea>
+        <div class="modal-actions">
+            <button id="save-desc-btn">Save</button>
+            <button id="cancel-desc-btn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!--popup edit produkt-->
+<div id="editWorkModal" class="modal">
+    <div class="modal-content">
+        <h3>Edit Veprën</h3>
+        <label>Emri:</label>
+        <input type="text" id="edit-work-name">
+        <label>Përshkrimi:</label>
+        <textarea id="edit-work-desc" rows="4"></textarea>
+        <label>Cmimi:</label>
+        <input type="number" id="edit-work-price" step="0.01">
+        <div class="modal-actions">
+            <button id="save-work-btn" class="save-btn">Save</button>
+            <button id="cancel-work-btn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
 
 
 <!-- ================= JS ================= -->
@@ -175,6 +229,7 @@ if (!$artist_id) {
         e.preventDefault();
         fileInput.click();
     });
+
 
 </script>
 

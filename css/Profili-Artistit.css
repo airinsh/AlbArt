@@ -273,3 +273,292 @@ body {
     color: #333;
 }
 
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 25px 28px;
+    width: 340px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: popupFade 0.25s ease;
+}
+
+
+
+@keyframes popupFade {
+    from {
+        transform: translateY(-10px) scale(0.97);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.modal-content input {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-content input:focus {
+    border-color: #6a4cff;
+    box-shadow: 0 0 0 2px rgba(106, 76, 255, 0.15);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#save-name-btn {
+    background-color: #6a4cff;
+    color: white;
+}
+
+#save-name-btn:hover {
+    background-color: #5a3ce0;
+}
+
+#cancel-name-btn {
+    background-color: #e5e5e5;
+    color: #333;
+}
+
+#cancel-name-btn:hover {
+    background-color: #d6d6d6;
+}
+
+.edit-btn {
+    background-color: #4d5b6e;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.edit-btn:hover {
+    background-color: #1b2b3a;
+    transform: translateY(-1px);
+}
+
+.edit-btn:active {
+    transform: scale(0.97);
+}
+
+/* popup për përshkrim */
+#editDescModal.modal {
+    display: none; /* gjithmonë fshehur derisa të hapet JS */
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+
+    /* për qendërzim kur hapet me JS */
+    align-items: center;
+    justify-content: center;
+}
+
+#editDescModal .modal-content {
+    background: #ffffff;
+    padding: 25px 28px;
+    width: 340px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: popupFade 0.25s ease;
+}
+
+
+#editDescModal .modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#editDescModal .modal-content textarea {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#editDescModal .modal-content textarea:focus {
+    border-color: #6a4cff;
+    box-shadow: 0 0 0 2px rgba(106, 76, 255, 0.15);
+}
+
+#editDescModal .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+#editDescModal .modal-actions button {
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#save-desc-btn {
+    background-color: #6a4cff;
+    color: white;
+}
+
+#save-desc-btn:hover {
+    background-color: #5a3ce0;
+}
+
+#cancel-desc-btn {
+    background-color: #e5e5e5;
+    color: #333;
+}
+
+#cancel-desc-btn:hover {
+    background-color: #d6d6d6;
+}
+
+/* Animacion popup */
+@keyframes popupFade {
+    from {
+        transform: translateY(-10px) scale(0.97);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+.profile-description-container {
+    display: flex;
+    align-items: flex-start; /* ose center nëse do qendrim vertikal */
+    justify-content: space-between; /* teksti majtas, butoni djathtas */
+    gap: 12px; /* pak hapësirë mes tekstit dhe butonit */
+}
+
+.profile-description-container p {
+    flex: 1; /* zgjerohet sa të marrë hapësirën e mbetur */
+    margin: 0;
+}
+
+/*edit veprat*/
+.work-info {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.work-actions {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.work-actions button {
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.edit-work-btn {
+    background-color: #4d5b6e;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.edit-work-btn:hover {
+    background-color: #1b2b3a;
+    transform: translateY(-1px);}
+
+.delete-work-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-work-btn:hover {
+    background-color: #c0392b;
+}
+
+#save-work-btn {
+    background-color: #6a4cff; /* e njëjta ngjyrë si modal edit përshkrimi */
+    color: white;
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#save-work-btn:hover {
+    background-color: #5a3ce0; /* hover identik me modal përshkrimi */
+}
+
+
+
