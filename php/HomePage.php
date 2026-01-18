@@ -142,6 +142,40 @@ require_once "auth.php";
     cartBtn.addEventListener("click", () => {
         window.location.href = "ShoppingCart.php"; // redirect te faqja e Cart
     });
+
+    // Lidh me nderfaqen Search
+        document.addEventListener("DOMContentLoaded", () => {
+        const searchInput = document.getElementById("searchInput");
+        const searchToolbar = document.querySelector(".toolbar-item.search");
+
+        // Hap search kur klikon ikonën
+        searchToolbar.addEventListener("click", (e) => {
+        e.stopPropagation();
+        searchInput.style.display = "inline-block";
+        searchInput.focus();
+    });
+
+        // Parandalon mbylljen kur klikon brenda input-it
+        searchInput.addEventListener("click", (e) => {
+        e.stopPropagation();
+    });
+
+        // Enter → hap faqen SearchResults.php
+        searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+        const query = searchInput.value.trim();
+        if (query !== "") {
+        window.location.href = `../php/search.php?q=${encodeURIComponent(query)}`;
+    }
+    }
+    });
+
+        // Klikimi jashtë e mbyll input-in
+        document.body.addEventListener("click", () => {
+        searchInput.style.display = "none";
+    });
+    });
+
 </script>
 
 </body>

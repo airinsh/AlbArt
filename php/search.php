@@ -63,19 +63,36 @@ if ($search !== "") {
         <div class="artists-container">
             <?php if (count($artists) > 0): ?>
                 <?php foreach ($artists as $artist): ?>
-                    <div class="artist-card">
+                    <div class="artist-card clickable-artist" data-id="<?= $artist['Artist_ID'] ?>">
                         <?php
-                        $foto = !empty($artist['Fotografi']) ? "../uploads/" . $artist['Fotografi'] : "../img/default-profile.png";
+                        $foto = !empty($artist['Fotografi']) ? "../" . $artist['Fotografi'] : "../img/default-profile.png";
                         ?>
                         <img src="<?= htmlspecialchars($foto) ?>" alt="Artist">
                         <p><?= htmlspecialchars($artist['name'] . " " . $artist['surname']) ?></p>
                     </div>
                 <?php endforeach; ?>
+
             <?php else: ?>
                 <p class="no-results">Nuk u gjet asnjë artist.</p>
             <?php endif; ?>
         </div>
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Gjej të gjithë artistët me class clickable-artist
+            const artistCards = document.querySelectorAll(".clickable-artist");
+            artistCards.forEach(card => {
+                card.addEventListener("click", () => {
+                    const artistId = card.getAttribute("data-id");
+                    if (artistId) {
+                        // Redirect te KurKlikonArtist.php me ID e artistit
+                        window.location.href = `KurKlikonArtist.php?id=${artistId}`;
+                    }
+                });
+            });
+        });
+    </script>
+
 
     <!-- ================= PRODUKTET ================= -->
     <section class="works-section">
@@ -83,7 +100,7 @@ if ($search !== "") {
         <div class="works-container">
             <?php if (count($products) > 0): ?>
                 <?php foreach ($products as $product): ?>
-                    <div class="work-item">
+                    <div class="work-item clickable-product" data-id="<?= $product['Produkt_ID'] ?>">
                         <div class="work-image">
                             <img src="../uploads/<?= htmlspecialchars($product['Foto_Produktit']) ?>" alt="Produkt">
                         </div>
@@ -97,6 +114,22 @@ if ($search !== "") {
             <?php endif; ?>
         </div>
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Klikimi i produkteve
+            const productCards = document.querySelectorAll(".clickable-product");
+            productCards.forEach(card => {
+                card.addEventListener("click", () => {
+                    const productId = card.getAttribute("data-id");
+                    if (productId) {
+                        // Redirect te DetajeProdukti.php me ID e produktit
+                        window.location.href = `DetajeProdukti.php?id=${productId}`;
+                    }
+                });
+            });
+        });
+    </script>
+
 </main>
 
 <footer>
