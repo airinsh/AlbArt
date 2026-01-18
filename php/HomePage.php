@@ -17,7 +17,7 @@ require_once "auth.php";
 
         <!-- Search me input që shfaqet brenda toolbar-it -->
         <div class="toolbar-item search" onclick="toggleSearch(event)">
-            🔍 Search
+            Search
             <input type="text" id="searchInput" placeholder="Kërko..." style="display:none;">
         </div>
 
