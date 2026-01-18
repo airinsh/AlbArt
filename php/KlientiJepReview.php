@@ -12,6 +12,42 @@ $Artist_ID = isset($_GET['Artist_ID']) ? intval($_GET['Artist_ID']) : 0;
 if ($Artist_ID === 0) {
     die("Gabim: Artist i pavlefshëm.");
 }
+
+
+// Krijo lidhjen me DB
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "albart";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Gabim lidhjeje me DB: " . $conn->connect_error);
+}
+
+
+// Merr të dhënat e artistit: emri nga Users, foto dhe rating nga Artisti
+
+$sql = $conn->prepare("
+    SELECT u.name, u.surname, a.Fotografi, a.Vleresimi_Total
+    FROM Artisti a
+    JOIN Users u ON a.User_ID = u.id
+    WHERE a.Artist_ID = ?
+");
+$sql->bind_param("i", $Artist_ID);
+$sql->execute();
+$result = $sql->get_result();
+$artist = $result->fetch_assoc();
+
+if (!$artist) {
+    die("Artist nuk u gjet.");
+}
+
+// Vendos default nëse nuk ka foto
+$artistPhoto = $artist['Fotografi'] ? "../" . $artist['Fotografi'] : "../img/default-artist.png";
+$artistName = $artist['name'] . " " . $artist['surname'];
+$artistRating = $artist['Vleresimi_Total'] ?? 0;
 ?>
 <!DOCTYPE html>
 <html lang="sq">
@@ -39,8 +75,8 @@ if ($Artist_ID === 0) {
 
         <!-- ARTIST INFO -->
         <div class="text-center mb-4">
-            <img src="Piktura.jpeg" class="artist-photo mb-3" alt="Artist">
-            <h3 class="mb-1">Emri i Artistit</h3>
+            <img src="<?= $artistPhoto ?>" class="artist-photo mb-3" alt="Artist">
+            <h3 class="mb-1"><?= $artistName ?></h3>
         </div>
 
         <!-- VLERËSIMI -->
@@ -57,8 +93,8 @@ if ($Artist_ID === 0) {
 
             <small class="text-muted">Zgjidh vlerësimin</small>
 
-            <!-- Input i fshehtë për AJAX -->
-            <input type="hidden" id="Artist_ID" value="<?= $Artist_ID ?>">
+            <!-- Input për AJAX me rating për yjet -->
+            <input type="hidden" id="Artist_ID" value="<?= $Artist_ID ?>" data-rating="<?= $artistRating ?>">
 
         </div>
 

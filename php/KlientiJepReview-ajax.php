@@ -2,9 +2,9 @@
 session_start();
 header("Content-Type: text/plain");
 
-// ============================
-// Krijo lidhjen me DB direkt
-// ============================
+
+// Krijo lidhjen me DB
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -89,4 +89,3 @@ if ($stmt->execute()) {
 } else {
     echo "db_error";
 }
-?>
