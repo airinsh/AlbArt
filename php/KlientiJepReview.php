@@ -47,9 +47,16 @@ $klient_id = ($_SESSION['role'] ?? '') === 'klient' ? getKlientID($conn) : 0;
 </head>
 <body>
 
-<nav class="navbar navbar-dark main-color px-4">
+<nav class="navbar navbar-dark main-color px-4 d-flex justify-content-between align-items-center">
     <span class="navbar-brand mb-0 h1">Review</span>
+
+    <!-- Butoni Home -->
+    <button class="btn btn-light fw-semibold"
+            onclick="window.location.href='Homepage.php'">
+        Home
+    </button>
 </nav>
+
 
 <div class="container my-5">
     <div class="card shadow-lg rounded-4 p-4">
