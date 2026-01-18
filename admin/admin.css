@@ -1,12 +1,12 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url("../img/artist.jpeg") center/cover no-repeat;
+    background: url("../img/artist.jpeg") center / cover no-repeat;
     min-height: 100vh;
     text-align: center;
 }
 
-/* TITLE */
+
 .welcome {
     margin-top: 30px;
     font-size: 38px;
@@ -17,7 +17,6 @@ body {
     border-radius: 10px;
 }
 
-/* BUTTONS */
 .buttons {
     margin-top: 30px;
 }
@@ -37,7 +36,6 @@ body {
     background: #222;
 }
 
-/* USERS SECTION */
 .users-section {
     margin-top: 40px;
 }
@@ -49,15 +47,14 @@ body {
     border-radius: 10px;
 }
 
-/* USERS TABLE */
 .users-container {
     width: 80%;
     margin: 20px auto;
-    max-height: 300px;
-    overflow-y: auto;
     background: rgba(255,255,255,0.95);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,.3);
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 table {
@@ -76,18 +73,22 @@ th {
     top: 0;
 }
 
-/* ACTION BUTTONS */
 td button {
-    margin: 0 5px;
     padding: 5px 10px;
     border: none;
     cursor: pointer;
     border-radius: 4px;
+    display: inline-block;
+    margin-right: 5px;
 }
 
 .modify {
-    background: #555;
+    background: darkred;
     color: white;
+}
+
+.modify:hover {
+    background: red;
 }
 
 .delete {
@@ -95,7 +96,10 @@ td button {
     color: white;
 }
 
-/* ADD USER */
+.delete:hover {
+    background: #a00;
+}
+
 .add-user {
     background: rgba(255,255,255,0.95);
     width: 300px;
@@ -116,6 +120,7 @@ td button {
     padding: 10px;
     border: none;
     cursor: pointer;
+    width: 100%;
 }
 
 .add-user button:hover {
