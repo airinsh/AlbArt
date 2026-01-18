@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Popullo të dhënat e artistit
             document.getElementById('artist-name').textContent = product.Artist_Name + " " + product.Artist_Surname;
-            document.getElementById('artist-img').src = product.Artist_Foto;
+            document.getElementById('artist-img').textContent = product.Artist_Name + " " + product.Artist_Surname;
+            document.getElementById('artist-img').src = "/" + product.Artist_Foto + "?t=" + new Date().getTime();
 
 
             // Select butonin Add to Cart
