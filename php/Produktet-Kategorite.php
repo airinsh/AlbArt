@@ -17,9 +17,34 @@ $kategoriId = intval($_GET['kategori']);
 </head>
 <body>
 
-<header>
-    <div class="logo">AlbArt</div>
+
+
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background-color: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+    <!-- Logo -->
+    <div class="logo" style="font-weight: bold; font-size: 2rem; color: #000;">AlbArt</div>
+
+    <!-- Butoni HomePage -->
+    <button
+            onclick="window.location.href='Homepage.php'"
+            style="
+            background-color: #8c9abf;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        "
+            onmouseover="this.style.backgroundColor='#7481a3'; this.style.transform='scale(1.05)';"
+            onmouseout="this.style.backgroundColor='#4d6883'; this.style.transform='scale(1)';"
+    >
+        HomePage
+    </button>
 </header>
+
+
 
 <main>
     <section class="works-section">
@@ -35,9 +60,9 @@ $kategoriId = intval($_GET['kategori']);
 <script>
     const kategoriId = <?= $kategoriId ?>;
 
-    fetch(`ProduktetSipasKategorise.php?kategori=${kategoriId}`)
+    fetch(ProduktetSipasKategorise.php?kategori=${kategoriId})
 
-            .then(res => res.json())
+        .then(res => res.json())
         .then(products => {
             const container = document.querySelector(".works-container");
             container.innerHTML = "";
@@ -64,7 +89,7 @@ $kategoriId = intval($_GET['kategori']);
             `;
 
                 div.querySelector(".details-btn").onclick = () => {
-                    window.location.href = `DetajeProdukti.php?id=${p.Produkt_ID}`;
+                    window.location.href = DetajeProdukti.php?id=${p.Produkt_ID};
                 };
 
                 container.appendChild(div);
