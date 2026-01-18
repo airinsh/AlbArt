@@ -12,11 +12,12 @@ function loadUsers() {
                 rows += `
             <tr>
                 <td>${u.id}</td>
-                <td contenteditable="true" onblur="updateUser(${u.id}, 'name', this.innerText)">${u.name}</td>
-                <td contenteditable="true" onblur="updateUser(${u.id}, 'surname', this.innerText)">${u.surname}</td>
-                <td contenteditable="true" onblur="updateUser(${u.id}, 'email', this.innerText)">${u.email}</td>
-                <td contenteditable="true" onblur="updateUser(${u.id}, 'role', this.innerText)">${u.role}</td>
+                <td>${u.name}</td>
+                <td>${u.surname}</td>
+                <td>${u.email}</td>
+                <td>${u.role}</td>
                 <td>
+                    <button class="modify" onclick="modifyUser(${u.id})">Modify</button>
                     <button class="delete" onclick="deleteUser(${u.id})">Delete</button>
                 </td>
             </tr>`;
@@ -30,32 +31,21 @@ function showAddUser() {
 }
 
 function addUser() {
-    const nameValue = document.getElementById("name").value;
-    const surnameValue = document.getElementById("surname").value;
-    const emailValue = document.getElementById("email").value;
-    const passwordValue = document.getElementById("password").value;
-    const roleValue = document.getElementById("role").value;
+    const name = document.getElementById("name").value;
+    const surname = document.getElementById("surname").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const role = document.getElementById("role").value;
 
     fetch("api/userActions.php", {
         method: "POST",
         body: new URLSearchParams({
             action: "add",
-            name: nameValue,
-            surname: surnameValue,
-            email: emailValue,
-            password: passwordValue,
-            role: roleValue
+            name, surname, email, password, role
         })
     }).then(() => {
         alert("User added!");
         loadUsers();
-    });
-}
-
-function updateUser(id, field, value) {
-    fetch("api/userActions.php", {
-        method: "POST",
-        body: new URLSearchParams({ action: "update", id, field, value })
     });
 }
 
@@ -67,3 +57,23 @@ function deleteUser(id) {
         body: new URLSearchParams({ action: "delete", id })
     }).then(loadUsers);
 }
+
+function modifyUser(userId) {
+    fetch("api/set-selected-user.php", {
+        method: "POST",
+        body: new URLSearchParams({
+            user_id: userId
+        })
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "artist") {
+                window.location.href = "../artist/Profili-Artistit.php";
+            } else if (data.status === "client") {
+                window.location.href = "../client/Profili-Klientit.php";
+            } else {
+                alert("Ky user nuk ka rol të vlefshëm");
+            }
+        });
+}
+
