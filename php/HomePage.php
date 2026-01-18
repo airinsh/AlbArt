@@ -27,21 +27,23 @@ require_once "auth.php";
 </header>
 
 <main>
-
     <div class="gallery">
-        <div class="art-item">
-            <img src="../img/Piktura.jpeg" alt="Foto 1">
+        <div class="art-item" onclick="goCategory(1)">
+            <img src="../img/Piktura.jpeg" alt="Piktura">
             <div class="art-caption">Piktura</div>
         </div>
-        <div class="art-item">
-            <img src="../img/Skulptura.jpeg" alt="Foto 2">
+
+        <div class="art-item" onclick="goCategory(2)">
+            <img src="../img/Skulptura.jpeg" alt="Skulptura">
             <div class="art-caption">Skulptura</div>
         </div>
-        <div class="art-item">
-            <img src="../img/Artizanale.jpeg" alt="Foto 3">
+
+        <div class="art-item" onclick="goCategory(3)">
+            <img src="../img/Artizanale.jpeg" alt="Artizanale">
             <div class="art-caption">Artizanale</div>
         </div>
     </div>
+
 
     <section class="artists-section">
         <h2>Artist</h2>
@@ -114,6 +116,13 @@ require_once "auth.php";
         <p>&copy; 2026 AlbArt. Të gjitha të drejtat e rezervuara.</p>
     </div>
 </footer>
+
+<script>
+    function goCategory(id) {
+        window.location.href = `Produktet-Kategorite.php?kategori=${id}`;
+    }
+</script>
+
 
 <!-- JS që ngarkon produktet nga DB dhe hap DetajeProdukti.php -->
 <script src="../php/HomePage.js"></script>
