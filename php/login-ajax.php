@@ -98,7 +98,7 @@ logAction($conn, $user['id'], "LOGIN_SUCCESS");
 
 /* ================= REDIRECT ================= */
 $redirect = match($role) {
-    "admin" => "Profili-Adminit.php",
+    "admin" => "../admin/admin.html",
     "artist" => "Profili-Artistit.php",
     "klient" => "Profili-Klient.php"
 };

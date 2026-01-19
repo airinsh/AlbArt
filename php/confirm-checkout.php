@@ -58,6 +58,17 @@ while($r = $cartRes->fetch_assoc()){
     $total += $r['Cmimi'];
 }
 
+// Gjej produktet ne databaze
+$productIds = [];
+$cartRes2 = $conn->query("
+    SELECT Produkt_ID 
+    FROM Artikull_Cart 
+    WHERE Klient_ID = $klientId
+");
+while($row = $cartRes2->fetch_assoc()){
+    $productIds[] = $row['Produkt_ID'];
+}
+
 // INSERT PAYMENT
 $stmt = $conn->prepare("
     INSERT INTO Pagesa (Stripe_PaymentIntent_ID, Shuma, Statusi)
@@ -86,7 +97,11 @@ $conn->query("
 // EMPTY CART
 $conn->query("DELETE FROM Artikull_Cart WHERE Klient_ID = $klientId");
 
-echo json_encode(["success" => true]);
+// Fshi produktet e shitura (sepse janë unike)
+if (!empty($productIds)) {
+    $ids = implode(",", array_map("intval", $productIds));
+    $conn->query("DELETE FROM Produkti WHERE Produkt_ID IN ($ids)");
+}
 
 // Pasi pagesa u krye
 $stmt = $conn->prepare("
@@ -102,6 +117,12 @@ $currency = $paymentIntent->currency;
 $data = json_encode($paymentIntent); // ruaj të gjithë objektin Stripe
 $error = $paymentIntent->last_payment_error->message ?? null;
 
+
+
 $stmt->bind_param("issdsss", $userId, $paymentIntentId, $status, $amount, $currency, $data, $error);
 $stmt->execute();
+
+echo json_encode(["success" => true]);
+
+
 
