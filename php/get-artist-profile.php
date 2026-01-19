@@ -42,14 +42,17 @@ $artist['Vleresimi_Total'] = floatval($ratingRes['avg'] ?? 0);
 // Produkte
 // Produkte me kategori dhe cmim
 $p = $conn->prepare("
-    SELECT pr.Emri, pr.Pershkrimi, pr.Foto_Produktit, pr.Cmimi, k.Emri AS Kategoria_Emri
+    SELECT 
+        pr.Produkt_ID,
+        pr.Emri,
+        pr.Pershkrimi,
+        pr.Foto_Produktit,
+        pr.Cmimi,
+        k.Emri AS Kategoria_Emri
     FROM Produkti pr
     LEFT JOIN Kategoria k ON pr.Kategori_ID = k.Kategori_ID
     WHERE pr.Artist_ID=?
 ");
-$p->bind_param("i", $artist_id);
-$p->execute();
-$produkti = $p->get_result()->fetch_all(MYSQLI_ASSOC);
 $p->bind_param("i", $artist_id);
 $p->execute();
 $produkti = $p->get_result()->fetch_all(MYSQLI_ASSOC);
