@@ -48,7 +48,7 @@ if(!isset($_SESSION['user_id'])){
     </style>
     <script src="https://js.stripe.com/v3/"></script>
     <script>
-        const STRIPE_PUBLISHABLE_KEY = "<?= getenv('STRIPE_PUBLISHABLE_KEY') ?>";
+        const STRIPE_PUBLISHABLE_KEY = "STRIPE_PUBLISHABLE_KEY";
     </script>
 </head>
 <body>

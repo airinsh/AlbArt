@@ -4,7 +4,7 @@ header("Content-Type: application/json");
 
 require_once __DIR__ . '/../vendor/autoload.php';
 $stripeSecret = getEnv('STRIPE_SECRET_KEY');
-\Stripe\Stripe::setApiKey("$stripeSecret"); // 🔴 Vendos Secret Key këtu
+\Stripe\Stripe::setApiKey("STRIPE_SECRET_KEY"); // 🔴 Vendos Secret Key këtu
 
 if(!isset($_SESSION['user_id'])){
     echo json_encode(["error" => "Jo i loguar"]);
@@ -87,3 +87,21 @@ $conn->query("
 $conn->query("DELETE FROM Artikull_Cart WHERE Klient_ID = $klientId");
 
 echo json_encode(["success" => true]);
+
+// Pasi pagesa u krye
+$stmt = $conn->prepare("
+    INSERT INTO stripe_logs 
+    (user_id, payment_intent_id, status, amount, currency, data, error_message)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+");
+$userId = $_SESSION['user_id'];
+$paymentIntentId = $paymentIntent->id;
+$status = $paymentIntent->status;
+$amount = $total; // nga totali i shportes
+$currency = $paymentIntent->currency;
+$data = json_encode($paymentIntent); // ruaj të gjithë objektin Stripe
+$error = $paymentIntent->last_payment_error->message ?? null;
+
+$stmt->bind_param("issdsss", $userId, $paymentIntentId, $status, $amount, $currency, $data, $error);
+$stmt->execute();
+

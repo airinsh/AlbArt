@@ -12,3 +12,6 @@ Thumbs.db
 # IDE files (p.sh PhpStorm, VSCode)
 .idea/
 .vscode/
+
+# environment variables
+.env

@@ -37,7 +37,7 @@ function loadCheckout() {
 }
 
 // ---------------- STRIPE SETUP ----------------
-const stripe = Stripe("STRIPE_PUBLISHABLE_KEY"); // 🔴 Vendos Publishable Key këtu
+const stripe = Stripe(STRIPE_PUBLISHABLE_KEY); // 🔴 Vendos Publishable Key këtu
 const elements = stripe.elements();
 const cardElement = elements.create("card", { hidePostalCode: true });
 cardElement.mount("#card-element");

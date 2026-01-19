@@ -4,7 +4,7 @@ header("Content-Type: application/json");
 
 require_once __DIR__ . '/../vendor/autoload.php';
 $stripeSecret = getEnv('STRIPE_SECRET_KEY');
-\Stripe\Stripe::setApiKey("$stripeSecret"); // 🔴 Vendos Secret Key këtu
+\Stripe\Stripe::setApiKey("STRIPE_SECRET_KEY"); // 🔴 Vendos Secret Key këtu
 
 if(!isset($_SESSION['user_id'])){
     echo json_encode(["error" => "Jo i loguar"]);
