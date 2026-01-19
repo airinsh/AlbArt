@@ -23,6 +23,7 @@ require_once "auth.php";
 
         <div class="toolbar-item cart">Cart</div>
         <div class="toolbar-item profile" id="profileBtn">Profile</div>
+        <div class="toolbar-item logout" id="logoutBtn">Log Out</div>
     </div>
 </header>
 
@@ -207,6 +208,11 @@ require_once "auth.php";
             })
             .catch(err => console.error("Gabim fetch user type:", err));
     });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+        window.location.href = "../php/logout.php";
+    });
+
 </script>
 
 </body>

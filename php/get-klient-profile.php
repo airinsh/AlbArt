@@ -34,19 +34,25 @@ $klient = $res->fetch_assoc();
 
 /* ================= BLERJET ================= */
 $b = $conn->prepare("
-    SELECT p.Emri, p.Foto_Produktit, p.Cmimi
+    SELECT p.Emri, p.Cmimi,
+           u.name AS artist_name, u.surname AS artist_surname
     FROM Artikull_Cart ac
     JOIN Produkti p ON ac.Produkt_ID = p.Produkt_ID
+    JOIN Artisti a ON p.Artist_ID = a.Artist_ID
+    JOIN Users u ON a.User_ID = u.id
     WHERE ac.Klient_ID = ?
 ");
 $b->bind_param("i", $klient_id);
 $b->execute();
 $blerjet = $b->get_result()->fetch_all(MYSQLI_ASSOC);
 
+
 /* ================= REVIEWS ================= */
 $r = $conn->prepare("
-    SELECT r.Vleresimi, r.Koment
+    SELECT r.Vleresimi, r.Koment, u.name AS artist_name, u.surname AS artist_surname
     FROM Review r
+    JOIN Artisti a ON r.Artist_ID = a.Artist_ID
+    JOIN Users u ON a.User_ID = u.id
     WHERE r.Klient_ID = ?
 ");
 $r->bind_param("i", $klient_id);

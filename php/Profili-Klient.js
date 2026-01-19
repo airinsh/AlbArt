@@ -1,52 +1,47 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     fetch("../php/get-klient-profile.php")
         .then(res => res.json())
         .then(data => {
-            console.log(data); // ⬅️ për debug nëse prap nuk shfaqet
-            if (data.status !== "success") {
+            if(data.status !== "success"){
                 alert(data.message);
                 return;
             }
 
             const k = data.klient;
+            document.getElementById("klient-name").innerText = k.name + " " + k.surname;
 
-            document.getElementById("klient-name").innerText =
-                k.name + " " + k.surname;
-
-            document.getElementById("klient-email").innerText =
-                "Email: " + k.email;
-
-            /* ================= BLERJET ================= */
-            const blerjetDiv = document.getElementById("blerjet");
-            blerjetDiv.innerHTML = "<h3>Blerjet e mia</h3>";
-
-            if (data.blerjet.length) {
+            // BLERJET
+            const ordersList = document.getElementById("orders-list");
+            ordersList.innerHTML = "";
+            if(data.blerjet.length > 0){
                 data.blerjet.forEach(b => {
-                    blerjetDiv.innerHTML += `
-                        <div style="margin-bottom:15px">
-                            <img src="../${b.Foto_Produktit}" width="120">
-                            <p><strong>${b.Emri}</strong></p>
-                            <p>${parseFloat(b.Cmimi).toFixed(2)} €</p>
-                        </div>
-                    `;
+                    ordersList.innerHTML += `
+    <li>
+        <strong>${b.Emri}</strong><br>
+        ${parseFloat(b.Cmimi).toFixed(2)} €<br>
+        <em>(Artist: ${b.artist_name} ${b.artist_surname})</em>
+    </li>
+`;
+
                 });
             } else {
-                blerjetDiv.innerHTML += `<p class="placeholder">Nuk ka ende blerje.</p>`;
+                ordersList.innerHTML = `<li class="placeholder">Nuk ka ende blerje.</li>`;
             }
 
-            /* ================= REVIEWS ================= */
-            const reviewsDiv = document.getElementById("reviews");
-            reviewsDiv.innerHTML = "<h3>Vlerësimet e mia</h3>";
-
-            if (data.reviews.length) {
+            // REVIEWS
+            const reviewsList = document.getElementById("reviews-list");
+            reviewsList.innerHTML = "";
+            if(data.reviews.length > 0){
                 data.reviews.forEach(r => {
-                    reviewsDiv.innerHTML += `
-                        <p><strong>${r.Vleresimi}★</strong> – ${r.Koment}</p>
-                    `;
+                    reviewsList.innerHTML += `
+                    <li>
+                        <strong>${r.Vleresimi}★</strong> – ${r.Koment || "(pa koment)"} 
+                        <em>(Artist: ${r.artist_name} ${r.artist_surname})</em>
+                    </li>
+                `;
                 });
             } else {
-                reviewsDiv.innerHTML += `<p class="placeholder">Nuk ka ende vlerësime.</p>`;
+                reviewsList.innerHTML = `<li class="placeholder">Nuk ka ende vlerësime.</li>`;
             }
 
         })
