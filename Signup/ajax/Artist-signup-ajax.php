@@ -8,7 +8,6 @@ require __DIR__ . '/../../PHPMailer/Exception.php';
 require __DIR__ . '/../../PHPMailer/PHPMailer.php';
 require __DIR__ . '/../../PHPMailer/SMTP.php';
 
-/* ---------------- EMAIL VERIFICATION FUNCTION ---------------- */
 function sendVerificationEmail($email, $name, $code) {
     $mail = new PHPMailer(true);
 
@@ -38,7 +37,7 @@ function sendVerificationEmail($email, $name, $code) {
     }
 }
 
-/* ---------------- MARRJA E TË DHËNAVE ---------------- */
+/*marrja e te dhenave*/
 $name = isset($_POST["name"]) ? trim($_POST["name"]) : "";
 $surname = isset($_POST["surname"]) ? trim($_POST["surname"]) : "";
 $email = isset($_POST["email"]) ? trim($_POST["email"]) : "";
@@ -46,7 +45,7 @@ $password = $_POST["password"] ?? "";
 $description = isset($_POST["description"]) ? trim($_POST["description"]) : "";
 $certification = $_FILES["certification"] ?? null;
 
-/* ---------------- VALIDIME ---------------- */
+/*validime*/
 if ($name === "" || $surname === "" || $email === "" || $password === "" || $description === "" || !$certification) {
     echo json_encode([
         "status" => "error",
@@ -55,7 +54,6 @@ if ($name === "" || $surname === "" || $email === "" || $password === "" || $des
     exit;
 }
 
-/* ---------------- DB CONNECTION ---------------- */
 $conn = new mysqli("localhost", "root", "", "albart");
 if ($conn->connect_error) {
     echo json_encode([
@@ -65,7 +63,7 @@ if ($conn->connect_error) {
     exit;
 }
 
-/* ---------------- EMAIL UNIK ---------------- */
+/*kontroll email i regjistruar me pare*/
 $check = $conn->prepare("SELECT id FROM Users WHERE email = ? LIMIT 1");
 $check->bind_param("s", $email);
 $check->execute();
@@ -83,7 +81,7 @@ if ($check->num_rows > 0) {
 }
 $check->close();
 
-/* ---------------- INSERT USERS ---------------- */
+/*regjistrim user ne db */
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 $stmt = $conn->prepare(
@@ -104,7 +102,6 @@ if (!$stmt->execute()) {
 $user_id = $stmt->insert_id;
 $stmt->close();
 
-/* ---------------- UPLOAD CERTIFICATION ---------------- */
 $certPath = null;
 
 if ($certification["error"] === 0) {
@@ -119,7 +116,7 @@ if ($certification["error"] === 0) {
     move_uploaded_file($certification["tmp_name"], "../../" . $certPath);
 }
 
-/* ---------------- INSERT ARTIST ---------------- */
+/*regjistron artist ne db*/
 $stmt2 = $conn->prepare(
     "INSERT INTO Artisti (Description, Certifikime, User_ID, Vleresimi_Total)
      VALUES (?, ?, ?, 0)"
@@ -128,7 +125,6 @@ $stmt2->bind_param("ssi", $description, $certPath, $user_id);
 $stmt2->execute();
 $stmt2->close();
 
-/* ---------------- VERIFICATION CODE ---------------- */
 $verification_code = rand(100000, 999999);
 
 $stmt_verify = $conn->prepare(
@@ -138,10 +134,8 @@ $stmt_verify->bind_param("si", $verification_code, $user_id);
 $stmt_verify->execute();
 $stmt_verify->close();
 
-/* ---------------- SEND EMAIL ---------------- */
 sendVerificationEmail($email, $name, $verification_code);
 
-/* ---------------- RESPONSE ---------------- */
 echo json_encode([
     "status" => "verify",
     "message" => "Regjistrimi u krye me sukses. Kontrollo email-in për kodin e verifikimit.",
