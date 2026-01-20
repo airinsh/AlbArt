@@ -12,7 +12,7 @@ document.getElementById("artistSignupForm").addEventListener("submit", function 
 
     message.innerHTML = "";
 
-    // -------- VALIDIME
+    // validimet
     if (!name.value.trim()) {
         message.innerText = "Fusha 'Emri' është e detyrueshme.";
         message.style.color = "red";
@@ -49,7 +49,7 @@ document.getElementById("artistSignupForm").addEventListener("submit", function 
         return;
     }
 
-    // -------- VALIDIM PASSWORD
+    // validim passwordi
     const pw = password.value;
     const errors = [];
 
@@ -66,7 +66,6 @@ document.getElementById("artistSignupForm").addEventListener("submit", function 
         return;
     }
 
-    // -------- FORM DATA
     const formData = new FormData();
     formData.append("name", name.value.trim());
     formData.append("surname", surname.value.trim());
@@ -75,7 +74,7 @@ document.getElementById("artistSignupForm").addEventListener("submit", function 
     formData.append("description", description.value.trim());
     formData.append("certification", certification.files[0]);
 
-    // -------- AJAX
+    // lidhje me ajax
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "../Signup/ajax/Artist-signup-ajax.php", true);
 
@@ -129,7 +128,6 @@ document.getElementById("artistSignupForm").addEventListener("submit", function 
 
     xhr.send(formData);
 });
-
 
 function openTerms() {
     const modal = document.getElementById("termsModal");

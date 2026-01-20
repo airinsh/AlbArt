@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* pa scroll te faqja */
+    overflow: hidden;
 }
 
 body {
@@ -10,26 +10,24 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* background fiks */
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 20px 0;
 }
 
-/* FORM CONTAINER */
 .signup-section {
     width: 400px;
-    max-height: 90vh;       /* nuk e kalon dritaren */
+    max-height: 90vh;
     padding: 20px;
     background-color: rgba(255,255,255,0.85);
     border-radius: 10px;
-    overflow-y: auto;       /* scroll VERTIKAL */
-    overflow-x: hidden;     /* asnjë scroll horizontal */
+    overflow-y: auto;
+    overflow-x: hidden;
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
-/* HEADINGS */
 h1 {
     font-size: 50px;
     font-family: 'Brush Script MT', cursive;
@@ -39,7 +37,6 @@ h1 {
     text-shadow: 2px 2px 5px rgba(255,255,255,0.5);
 }
 
-/* FORM ROWS */
 .form-row {
     display: flex;
     align-items: center;
@@ -68,7 +65,6 @@ h1 {
     resize: none;
 }
 
-/* CHECKBOX */
 .checkbox-row {
     justify-content: flex-start;
     margin-bottom: 15px;
@@ -83,7 +79,6 @@ h1 {
     color: blue;
 }
 
-/* BUTTON */
 .btn {
     display: block;
     width: 100%;
@@ -103,7 +98,7 @@ h1 {
     background-color: rgba(0,0,0,0.9);
 }
 
-/* ERROR MESSAGES */
+/*mszh error*/
 .text-danger, #message {
     display: block;
     color: #dc3545;
@@ -112,15 +107,12 @@ h1 {
 }
 
 
-
 .terms-modal {
     display: none;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     z-index: 9999;
-
-    /* popup-i ka scroll-in e vet */
     overflow-y: auto;
 }
 
@@ -135,7 +127,7 @@ h1 {
 
 .terms-content {
     max-height: 300px;
-    overflow-y: auto; /* scroll vetëm tek teksti */
+    overflow-y: auto;
     margin: 15px 0;
     font-size: 14px;
     line-height: 1.6;
