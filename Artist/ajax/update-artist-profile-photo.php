@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 $artist_id = getArtistID($conn); // Merr ID nga session
 
 // Folder ku do ruhen fotot
-$uploadDir = "../uploads/";
+$uploadDir = "../../uploads/";
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0755, true);
 }

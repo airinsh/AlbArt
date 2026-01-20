@@ -55,7 +55,7 @@ $product['Foto_Produktit'] = "../uploads/".$product['Foto_Produktit'];
 // ==================== FOTO ARTIST ====================
 // Merr vetëm emrin e skedarit nga DB për të mos bërë path gabim
 $artistFile = basename($product['Artist_Fotografi']); // p.sh. "profile_28_1768704712.jpeg"
-$artistPathServer = __DIR__ . "/../uploads/" . $artistFile; // path absolut në server
+$artistPathServer = __DIR__ . "/../../uploads/" . $artistFile; // path absolut në server
 $projectRoot = "/AlbArt/"; // path për browser
 
 if(!empty($artistFile) && file_exists($artistPathServer)){
