@@ -88,7 +88,7 @@ $kategoriId = intval($_GET['kategori']);
                 `;
 
                 div.querySelector(".details-btn").onclick = () => {
-                    window.location.href = `../Produkt/DetajeProdukti.php`;
+                    window.location.href = `../Produkt/DetajeProdukti.php?id=${p.Produkt_ID}`;
                 };
 
                 container.appendChild(div);

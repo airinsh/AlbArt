@@ -175,7 +175,7 @@ require_once "../includes/auth.php";
         if (e.key === "Enter") {
         const query = searchInput.value.trim();
         if (query !== "") {
-        window.location.href = `../HomePage/search.php`;
+            window.location.href = `../HomePage/search.php?q=${encodeURIComponent(query)}`;
     }
     }
     });
