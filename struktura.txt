@@ -1,0 +1,1584 @@
+Folder PATH listing
+Volume serial number is 581E-5CAB
+C:.
+|   .env
+|   .gitignore
+|   composer.json
+|   composer.lock
+|   faqjakryesore.css
+|   faqjakryesore.php
+|   struktura.txt
+|   test-mail.php
+|   
++---.idea
+|   |   .gitignore
+|   |   ALbArt Mockups.iml
+|   |   AlbArt.iml
+|   |   dataSources.local.xml
+|   |   dataSources.xml
+|   |   deployment.xml
+|   |   laravel-idea.xml
+|   |   modules.xml
+|   |   php.xml
+|   |   phpspec.xml
+|   |   vcs.xml
+|   |   webServers.xml
+|   |   workspace.xml
+|   |   
+|   \---dataSources
+|       |   bbf41152-37d1-4d6a-8443-f6320563b8b0.xml
+|       |   
+|       \---bbf41152-37d1-4d6a-8443-f6320563b8b0
+|           \---storage_v2
+|               \---_src_
+|                   \---schema
+|                           information_schema.FNRwLQ.meta
+|                           mysql.osA4Bg.meta
+|                           performance_schema.kIw0nw.meta
+|                           
++---Admin
+|   |   admin.css
+|   |   admin.html
+|   |   admin.js
+|   |   
+|   \---ajax
+|           get-user-type.php
+|           userActions.php
+|           
++---Artist
+|   |   Profili-Artistit.css
+|   |   Profili-Artistit.js
+|   |   Profili-Artistit.php
+|   |   
+|   \---ajax
+|           get-artist-photo.php
+|           get-artist-profile.php
+|           update-artist-profile-photo.php
+|           update-artist-profile.php
+|           
++---Blerje
+|   |   Checkout.js
+|   |   Checkout.php
+|   |   
+|   \---ajax
+|           confirm-checkout.php
+|           create-payment-intent.php
+|           
++---HomePage
+|       HomePage.css
+|       HomePage.js
+|       HomePage.php
+|       Produktet-Kategorite.php
+|       ProduktetSipasKategorise.php
+|       search.css
+|       search.php
+|       
++---img
+|       artist.jpeg
+|       Artizanale.jpeg
+|       DhurataTePersonalizuara.jpeg
+|       faqjakryesore.jpeg
+|       Log In.jpeg
+|       NatyreDhePeisazhe.jpeg
+|       Piktura.jpeg
+|       Pocari.jpeg
+|       Portrete.jpeg
+|       Sign Up.jpeg
+|       Skulptura.jpeg
+|       SkulptureAbstrakte.jpeg
+|       SkulptureKlasike.jpeg
+|       
++---includes
+|       auth.php
+|       connect.php
+|       
++---Klient
+|   |   Profili-Klient.css
+|   |   Profili-Klient.js
+|   |   Profili-Klient.php
+|   |   
+|   \---ajax
+|           get-klient-profile.php
+|           
++---Login
+|   |   forgot-password.php
+|   |   login.css
+|   |   login.js
+|   |   login.php
+|   |   logout.php
+|   |   reset-password.php
+|   |   verify-reset.php
+|   |   
+|   \---ajax
+|           forgot-password.ajax.php
+|           login-ajax.php
+|           reset-password.ajax.php
+|           verify-reset.ajax.php
+|           
++---PHPMailer
+|       DSNConfigurator.php
+|       Exception.php
+|       OAuth.php
+|       OAuthTokenProvider.php
+|       PHPMailer.php
+|       POP3.php
+|       SMTP.php
+|       
++---Produkt
+|   |   ArtistiShtonProdukt.php
+|   |   DetajeProdukti.js
+|   |   DetajeProdukti.php
+|   |   
+|   \---ajax
+|           add-product.php
+|           get-product-details.php
+|           get-single-product-details.php
+|           
++---Review
+|   |   KlientiJepReview.css
+|   |   KlientiJepReview.js
+|   |   KlientiJepReview.php
+|   |   KurKlikonArtist.js
+|   |   KurKlikonArtist.php
+|   |   
+|   \---ajax
+|           get-single-artist-details.php
+|           KlientiJepReview-ajax.php
+|           
++---ShoppingCart
+|   |   ShoppingCart.js
+|   |   ShoppingCart.php
+|   |   
+|   \---ajax
+|           add-to-cart.php
+|           get-details-for-shopping-cart.php
+|           remove-from-cart.php
+|           
++---Signup
+|   |   artist-signup.css
+|   |   Artist-signup.js
+|   |   artist-signup.php
+|   |   klient-signup.css
+|   |   Klient-signup.js
+|   |   klient-signup.php
+|   |   signup.css
+|   |   signup.php
+|   |   verify.css
+|   |   verify.php
+|   |   
+|   \---ajax
+|           Artist-signup-ajax.php
+|           klient-signup-ajax.php
+|           verify.ajax.php
+|           
++---uploads
+|       certifikime_aa_aa.pdf
+|       certifikime_Airin_Shestani.pdf
+|       certifikime_Ana_Ana.pdf
+|       certifikime_Ana_P.pdf
+|       certifikime_a_agalliu.pdf
+|       certifikime_A_S.pdf
+|       certifikime_ehejgd_hceg.pdf
+|       certifikime_Elvira_Marsela.pdf
+|       certifikime_Eni.pdf
+|       certifikime_Eni_Marsela.pdf
+|       certifikime_ezn.pdf
+|       certifikime_hgxs_djzh.pdf
+|       certifikime_jd.pdf
+|       certifikime_jdjqd_kdzaze.pdf
+|       certifikime_K_P.pdf
+|       certifikime_K_S.pdf
+|       certifikime_Zana_P.pdf
+|       certifikime_Zana_Pajaj.pdf
+|       cert_11.pdf
+|       cert_12.pdf
+|       product_1_1768748295.png
+|       product_1_1768748816.png
+|       product_1_1768749093.png
+|       product_26_1768669001.jpeg
+|       product_26_1768791611.pdf
+|       product_26_1768791660.jpg
+|       product_26_1768792380.jpeg
+|       product_27_1768670093.jpeg
+|       product_28_1768670698.jpeg
+|       product_28_1768670705.jpeg
+|       product_28_1768670801.jpg
+|       product_28_1768704221.jpg
+|       product_31_1768697305.jpeg
+|       product_32_1768704993.jpeg
+|       product_3_1768626061.png
+|       product_3_1768627765.png
+|       product_3_1768669100.png
+|       product_3_1768669653.png
+|       product_3_1768669714.png
+|       product_3_1768670358.png
+|       product_7_1768749948.pdf
+|       product_7_1768750306.pdf
+|       product_7_1768753974.jpg
+|       product_7_1768754701.jpg
+|       product_7_1768757577.jpg
+|       product_7_1768757778.webp
+|       profile_26_1768668975.jpg
+|       profile_26_1768668978.jpg
+|       profile_26_1768758807.jpg
+|       profile_26_1768758810.jpg
+|       profile_26_1768792611.jpg
+|       profile_26_1768792625.jpg
+|       profile_26_1768792633.jpg
+|       profile_28_1768704270.jpg
+|       profile_28_1768704273.jpg
+|       profile_28_1768704708.jpeg
+|       profile_28_1768704712.jpeg
+|       profile_2_1768667798.jpg
+|       profile_30_1768610121.jpg
+|       profile_30_1768695450.webp
+|       profile_30_1768695453.webp
+|       profile_31_1768688204.jpg
+|       profile_31_1768688209.jpg
+|       profile_32_1768704946.jpg
+|       profile_32_1768704951.jpeg
+|       profile_32_1768705075.jpg
+|       profile_32_1768705082.jpeg
+|       profile_35_1768592741.jpg
+|       profile_35_1768592785.jpg
+|       profile_35_1768593491.jpg
+|       profile_35_1768758733.jpg
+|       profile_35_1768758736.jpg
+|       profile_35_1768758762.jpeg
+|       profile_35_1768758765.jpg
+|       profile_35_1768758858.jpg
+|       profile_35_1768758867.jpg
+|       profile_36_1768759023.jpg
+|       profile_36_1768759028.jpg
+|       profile_37_1768759752.jpg
+|       profile_3_1768623717.png
+|       profile_3_1768624891.jpeg
+|       profile_3_1768624967.png
+|       profile_3_1768625031.png
+|       profile_3_1768625063.png
+|       profile_3_1768707947.png
+|       profile_3_1768708788.png
+|       profile_6_1768617916.png
+|       profile_7_1768749860.jpg
+|       
+\---vendor
+    |   autoload.php
+    |   
+    +---composer
+    |       autoload_classmap.php
+    |       autoload_files.php
+    |       autoload_namespaces.php
+    |       autoload_psr4.php
+    |       autoload_real.php
+    |       autoload_static.php
+    |       ClassLoader.php
+    |       installed.json
+    |       installed.php
+    |       InstalledVersions.php
+    |       LICENSE
+    |       platform_check.php
+    |       
+    +---graham-campbell
+    |   \---result-type
+    |       |   .gitattributes
+    |       |   .gitignore
+    |       |   CHANGELOG.md
+    |       |   composer.json
+    |       |   LICENSE
+    |       |   phpunit.xml.dist
+    |       |   README.md
+    |       |   
+    |       +---.github
+    |       |   |   CODE_OF_CONDUCT.md
+    |       |   |   CONTRIBUTING.md
+    |       |   |   FUNDING.yml
+    |       |   |   SECURITY.md
+    |       |   |   
+    |       |   \---workflows
+    |       |           stale.yml
+    |       |           tests.yml
+    |       |           
+    |       +---src
+    |       |       Error.php
+    |       |       Result.php
+    |       |       Success.php
+    |       |       
+    |       \---tests
+    |               ResultTest.php
+    |               
+    +---phpmailer
+    |   \---phpmailer
+    |       |   .codecov.yml
+    |       |   .editorconfig
+    |       |   .gitattributes
+    |       |   .gitignore
+    |       |   changelog.md
+    |       |   COMMITMENT
+    |       |   composer.json
+    |       |   get_oauth_token.php
+    |       |   LICENSE
+    |       |   phpcs.xml.dist
+    |       |   phpdoc.dist.xml
+    |       |   phpunit.xml.dist
+    |       |   README.md
+    |       |   SECURITY.md
+    |       |   SMTPUTF8.md
+    |       |   UPGRADING.md
+    |       |   VERSION
+    |       |   
+    |       +---.github
+    |       |   |   dependabot.yml
+    |       |   |   FUNDING.yml
+    |       |   |   
+    |       |   +---actions
+    |       |   |   \---build-docs
+    |       |   |           Dockerfile
+    |       |   |           entrypoint.sh
+    |       |   |           
+    |       |   +---ISSUE_TEMPLATE
+    |       |   |       bug_report.md
+    |       |   |       
+    |       |   \---workflows
+    |       |           docs.yaml
+    |       |           scorecards.yml
+    |       |           tests.yml
+    |       |           
+    |       +---.phan
+    |       |       config.php
+    |       |       
+    |       +---docs
+    |       |       README.md
+    |       |       
+    |       +---examples
+    |       |   |   azure_xoauth2.phps
+    |       |   |   callback.phps
+    |       |   |   contactform-ajax.phps
+    |       |   |   contactform.phps
+    |       |   |   contents.html
+    |       |   |   contentsutf8.html
+    |       |   |   DKIM_gen_keys.phps
+    |       |   |   DKIM_sign.phps
+    |       |   |   exceptions.phps
+    |       |   |   extending.phps
+    |       |   |   gmail.phps
+    |       |   |   gmail_xoauth.phps
+    |       |   |   mail.phps
+    |       |   |   mailing_list.phps
+    |       |   |   pop_before_smtp.phps
+    |       |   |   README.md
+    |       |   |   sendmail.phps
+    |       |   |   sendoauth2.phps
+    |       |   |   send_file_upload.phps
+    |       |   |   send_multiple_file_upload.phps
+    |       |   |   simple_contact_form.phps
+    |       |   |   smime_signed_mail.phps
+    |       |   |   smtp.phps
+    |       |   |   smtp_check.phps
+    |       |   |   smtp_low_memory.phps
+    |       |   |   smtp_no_auth.phps
+    |       |   |   ssl_options.phps
+    |       |   |   
+    |       |   \---images
+    |       |           PHPMailer card logo.afdesign
+    |       |           PHPMailer card logo.png
+    |       |           PHPMailer card logo.svg
+    |       |           phpmailer.png
+    |       |           phpmailer_mini.png
+    |       |           
+    |       +---language
+    |       |       phpmailer.lang-af.php
+    |       |       phpmailer.lang-ar.php
+    |       |       phpmailer.lang-as.php
+    |       |       phpmailer.lang-az.php
+    |       |       phpmailer.lang-ba.php
+    |       |       phpmailer.lang-be.php
+    |       |       phpmailer.lang-bg.php
+    |       |       phpmailer.lang-bn.php
+    |       |       phpmailer.lang-ca.php
+    |       |       phpmailer.lang-cs.php
+    |       |       phpmailer.lang-da.php
+    |       |       phpmailer.lang-de.php
+    |       |       phpmailer.lang-el.php
+    |       |       phpmailer.lang-eo.php
+    |       |       phpmailer.lang-es.php
+    |       |       phpmailer.lang-et.php
+    |       |       phpmailer.lang-fa.php
+    |       |       phpmailer.lang-fi.php
+    |       |       phpmailer.lang-fo.php
+    |       |       phpmailer.lang-fr.php
+    |       |       phpmailer.lang-gl.php
+    |       |       phpmailer.lang-he.php
+    |       |       phpmailer.lang-hi.php
+    |       |       phpmailer.lang-hr.php
+    |       |       phpmailer.lang-hu.php
+    |       |       phpmailer.lang-hy.php
+    |       |       phpmailer.lang-id.php
+    |       |       phpmailer.lang-it.php
+    |       |       phpmailer.lang-ja.php
+    |       |       phpmailer.lang-ka.php
+    |       |       phpmailer.lang-ko.php
+    |       |       phpmailer.lang-ku.php
+    |       |       phpmailer.lang-lt.php
+    |       |       phpmailer.lang-lv.php
+    |       |       phpmailer.lang-mg.php
+    |       |       phpmailer.lang-mn.php
+    |       |       phpmailer.lang-ms.php
+    |       |       phpmailer.lang-nb.php
+    |       |       phpmailer.lang-nl.php
+    |       |       phpmailer.lang-pl.php
+    |       |       phpmailer.lang-pt.php
+    |       |       phpmailer.lang-pt_br.php
+    |       |       phpmailer.lang-ro.php
+    |       |       phpmailer.lang-ru.php
+    |       |       phpmailer.lang-si.php
+    |       |       phpmailer.lang-sk.php
+    |       |       phpmailer.lang-sl.php
+    |       |       phpmailer.lang-sr.php
+    |       |       phpmailer.lang-sr_latn.php
+    |       |       phpmailer.lang-sv.php
+    |       |       phpmailer.lang-tl.php
+    |       |       phpmailer.lang-tr.php
+    |       |       phpmailer.lang-uk.php
+    |       |       phpmailer.lang-ur.php
+    |       |       phpmailer.lang-vi.php
+    |       |       phpmailer.lang-zh.php
+    |       |       phpmailer.lang-zh_cn.php
+    |       |       
+    |       +---src
+    |       |       DSNConfigurator.php
+    |       |       Exception.php
+    |       |       OAuth.php
+    |       |       OAuthTokenProvider.php
+    |       |       PHPMailer.php
+    |       |       POP3.php
+    |       |       SMTP.php
+    |       |       
+    |       \---test
+    |           |   DebugLogTestListener.php
+    |           |   fakepopserver.sh
+    |           |   fakesendmail.sh
+    |           |   PreSendTestCase.php
+    |           |   runfakepopserver.sh
+    |           |   SendTestCase.php
+    |           |   testbootstrap-dist.php
+    |           |   TestCase.php
+    |           |   validators.php
+    |           |   
+    |           +---Fixtures
+    |           |   +---FileIsAccessibleTest
+    |           |   |       accessible.txt
+    |           |   |       inaccessible.txt
+    |           |   |       
+    |           |   +---HasLineLongerThanMaxTest
+    |           |   |       cert.pem
+    |           |   |       key.pem
+    |           |   |       
+    |           |   \---LocalizationTest
+    |           |           phpmailer.lang-fr.php
+    |           |           phpmailer.lang-nl.php
+    |           |           phpmailer.lang-xa_scri_cc.php
+    |           |           phpmailer.lang-xb_scri.php
+    |           |           phpmailer.lang-xc_cc.php
+    |           |           phpmailer.lang-xd_cc.php
+    |           |           phpmailer.lang-xd_scri.php
+    |           |           phpmailer.lang-xe.php
+    |           |           phpmailer.lang-xx.php
+    |           |           phpmailer.lang-yy.php
+    |           |           phpmailer.lang-yz.php
+    |           |           phpmailer.lang-zz.php
+    |           |           
+    |           +---Language
+    |           |       TranslationCompletenessTest.php
+    |           |       
+    |           +---OAuth
+    |           |       OAuthTest.php
+    |           |       
+    |           +---PHPMailer
+    |           |       AddEmbeddedImageTest.php
+    |           |       AddrFormatTest.php
+    |           |       AddStringAttachmentTest.php
+    |           |       AddStringEmbeddedImageTest.php
+    |           |       AuthCRAMMD5Test.php
+    |           |       CustomHeaderTest.php
+    |           |       DKIMTest.php
+    |           |       DKIMWithoutExceptionsTest.php
+    |           |       DSNConfiguratorTest.php
+    |           |       EncodeQTest.php
+    |           |       EncodeStringTest.php
+    |           |       FileIsAccessibleTest.php
+    |           |       FilenameToTypeTest.php
+    |           |       GenerateIdTest.php
+    |           |       GetLastMessageIDTest.php
+    |           |       HasLineLongerThanMaxTest.php
+    |           |       Html2TextTest.php
+    |           |       ICalTest.php
+    |           |       IsPermittedPathTest.php
+    |           |       IsValidHostTest.php
+    |           |       LocalizationTest.php
+    |           |       MailTransportTest.php
+    |           |       MbPathinfoTest.php
+    |           |       MimeTypesTest.php
+    |           |       NormalizeBreaksTest.php
+    |           |       ParseAddressesTest.php
+    |           |       PHPMailerTest.php
+    |           |       PunyencodeAddressTest.php
+    |           |       QuotedStringTest.php
+    |           |       ReplyToGetSetClearTest.php
+    |           |       SetErrorTest.php
+    |           |       SetFromTest.php
+    |           |       SetTest.php
+    |           |       SetWordWrapTest.php
+    |           |       Utf8CharBoundaryTest.php
+    |           |       ValidateAddressCustomValidatorTest.php
+    |           |       ValidateAddressTest.php
+    |           |       WrapTextTest.php
+    |           |       XMailerTest.php
+    |           |       
+    |           +---POP3
+    |           |       PopBeforeSmtpTest.php
+    |           |       
+    |           \---Security
+    |                   DenialOfServiceVectorsTest.php
+    |                   
+    +---phpoption
+    |   \---phpoption
+    |       |   .gitattributes
+    |       |   .gitignore
+    |       |   composer.json
+    |       |   LICENSE
+    |       |   Makefile
+    |       |   phpstan-baseline.neon
+    |       |   phpstan.neon.dist
+    |       |   phpunit.xml.dist
+    |       |   README.md
+    |       |   
+    |       +---.github
+    |       |   |   CODE_OF_CONDUCT.md
+    |       |   |   CONTRIBUTING.md
+    |       |   |   FUNDING.yml
+    |       |   |   SECURITY.md
+    |       |   |   
+    |       |   \---workflows
+    |       |           static.yml
+    |       |           tests.yml
+    |       |           
+    |       +---src
+    |       |   \---PhpOption
+    |       |           LazyOption.php
+    |       |           None.php
+    |       |           Option.php
+    |       |           Some.php
+    |       |           
+    |       +---tests
+    |       |   |   bootstrap.php
+    |       |   |   
+    |       |   \---PhpOption
+    |       |       \---Tests
+    |       |               EnsureTest.php
+    |       |               LazyOptionTest.php
+    |       |               NoneTest.php
+    |       |               OptionTest.php
+    |       |               SomeTest.php
+    |       |               
+    |       \---vendor-bin
+    |           \---phpstan
+    |                   composer.json
+    |                   
+    +---stripe
+    |   \---stripe-php
+    |       |   .editorconfig
+    |       |   .gitattributes
+    |       |   .gitignore
+    |       |   .php-cs-fixer.php
+    |       |   build.php
+    |       |   CHANGELOG.md
+    |       |   CODEGEN_VERSION
+    |       |   CODE_OF_CONDUCT.md
+    |       |   composer.json
+    |       |   CONTRIBUTING.md
+    |       |   init.php
+    |       |   justfile
+    |       |   LICENSE
+    |       |   Makefile
+    |       |   OPENAPI_VERSION
+    |       |   phpdoc.dist.xml
+    |       |   phpstan-baseline.neon
+    |       |   phpstan.neon.dist
+    |       |   phpunit.no_autoload.xml
+    |       |   phpunit.xml
+    |       |   README.md
+    |       |   update_certs.php
+    |       |   VERSION
+    |       |   
+    |       +---.github
+    |       |   |   CODEOWNERS
+    |       |   |   pull_request_template.md
+    |       |   |   
+    |       |   +---ISSUE_TEMPLATE
+    |       |   |       bug_report.yml
+    |       |   |       config.yml
+    |       |   |       feature_request.yml
+    |       |   |       
+    |       |   \---workflows
+    |       |           ci.yml
+    |       |           rules.yml
+    |       |           
+    |       +---.vscode
+    |       |       extensions.json
+    |       |       settings.json
+    |       |       
+    |       +---data
+    |       |       ca-certificates.crt
+    |       |       
+    |       +---examples
+    |       |       EventNotificationWebhookHandler.php
+    |       |       ExampleTemplate.php
+    |       |       MeterEventStream.php
+    |       |       oauth.php
+    |       |       README.md
+    |       |       
+    |       +---lib
+    |       |   |   Account.php
+    |       |   |   AccountLink.php
+    |       |   |   AccountSession.php
+    |       |   |   ApiRequestor.php
+    |       |   |   ApiResource.php
+    |       |   |   ApiResponse.php
+    |       |   |   ApplePayDomain.php
+    |       |   |   Application.php
+    |       |   |   ApplicationFee.php
+    |       |   |   ApplicationFeeRefund.php
+    |       |   |   Balance.php
+    |       |   |   BalanceSettings.php
+    |       |   |   BalanceTransaction.php
+    |       |   |   BankAccount.php
+    |       |   |   BaseStripeClient.php
+    |       |   |   BaseStripeClientInterface.php
+    |       |   |   Capability.php
+    |       |   |   Card.php
+    |       |   |   CashBalance.php
+    |       |   |   Charge.php
+    |       |   |   Collection.php
+    |       |   |   ConfirmationToken.php
+    |       |   |   ConnectCollectionTransfer.php
+    |       |   |   CountrySpec.php
+    |       |   |   Coupon.php
+    |       |   |   CreditNote.php
+    |       |   |   CreditNoteLineItem.php
+    |       |   |   Customer.php
+    |       |   |   CustomerBalanceTransaction.php
+    |       |   |   CustomerCashBalanceTransaction.php
+    |       |   |   CustomerSession.php
+    |       |   |   Discount.php
+    |       |   |   Dispute.php
+    |       |   |   EphemeralKey.php
+    |       |   |   ErrorObject.php
+    |       |   |   Event.php
+    |       |   |   ExchangeRate.php
+    |       |   |   File.php
+    |       |   |   FileLink.php
+    |       |   |   FundingInstructions.php
+    |       |   |   Invoice.php
+    |       |   |   InvoiceItem.php
+    |       |   |   InvoiceLineItem.php
+    |       |   |   InvoicePayment.php
+    |       |   |   InvoiceRenderingTemplate.php
+    |       |   |   LineItem.php
+    |       |   |   LoginLink.php
+    |       |   |   Mandate.php
+    |       |   |   OAuth.php
+    |       |   |   OAuthErrorObject.php
+    |       |   |   PaymentAttemptRecord.php
+    |       |   |   PaymentIntent.php
+    |       |   |   PaymentIntentAmountDetailsLineItem.php
+    |       |   |   PaymentLink.php
+    |       |   |   PaymentMethod.php
+    |       |   |   PaymentMethodConfiguration.php
+    |       |   |   PaymentMethodDomain.php
+    |       |   |   PaymentRecord.php
+    |       |   |   Payout.php
+    |       |   |   Person.php
+    |       |   |   Plan.php
+    |       |   |   Price.php
+    |       |   |   Product.php
+    |       |   |   ProductFeature.php
+    |       |   |   PromotionCode.php
+    |       |   |   Quote.php
+    |       |   |   Reason.php
+    |       |   |   RecipientTransfer.php
+    |       |   |   Refund.php
+    |       |   |   RelatedObject.php
+    |       |   |   RequestTelemetry.php
+    |       |   |   ReserveTransaction.php
+    |       |   |   Review.php
+    |       |   |   SearchResult.php
+    |       |   |   SetupAttempt.php
+    |       |   |   SetupIntent.php
+    |       |   |   ShippingRate.php
+    |       |   |   SingletonApiResource.php
+    |       |   |   Source.php
+    |       |   |   SourceMandateNotification.php
+    |       |   |   SourceTransaction.php
+    |       |   |   Stripe.php
+    |       |   |   StripeClient.php
+    |       |   |   StripeClientInterface.php
+    |       |   |   StripeContext.php
+    |       |   |   StripeObject.php
+    |       |   |   StripeStreamingClientInterface.php
+    |       |   |   Subscription.php
+    |       |   |   SubscriptionItem.php
+    |       |   |   SubscriptionSchedule.php
+    |       |   |   TaxCode.php
+    |       |   |   TaxDeductedAtSource.php
+    |       |   |   TaxId.php
+    |       |   |   TaxRate.php
+    |       |   |   Token.php
+    |       |   |   Topup.php
+    |       |   |   Transfer.php
+    |       |   |   TransferReversal.php
+    |       |   |   Webhook.php
+    |       |   |   WebhookEndpoint.php
+    |       |   |   WebhookSignature.php
+    |       |   |   
+    |       |   +---ApiOperations
+    |       |   |       All.php
+    |       |   |       Create.php
+    |       |   |       Delete.php
+    |       |   |       NestedResource.php
+    |       |   |       Request.php
+    |       |   |       Retrieve.php
+    |       |   |       SingletonRetrieve.php
+    |       |   |       Update.php
+    |       |   |       
+    |       |   +---Apps
+    |       |   |       Secret.php
+    |       |   |       
+    |       |   +---Billing
+    |       |   |       Alert.php
+    |       |   |       AlertTriggered.php
+    |       |   |       CreditBalanceSummary.php
+    |       |   |       CreditBalanceTransaction.php
+    |       |   |       CreditGrant.php
+    |       |   |       Meter.php
+    |       |   |       MeterEvent.php
+    |       |   |       MeterEventAdjustment.php
+    |       |   |       MeterEventSummary.php
+    |       |   |       
+    |       |   +---BillingPortal
+    |       |   |       Configuration.php
+    |       |   |       Session.php
+    |       |   |       
+    |       |   +---Checkout
+    |       |   |       Session.php
+    |       |   |       
+    |       |   +---Climate
+    |       |   |       Order.php
+    |       |   |       Product.php
+    |       |   |       Supplier.php
+    |       |   |       
+    |       |   +---Entitlements
+    |       |   |       ActiveEntitlement.php
+    |       |   |       ActiveEntitlementSummary.php
+    |       |   |       Feature.php
+    |       |   |       
+    |       |   +---EventData
+    |       |   |       V1BillingMeterErrorReportTriggeredEventData.php
+    |       |   |       V1BillingMeterNoMeterFoundEventData.php
+    |       |   |       V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEventData.php
+    |       |   |       V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEventData.php
+    |       |   |       V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEventData.php
+    |       |   |       V2CoreAccountLinkReturnedEventData.php
+    |       |   |       V2CoreAccountPersonCreatedEventData.php
+    |       |   |       V2CoreAccountPersonDeletedEventData.php
+    |       |   |       V2CoreAccountPersonUpdatedEventData.php
+    |       |   |       
+    |       |   +---Events
+    |       |   |       UnknownEventNotification.php
+    |       |   |       V1BillingMeterErrorReportTriggeredEvent.php
+    |       |   |       V1BillingMeterErrorReportTriggeredEventNotification.php
+    |       |   |       V1BillingMeterNoMeterFoundEvent.php
+    |       |   |       V1BillingMeterNoMeterFoundEventNotification.php
+    |       |   |       V2CoreAccountClosedEvent.php
+    |       |   |       V2CoreAccountClosedEventNotification.php
+    |       |   |       V2CoreAccountCreatedEvent.php
+    |       |   |       V2CoreAccountCreatedEventNotification.php
+    |       |   |       V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEvent.php
+    |       |   |       V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEventNotification.php
+    |       |   |       V2CoreAccountIncludingConfigurationCustomerUpdatedEvent.php
+    |       |   |       V2CoreAccountIncludingConfigurationCustomerUpdatedEventNotification.php
+    |       |   |       V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEvent.php
+    |       |   |       V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEventNotification.php
+    |       |   |       V2CoreAccountIncludingConfigurationMerchantUpdatedEvent.php
+    |       |   |       V2CoreAccountIncludingConfigurationMerchantUpdatedEventNotification.php
+    |       |   |       V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEvent.php
+    |       |   |       V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEventNotification.php
+    |       |   |       V2CoreAccountIncludingConfigurationRecipientUpdatedEvent.php
+    |       |   |       V2CoreAccountIncludingConfigurationRecipientUpdatedEventNotification.php
+    |       |   |       V2CoreAccountIncludingDefaultsUpdatedEvent.php
+    |       |   |       V2CoreAccountIncludingDefaultsUpdatedEventNotification.php
+    |       |   |       V2CoreAccountIncludingFutureRequirementsUpdatedEvent.php
+    |       |   |       V2CoreAccountIncludingFutureRequirementsUpdatedEventNotification.php
+    |       |   |       V2CoreAccountIncludingIdentityUpdatedEvent.php
+    |       |   |       V2CoreAccountIncludingIdentityUpdatedEventNotification.php
+    |       |   |       V2CoreAccountIncludingRequirementsUpdatedEvent.php
+    |       |   |       V2CoreAccountIncludingRequirementsUpdatedEventNotification.php
+    |       |   |       V2CoreAccountLinkReturnedEvent.php
+    |       |   |       V2CoreAccountLinkReturnedEventNotification.php
+    |       |   |       V2CoreAccountPersonCreatedEvent.php
+    |       |   |       V2CoreAccountPersonCreatedEventNotification.php
+    |       |   |       V2CoreAccountPersonDeletedEvent.php
+    |       |   |       V2CoreAccountPersonDeletedEventNotification.php
+    |       |   |       V2CoreAccountPersonUpdatedEvent.php
+    |       |   |       V2CoreAccountPersonUpdatedEventNotification.php
+    |       |   |       V2CoreAccountUpdatedEvent.php
+    |       |   |       V2CoreAccountUpdatedEventNotification.php
+    |       |   |       V2CoreEventDestinationPingEvent.php
+    |       |   |       V2CoreEventDestinationPingEventNotification.php
+    |       |   |       
+    |       |   +---Exception
+    |       |   |   |   ApiConnectionException.php
+    |       |   |   |   ApiErrorException.php
+    |       |   |   |   AuthenticationException.php
+    |       |   |   |   BadMethodCallException.php
+    |       |   |   |   CardException.php
+    |       |   |   |   ExceptionInterface.php
+    |       |   |   |   IdempotencyException.php
+    |       |   |   |   InvalidArgumentException.php
+    |       |   |   |   InvalidRequestException.php
+    |       |   |   |   PermissionException.php
+    |       |   |   |   RateLimitException.php
+    |       |   |   |   SignatureVerificationException.php
+    |       |   |   |   TemporarySessionExpiredException.php
+    |       |   |   |   UnexpectedValueException.php
+    |       |   |   |   UnknownApiErrorException.php
+    |       |   |   |   
+    |       |   |   \---OAuth
+    |       |   |           ExceptionInterface.php
+    |       |   |           InvalidClientException.php
+    |       |   |           InvalidGrantException.php
+    |       |   |           InvalidRequestException.php
+    |       |   |           InvalidScopeException.php
+    |       |   |           OAuthErrorException.php
+    |       |   |           UnknownOAuthErrorException.php
+    |       |   |           UnsupportedGrantTypeException.php
+    |       |   |           UnsupportedResponseTypeException.php
+    |       |   |           
+    |       |   +---FinancialConnections
+    |       |   |       Account.php
+    |       |   |       AccountOwner.php
+    |       |   |       AccountOwnership.php
+    |       |   |       Session.php
+    |       |   |       Transaction.php
+    |       |   |       
+    |       |   +---Forwarding
+    |       |   |       Request.php
+    |       |   |       
+    |       |   +---HttpClient
+    |       |   |       ClientInterface.php
+    |       |   |       CurlClient.php
+    |       |   |       StreamingClientInterface.php
+    |       |   |       
+    |       |   +---Identity
+    |       |   |       VerificationReport.php
+    |       |   |       VerificationSession.php
+    |       |   |       
+    |       |   +---Issuing
+    |       |   |       Authorization.php
+    |       |   |       Card.php
+    |       |   |       CardDetails.php
+    |       |   |       Cardholder.php
+    |       |   |       Dispute.php
+    |       |   |       PersonalizationDesign.php
+    |       |   |       PhysicalBundle.php
+    |       |   |       Token.php
+    |       |   |       Transaction.php
+    |       |   |       
+    |       |   +---Radar
+    |       |   |       EarlyFraudWarning.php
+    |       |   |       ValueList.php
+    |       |   |       ValueListItem.php
+    |       |   |       
+    |       |   +---Reporting
+    |       |   |       ReportRun.php
+    |       |   |       ReportType.php
+    |       |   |       
+    |       |   +---Service
+    |       |   |   |   AbstractService.php
+    |       |   |   |   AbstractServiceFactory.php
+    |       |   |   |   AccountLinkService.php
+    |       |   |   |   AccountService.php
+    |       |   |   |   AccountSessionService.php
+    |       |   |   |   ApplePayDomainService.php
+    |       |   |   |   ApplicationFeeService.php
+    |       |   |   |   BalanceService.php
+    |       |   |   |   BalanceSettingsService.php
+    |       |   |   |   BalanceTransactionService.php
+    |       |   |   |   ChargeService.php
+    |       |   |   |   ConfirmationTokenService.php
+    |       |   |   |   CoreServiceFactory.php
+    |       |   |   |   CountrySpecService.php
+    |       |   |   |   CouponService.php
+    |       |   |   |   CreditNoteService.php
+    |       |   |   |   CustomerService.php
+    |       |   |   |   CustomerSessionService.php
+    |       |   |   |   DisputeService.php
+    |       |   |   |   EphemeralKeyService.php
+    |       |   |   |   EventService.php
+    |       |   |   |   ExchangeRateService.php
+    |       |   |   |   FileLinkService.php
+    |       |   |   |   FileService.php
+    |       |   |   |   InvoiceItemService.php
+    |       |   |   |   InvoicePaymentService.php
+    |       |   |   |   InvoiceRenderingTemplateService.php
+    |       |   |   |   InvoiceService.php
+    |       |   |   |   MandateService.php
+    |       |   |   |   OAuthService.php
+    |       |   |   |   PaymentAttemptRecordService.php
+    |       |   |   |   PaymentIntentService.php
+    |       |   |   |   PaymentLinkService.php
+    |       |   |   |   PaymentMethodConfigurationService.php
+    |       |   |   |   PaymentMethodDomainService.php
+    |       |   |   |   PaymentMethodService.php
+    |       |   |   |   PaymentRecordService.php
+    |       |   |   |   PayoutService.php
+    |       |   |   |   PlanService.php
+    |       |   |   |   PriceService.php
+    |       |   |   |   ProductService.php
+    |       |   |   |   PromotionCodeService.php
+    |       |   |   |   QuoteService.php
+    |       |   |   |   RefundService.php
+    |       |   |   |   ReviewService.php
+    |       |   |   |   ServiceNavigatorTrait.php
+    |       |   |   |   SetupAttemptService.php
+    |       |   |   |   SetupIntentService.php
+    |       |   |   |   ShippingRateService.php
+    |       |   |   |   SourceService.php
+    |       |   |   |   SubscriptionItemService.php
+    |       |   |   |   SubscriptionScheduleService.php
+    |       |   |   |   SubscriptionService.php
+    |       |   |   |   TaxCodeService.php
+    |       |   |   |   TaxIdService.php
+    |       |   |   |   TaxRateService.php
+    |       |   |   |   TokenService.php
+    |       |   |   |   TopupService.php
+    |       |   |   |   TransferService.php
+    |       |   |   |   WebhookEndpointService.php
+    |       |   |   |   
+    |       |   |   +---Apps
+    |       |   |   |       AppsServiceFactory.php
+    |       |   |   |       SecretService.php
+    |       |   |   |       
+    |       |   |   +---Billing
+    |       |   |   |       AlertService.php
+    |       |   |   |       BillingServiceFactory.php
+    |       |   |   |       CreditBalanceSummaryService.php
+    |       |   |   |       CreditBalanceTransactionService.php
+    |       |   |   |       CreditGrantService.php
+    |       |   |   |       MeterEventAdjustmentService.php
+    |       |   |   |       MeterEventService.php
+    |       |   |   |       MeterService.php
+    |       |   |   |       
+    |       |   |   +---BillingPortal
+    |       |   |   |       BillingPortalServiceFactory.php
+    |       |   |   |       ConfigurationService.php
+    |       |   |   |       SessionService.php
+    |       |   |   |       
+    |       |   |   +---Checkout
+    |       |   |   |       CheckoutServiceFactory.php
+    |       |   |   |       SessionService.php
+    |       |   |   |       
+    |       |   |   +---Climate
+    |       |   |   |       ClimateServiceFactory.php
+    |       |   |   |       OrderService.php
+    |       |   |   |       ProductService.php
+    |       |   |   |       SupplierService.php
+    |       |   |   |       
+    |       |   |   +---Entitlements
+    |       |   |   |       ActiveEntitlementService.php
+    |       |   |   |       EntitlementsServiceFactory.php
+    |       |   |   |       FeatureService.php
+    |       |   |   |       
+    |       |   |   +---FinancialConnections
+    |       |   |   |       AccountService.php
+    |       |   |   |       FinancialConnectionsServiceFactory.php
+    |       |   |   |       SessionService.php
+    |       |   |   |       TransactionService.php
+    |       |   |   |       
+    |       |   |   +---Forwarding
+    |       |   |   |       ForwardingServiceFactory.php
+    |       |   |   |       RequestService.php
+    |       |   |   |       
+    |       |   |   +---Identity
+    |       |   |   |       IdentityServiceFactory.php
+    |       |   |   |       VerificationReportService.php
+    |       |   |   |       VerificationSessionService.php
+    |       |   |   |       
+    |       |   |   +---Issuing
+    |       |   |   |       AuthorizationService.php
+    |       |   |   |       CardholderService.php
+    |       |   |   |       CardService.php
+    |       |   |   |       DisputeService.php
+    |       |   |   |       IssuingServiceFactory.php
+    |       |   |   |       PersonalizationDesignService.php
+    |       |   |   |       PhysicalBundleService.php
+    |       |   |   |       TokenService.php
+    |       |   |   |       TransactionService.php
+    |       |   |   |       
+    |       |   |   +---Radar
+    |       |   |   |       EarlyFraudWarningService.php
+    |       |   |   |       RadarServiceFactory.php
+    |       |   |   |       ValueListItemService.php
+    |       |   |   |       ValueListService.php
+    |       |   |   |       
+    |       |   |   +---Reporting
+    |       |   |   |       ReportingServiceFactory.php
+    |       |   |   |       ReportRunService.php
+    |       |   |   |       ReportTypeService.php
+    |       |   |   |       
+    |       |   |   +---Sigma
+    |       |   |   |       ScheduledQueryRunService.php
+    |       |   |   |       SigmaServiceFactory.php
+    |       |   |   |       
+    |       |   |   +---Tax
+    |       |   |   |       AssociationService.php
+    |       |   |   |       CalculationService.php
+    |       |   |   |       RegistrationService.php
+    |       |   |   |       SettingsService.php
+    |       |   |   |       TaxServiceFactory.php
+    |       |   |   |       TransactionService.php
+    |       |   |   |       
+    |       |   |   +---Terminal
+    |       |   |   |       ConfigurationService.php
+    |       |   |   |       ConnectionTokenService.php
+    |       |   |   |       LocationService.php
+    |       |   |   |       OnboardingLinkService.php
+    |       |   |   |       ReaderService.php
+    |       |   |   |       TerminalServiceFactory.php
+    |       |   |   |       
+    |       |   |   +---TestHelpers
+    |       |   |   |   |   ConfirmationTokenService.php
+    |       |   |   |   |   CustomerService.php
+    |       |   |   |   |   RefundService.php
+    |       |   |   |   |   TestClockService.php
+    |       |   |   |   |   TestHelpersServiceFactory.php
+    |       |   |   |   |   
+    |       |   |   |   +---Issuing
+    |       |   |   |   |       AuthorizationService.php
+    |       |   |   |   |       CardService.php
+    |       |   |   |   |       IssuingServiceFactory.php
+    |       |   |   |   |       PersonalizationDesignService.php
+    |       |   |   |   |       TransactionService.php
+    |       |   |   |   |       
+    |       |   |   |   +---Terminal
+    |       |   |   |   |       ReaderService.php
+    |       |   |   |   |       TerminalServiceFactory.php
+    |       |   |   |   |       
+    |       |   |   |   \---Treasury
+    |       |   |   |           InboundTransferService.php
+    |       |   |   |           OutboundPaymentService.php
+    |       |   |   |           OutboundTransferService.php
+    |       |   |   |           ReceivedCreditService.php
+    |       |   |   |           ReceivedDebitService.php
+    |       |   |   |           TreasuryServiceFactory.php
+    |       |   |   |           
+    |       |   |   +---Treasury
+    |       |   |   |       CreditReversalService.php
+    |       |   |   |       DebitReversalService.php
+    |       |   |   |       FinancialAccountService.php
+    |       |   |   |       InboundTransferService.php
+    |       |   |   |       OutboundPaymentService.php
+    |       |   |   |       OutboundTransferService.php
+    |       |   |   |       ReceivedCreditService.php
+    |       |   |   |       ReceivedDebitService.php
+    |       |   |   |       TransactionEntryService.php
+    |       |   |   |       TransactionService.php
+    |       |   |   |       TreasuryServiceFactory.php
+    |       |   |   |       
+    |       |   |   \---V2
+    |       |   |       |   V2ServiceFactory.php
+    |       |   |       |   
+    |       |   |       +---Billing
+    |       |   |       |       BillingServiceFactory.php
+    |       |   |       |       MeterEventAdjustmentService.php
+    |       |   |       |       MeterEventService.php
+    |       |   |       |       MeterEventSessionService.php
+    |       |   |       |       MeterEventStreamService.php
+    |       |   |       |       
+    |       |   |       \---Core
+    |       |   |           |   AccountLinkService.php
+    |       |   |           |   AccountService.php
+    |       |   |           |   AccountTokenService.php
+    |       |   |           |   CoreServiceFactory.php
+    |       |   |           |   EventDestinationService.php
+    |       |   |           |   EventService.php
+    |       |   |           |   
+    |       |   |           \---Accounts
+    |       |   |                   PersonService.php
+    |       |   |                   PersonTokenService.php
+    |       |   |                   
+    |       |   +---Sigma
+    |       |   |       ScheduledQueryRun.php
+    |       |   |       
+    |       |   +---Tax
+    |       |   |       Association.php
+    |       |   |       Calculation.php
+    |       |   |       CalculationLineItem.php
+    |       |   |       Registration.php
+    |       |   |       Settings.php
+    |       |   |       Transaction.php
+    |       |   |       TransactionLineItem.php
+    |       |   |       
+    |       |   +---Terminal
+    |       |   |       Configuration.php
+    |       |   |       ConnectionToken.php
+    |       |   |       Location.php
+    |       |   |       OnboardingLink.php
+    |       |   |       Reader.php
+    |       |   |       
+    |       |   +---TestHelpers
+    |       |   |       TestClock.php
+    |       |   |       
+    |       |   +---Treasury
+    |       |   |       CreditReversal.php
+    |       |   |       DebitReversal.php
+    |       |   |       FinancialAccount.php
+    |       |   |       FinancialAccountFeatures.php
+    |       |   |       InboundTransfer.php
+    |       |   |       OutboundPayment.php
+    |       |   |       OutboundTransfer.php
+    |       |   |       ReceivedCredit.php
+    |       |   |       ReceivedDebit.php
+    |       |   |       Transaction.php
+    |       |   |       TransactionEntry.php
+    |       |   |       
+    |       |   +---Util
+    |       |   |       ApiVersion.php
+    |       |   |       CaseInsensitiveArray.php
+    |       |   |       DefaultLogger.php
+    |       |   |       EventNotificationTypes.php
+    |       |   |       EventTypes.php
+    |       |   |       LoggerInterface.php
+    |       |   |       ObjectTypes.php
+    |       |   |       RandomGenerator.php
+    |       |   |       RequestOptions.php
+    |       |   |       Set.php
+    |       |   |       Util.php
+    |       |   |       
+    |       |   \---V2
+    |       |       |   Collection.php
+    |       |       |   DeletedObject.php
+    |       |       |   
+    |       |       +---Billing
+    |       |       |       MeterEvent.php
+    |       |       |       MeterEventAdjustment.php
+    |       |       |       MeterEventSession.php
+    |       |       |       
+    |       |       \---Core
+    |       |               Account.php
+    |       |               AccountLink.php
+    |       |               AccountPerson.php
+    |       |               AccountPersonToken.php
+    |       |               AccountToken.php
+    |       |               Event.php
+    |       |               EventDestination.php
+    |       |               EventNotification.php
+    |       |               
+    |       \---tests
+    |           |   bootstrap.no_autoload.php
+    |           |   bootstrap.php
+    |           |   TestCase.php
+    |           |   TestHelper.php
+    |           |   TestServer.php
+    |           |   
+    |           +---data
+    |           |       test.png
+    |           |       
+    |           +---openapi
+    |           |       README.md
+    |           |       
+    |           \---Stripe
+    |               |   AccountLinkTest.php
+    |               |   AccountTest.php
+    |               |   ApiRequestorTest.php
+    |               |   ApiResourceTest.php
+    |               |   ApplePayDomainTest.php
+    |               |   ApplicationFeeRefundTest.php
+    |               |   ApplicationFeeTest.php
+    |               |   BalanceTest.php
+    |               |   BalanceTransactionTest.php
+    |               |   BankAccountTest.php
+    |               |   BaseStripeClientTest.php
+    |               |   CapabilityTest.php
+    |               |   CardTest.php
+    |               |   ChargeTest.php
+    |               |   CollectionTest.php
+    |               |   CountrySpecTest.php
+    |               |   CouponTest.php
+    |               |   CreditNoteTest.php
+    |               |   CustomerBalanceTransactionTest.php
+    |               |   CustomerTest.php
+    |               |   DisputeTest.php
+    |               |   EphemeralKeyTest.php
+    |               |   ErrorObjectTest.php
+    |               |   EventTest.php
+    |               |   ExchangeRateTest.php
+    |               |   FileCreationTest.php
+    |               |   FileLinkTest.php
+    |               |   FileTest.php
+    |               |   GeneratedExamplesTest.php
+    |               |   InvoiceItemTest.php
+    |               |   InvoiceTest.php
+    |               |   MandateTest.php
+    |               |   OAuthErrorObjectTest.php
+    |               |   OAuthTest.php
+    |               |   PaymentIntentTest.php
+    |               |   PaymentMethodTest.php
+    |               |   PayoutTest.php
+    |               |   PersonTest.php
+    |               |   PlanTest.php
+    |               |   PriceTest.php
+    |               |   ProductTest.php
+    |               |   QuoteTest.php
+    |               |   RefundTest.php
+    |               |   ReviewTest.php
+    |               |   SearchResultTest.php
+    |               |   SetupAttemptTest.php
+    |               |   SetupIntentTest.php
+    |               |   SourceTest.php
+    |               |   StripeClientTest.php
+    |               |   StripeContextIntegrationTest.php
+    |               |   StripeContextTest.php
+    |               |   StripeObjectTest.php
+    |               |   StripeTelemetryTest.php
+    |               |   StripeTest.php
+    |               |   SubscriptionItemTest.php
+    |               |   SubscriptionScheduleTest.php
+    |               |   SubscriptionTest.php
+    |               |   TaxCodeTest.php
+    |               |   TaxIdTest.php
+    |               |   TaxRateTest.php
+    |               |   TokenTest.php
+    |               |   TopupTest.php
+    |               |   TransferReversalTest.php
+    |               |   TransferTest.php
+    |               |   WebhookEndpointTest.php
+    |               |   WebhookTest.php
+    |               |   
+    |               +---BillingPortal
+    |               |       SessionTest.php
+    |               |       
+    |               +---Checkout
+    |               |       SessionTest.php
+    |               |       
+    |               +---Exception
+    |               |   |   ApiErrorExceptionTest.php
+    |               |   |   SignatureVerificationExceptionTest.php
+    |               |   |   
+    |               |   \---OAuth
+    |               |           OAuthErrorExceptionTest.php
+    |               |           
+    |               +---HttpClient
+    |               |       CurlClientTest.php
+    |               |       
+    |               +---Identity
+    |               |       VerificationReportTest.php
+    |               |       VerificationSessionTest.php
+    |               |       
+    |               +---Issuing
+    |               |       AuthorizationTest.php
+    |               |       CardholderTest.php
+    |               |       CardTest.php
+    |               |       DisputeTest.php
+    |               |       TransactionTest.php
+    |               |       
+    |               +---Radar
+    |               |       EarlyFraudWarningTest.php
+    |               |       ValueListItemTest.php
+    |               |       ValueListTest.php
+    |               |       
+    |               +---Reporting
+    |               |       ReportRunTest.php
+    |               |       ReportTypeTest.php
+    |               |       
+    |               +---Service
+    |               |   |   AbstractServiceTest.php
+    |               |   |   AccountLinkServiceTest.php
+    |               |   |   AccountServiceTest.php
+    |               |   |   ApplePayDomainServiceTest.php
+    |               |   |   ApplicationFeeServiceTest.php
+    |               |   |   BalanceServiceTest.php
+    |               |   |   BalanceTransactionServiceTest.php
+    |               |   |   ChargeServiceTest.php
+    |               |   |   CoreServiceFactoryTest.php
+    |               |   |   CountrySpecServiceTest.php
+    |               |   |   CouponServiceTest.php
+    |               |   |   CreditNoteServiceTest.php
+    |               |   |   CustomerServiceTest.php
+    |               |   |   DisputeServiceTest.php
+    |               |   |   EphemeralKeyServiceTest.php
+    |               |   |   EventServiceTest.php
+    |               |   |   ExchangeRateServiceTest.php
+    |               |   |   FileLinkServiceTest.php
+    |               |   |   FileServiceTest.php
+    |               |   |   InvoiceItemServiceTest.php
+    |               |   |   InvoiceServiceTest.php
+    |               |   |   MandateServiceTest.php
+    |               |   |   OAuthServiceTest.php
+    |               |   |   PaymentIntentServiceTest.php
+    |               |   |   PaymentMethodServiceTest.php
+    |               |   |   PayoutServiceTest.php
+    |               |   |   PlanServiceTest.php
+    |               |   |   PriceServiceTest.php
+    |               |   |   ProductServiceTest.php
+    |               |   |   QuoteServiceTest.php
+    |               |   |   RefundServiceTest.php
+    |               |   |   ReviewServiceTest.php
+    |               |   |   SetupAttemptServiceTest.php
+    |               |   |   SetupIntentServiceTest.php
+    |               |   |   SourceServiceTest.php
+    |               |   |   SubscriptionItemServiceTest.php
+    |               |   |   SubscriptionScheduleServiceTest.php
+    |               |   |   SubscriptionServiceTest.php
+    |               |   |   TaxCodeServiceTest.php
+    |               |   |   TaxRateServiceTest.php
+    |               |   |   TokenServiceTest.php
+    |               |   |   TopupServiceTest.php
+    |               |   |   TransferServiceTest.php
+    |               |   |   WebhookEndpointServiceTest.php
+    |               |   |   
+    |               |   +---BillingPortal
+    |               |   |       ConfigurationServiceTest.php
+    |               |   |       SessionServiceTest.php
+    |               |   |       
+    |               |   +---Checkout
+    |               |   |       SessionServiceTest.php
+    |               |   |       
+    |               |   +---Identity
+    |               |   |       VerificationReportServiceTest.php
+    |               |   |       VerificationSessionServiceTest.php
+    |               |   |       
+    |               |   +---Issuing
+    |               |   |       AuthorizationServiceTest.php
+    |               |   |       CardholderServiceTest.php
+    |               |   |       CardServiceTest.php
+    |               |   |       DisputeServiceTest.php
+    |               |   |       TransactionServiceTest.php
+    |               |   |       
+    |               |   +---Radar
+    |               |   |       EarlyFraudWarningServiceTest.php
+    |               |   |       ValueListItemServiceTest.php
+    |               |   |       ValueListServiceTest.php
+    |               |   |       
+    |               |   +---Reporting
+    |               |   |       ReportRunServiceTest.php
+    |               |   |       ReportTypeServiceTest.php
+    |               |   |       
+    |               |   +---Sigma
+    |               |   |       ScheduledQueryRunServiceTest.php
+    |               |   |       
+    |               |   +---Terminal
+    |               |   |       ConnectionTokenServiceTest.php
+    |               |   |       LocationServiceTest.php
+    |               |   |       ReaderServiceTest.php
+    |               |   |       
+    |               |   \---TestHelpers
+    |               |       \---Terminal
+    |               |               ReaderServiceTest.php
+    |               |               
+    |               +---Sigma
+    |               |       ScheduledQueryRunTest.php
+    |               |       
+    |               +---Tax
+    |               |       SettingsTest.php
+    |               |       
+    |               +---Terminal
+    |               |       ConnectionTokenTest.php
+    |               |       LocationTest.php
+    |               |       ReaderTest.php
+    |               |       
+    |               +---Util
+    |               |       CaseInsensitiveArrayTest.php
+    |               |       DefaultLoggerTest.php
+    |               |       ObjectTypesTest.php
+    |               |       RequestOptionsTest.php
+    |               |       UtilTest.php
+    |               |       
+    |               \---V2
+    |                       CollectionTest.php
+    |                       
+    +---symfony
+    |   +---polyfill-ctype
+    |   |       bootstrap.php
+    |   |       bootstrap80.php
+    |   |       composer.json
+    |   |       Ctype.php
+    |   |       LICENSE
+    |   |       README.md
+    |   |       
+    |   +---polyfill-mbstring
+    |   |   |   bootstrap.php
+    |   |   |   bootstrap80.php
+    |   |   |   composer.json
+    |   |   |   LICENSE
+    |   |   |   Mbstring.php
+    |   |   |   README.md
+    |   |   |   
+    |   |   \---Resources
+    |   |       \---unidata
+    |   |               caseFolding.php
+    |   |               lowerCase.php
+    |   |               titleCaseRegexp.php
+    |   |               upperCase.php
+    |   |               
+    |   \---polyfill-php80
+    |       |   bootstrap.php
+    |       |   composer.json
+    |       |   LICENSE
+    |       |   Php80.php
+    |       |   PhpToken.php
+    |       |   README.md
+    |       |   
+    |       \---Resources
+    |           \---stubs
+    |                   Attribute.php
+    |                   PhpToken.php
+    |                   Stringable.php
+    |                   UnhandledMatchError.php
+    |                   ValueError.php
+    |                   
+    \---vlucas
+        \---phpdotenv
+            |   .editorconfig
+            |   .gitattributes
+            |   .gitignore
+            |   composer.json
+            |   LICENSE
+            |   Makefile
+            |   phpstan-baseline.neon
+            |   phpstan.neon.dist
+            |   phpunit.xml.dist
+            |   README.md
+            |   UPGRADING.md
+            |   
+            +---.github
+            |   |   CODE_OF_CONDUCT.md
+            |   |   CONTRIBUTING.md
+            |   |   FUNDING.yml
+            |   |   SECURITY.md
+            |   |   
+            |   \---workflows
+            |           static.yml
+            |           tests.yml
+            |           
+            +---src
+            |   |   Dotenv.php
+            |   |   Validator.php
+            |   |   
+            |   +---Exception
+            |   |       ExceptionInterface.php
+            |   |       InvalidEncodingException.php
+            |   |       InvalidFileException.php
+            |   |       InvalidPathException.php
+            |   |       ValidationException.php
+            |   |       
+            |   +---Loader
+            |   |       Loader.php
+            |   |       LoaderInterface.php
+            |   |       Resolver.php
+            |   |       
+            |   +---Parser
+            |   |       Entry.php
+            |   |       EntryParser.php
+            |   |       Lexer.php
+            |   |       Lines.php
+            |   |       Parser.php
+            |   |       ParserInterface.php
+            |   |       Value.php
+            |   |       
+            |   +---Repository
+            |   |   |   AdapterRepository.php
+            |   |   |   RepositoryBuilder.php
+            |   |   |   RepositoryInterface.php
+            |   |   |   
+            |   |   \---Adapter
+            |   |           AdapterInterface.php
+            |   |           ApacheAdapter.php
+            |   |           ArrayAdapter.php
+            |   |           EnvConstAdapter.php
+            |   |           GuardedWriter.php
+            |   |           ImmutableWriter.php
+            |   |           MultiReader.php
+            |   |           MultiWriter.php
+            |   |           PutenvAdapter.php
+            |   |           ReaderInterface.php
+            |   |           ReplacingWriter.php
+            |   |           ServerConstAdapter.php
+            |   |           WriterInterface.php
+            |   |           
+            |   +---Store
+            |   |   |   FileStore.php
+            |   |   |   StoreBuilder.php
+            |   |   |   StoreInterface.php
+            |   |   |   StringStore.php
+            |   |   |   
+            |   |   \---File
+            |   |           Paths.php
+            |   |           Reader.php
+            |   |           
+            |   \---Util
+            |           Regex.php
+            |           Str.php
+            |           
+            +---tests
+            |   +---Dotenv
+            |   |   |   DotenvTest.php
+            |   |   |   ValidatorTest.php
+            |   |   |   
+            |   |   +---Loader
+            |   |   |       LoaderTest.php
+            |   |   |       
+            |   |   +---Parser
+            |   |   |       EntryParserTest.php
+            |   |   |       LexerTest.php
+            |   |   |       LinesTest.php
+            |   |   |       ParserTest.php
+            |   |   |       
+            |   |   +---Repository
+            |   |   |   |   RepositoryTest.php
+            |   |   |   |   
+            |   |   |   \---Adapter
+            |   |   |           ArrayAdapterTest.php
+            |   |   |           EnvConstAdapterTest.php
+            |   |   |           PutenvAdapterTest.php
+            |   |   |           ServerConstAdapterTest.php
+            |   |   |           
+            |   |   \---Store
+            |   |           StoreTest.php
+            |   |           
+            |   \---fixtures
+            |       \---env
+            |               .env
+            |               assertions.env
+            |               booleans.env
+            |               commented.env
+            |               empty.env
+            |               example.env
+            |               exported.env
+            |               immutable.env
+            |               integers.env
+            |               large.env
+            |               multibyte.env
+            |               multiline.env
+            |               multiple.env
+            |               mutable.env
+            |               nested.env
+            |               quoted.env
+            |               specialchars.env
+            |               unicodevarnames.env
+            |               utf8-with-bom-encoding.env
+            |               windows.env
+            |               
+            \---vendor-bin
+                \---phpstan
+                        composer.json
+                        

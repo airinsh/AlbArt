@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="../Admin/admin.css">
+</head>
+<body>
+
+<h1 class="welcome">Welcome Admin!</h1>
+
+<div class="buttons">
+    <button onclick="loadUsers()">View Users</button>
+    <button onclick="showAddUser()">Add User</button>
+</div>
+
+<div id="addUserForm" class="add-user hidden">
+    <input id="name" placeholder="Name">
+    <input id="surname" placeholder="Surname">
+    <input id="email" placeholder="Email">
+    <input id="password" placeholder="Password">
+    <select id="role">
+        <option value="klient">Klient</option>
+        <option value="artist">Artist</option>
+    </select>
+    <button onclick="addUser()">Add User</button>
+</div>
+
+<div class="users-section">
+    <h2>Users List</h2>
+    <div class="users-container">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Emri</th>
+                <th>Mbiemri</th>
+                <th>Email</th>
+                <th>Roli</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="usersTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ================= MODAL MODIFY USER ================= -->
+<!-- ================= MODAL MODIFY USER ================= -->
+<div id="modifyModal" class="modify-modal">
+
+    <div class="modify-modal-content">
+        <h3>Modify User</h3>
+
+        <input type="hidden" id="edit-user-id">
+
+        <label>Name</label>
+        <input type="text" id="edit-name">
+
+        <label>Surname</label>
+        <input type="text" id="edit-surname">
+
+        <label>Email</label>
+        <input type="email" id="edit-email">
+
+        <label>Role</label>
+        <select id="edit-role">
+            <option value="klient">Klient</option>
+            <option value="artist">Artist</option>
+        </select>
+
+        <label>Profile Photo (upload only)</label>
+        <input type="file" id="edit-photo" accept="image/*">
+
+        <div class="modify-modal-actions">
+            <button class="modify-save-btn" id="saveModify">Save</button>
+            <button class="modify-cancel-btn" id="cancelModify">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="admin.js"></script>
+
+</body>
+</html>

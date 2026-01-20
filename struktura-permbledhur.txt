@@ -1,0 +1,196 @@
+Folder PATH listing
+Volume serial number is 581E-5CAB
+C:.
++---.idea
+|   \---dataSources
+|       \---bbf41152-37d1-4d6a-8443-f6320563b8b0
+|           \---storage_v2
+|               \---_src_
+|                   \---schema
++---Admin
+|   \---ajax
++---Artist
+|   \---ajax
++---Blerje
+|   \---ajax
++---HomePage
++---img
++---includes
++---Klient
+|   \---ajax
++---Login
+|   \---ajax
++---PHPMailer
++---Produkt
+|   \---ajax
++---Review
+|   \---ajax
++---ShoppingCart
+|   \---ajax
++---Signup
+|   \---ajax
++---uploads
+\---vendor
+    +---composer
+    +---graham-campbell
+    |   \---result-type
+    |       +---.github
+    |       |   \---workflows
+    |       +---src
+    |       \---tests
+    +---phpmailer
+    |   \---phpmailer
+    |       +---.github
+    |       |   +---actions
+    |       |   |   \---build-docs
+    |       |   +---ISSUE_TEMPLATE
+    |       |   \---workflows
+    |       +---.phan
+    |       +---docs
+    |       +---examples
+    |       |   \---images
+    |       +---language
+    |       +---src
+    |       \---test
+    |           +---Fixtures
+    |           |   +---FileIsAccessibleTest
+    |           |   +---HasLineLongerThanMaxTest
+    |           |   \---LocalizationTest
+    |           +---Language
+    |           +---OAuth
+    |           +---PHPMailer
+    |           +---POP3
+    |           \---Security
+    +---phpoption
+    |   \---phpoption
+    |       +---.github
+    |       |   \---workflows
+    |       +---src
+    |       |   \---PhpOption
+    |       +---tests
+    |       |   \---PhpOption
+    |       |       \---Tests
+    |       \---vendor-bin
+    |           \---phpstan
+    +---stripe
+    |   \---stripe-php
+    |       +---.github
+    |       |   +---ISSUE_TEMPLATE
+    |       |   \---workflows
+    |       +---.vscode
+    |       +---data
+    |       +---examples
+    |       +---lib
+    |       |   +---ApiOperations
+    |       |   +---Apps
+    |       |   +---Billing
+    |       |   +---BillingPortal
+    |       |   +---Checkout
+    |       |   +---Climate
+    |       |   +---Entitlements
+    |       |   +---EventData
+    |       |   +---Events
+    |       |   +---Exception
+    |       |   |   \---OAuth
+    |       |   +---FinancialConnections
+    |       |   +---Forwarding
+    |       |   +---HttpClient
+    |       |   +---Identity
+    |       |   +---Issuing
+    |       |   +---Radar
+    |       |   +---Reporting
+    |       |   +---Service
+    |       |   |   +---Apps
+    |       |   |   +---Billing
+    |       |   |   +---BillingPortal
+    |       |   |   +---Checkout
+    |       |   |   +---Climate
+    |       |   |   +---Entitlements
+    |       |   |   +---FinancialConnections
+    |       |   |   +---Forwarding
+    |       |   |   +---Identity
+    |       |   |   +---Issuing
+    |       |   |   +---Radar
+    |       |   |   +---Reporting
+    |       |   |   +---Sigma
+    |       |   |   +---Tax
+    |       |   |   +---Terminal
+    |       |   |   +---TestHelpers
+    |       |   |   |   +---Issuing
+    |       |   |   |   +---Terminal
+    |       |   |   |   \---Treasury
+    |       |   |   +---Treasury
+    |       |   |   \---V2
+    |       |   |       +---Billing
+    |       |   |       \---Core
+    |       |   |           \---Accounts
+    |       |   +---Sigma
+    |       |   +---Tax
+    |       |   +---Terminal
+    |       |   +---TestHelpers
+    |       |   +---Treasury
+    |       |   +---Util
+    |       |   \---V2
+    |       |       +---Billing
+    |       |       \---Core
+    |       \---tests
+    |           +---data
+    |           +---openapi
+    |           \---Stripe
+    |               +---BillingPortal
+    |               +---Checkout
+    |               +---Exception
+    |               |   \---OAuth
+    |               +---HttpClient
+    |               +---Identity
+    |               +---Issuing
+    |               +---Radar
+    |               +---Reporting
+    |               +---Service
+    |               |   +---BillingPortal
+    |               |   +---Checkout
+    |               |   +---Identity
+    |               |   +---Issuing
+    |               |   +---Radar
+    |               |   +---Reporting
+    |               |   +---Sigma
+    |               |   +---Terminal
+    |               |   \---TestHelpers
+    |               |       \---Terminal
+    |               +---Sigma
+    |               +---Tax
+    |               +---Terminal
+    |               +---Util
+    |               \---V2
+    +---symfony
+    |   +---polyfill-ctype
+    |   +---polyfill-mbstring
+    |   |   \---Resources
+    |   |       \---unidata
+    |   \---polyfill-php80
+    |       \---Resources
+    |           \---stubs
+    \---vlucas
+        \---phpdotenv
+            +---.github
+            |   \---workflows
+            +---src
+            |   +---Exception
+            |   +---Loader
+            |   +---Parser
+            |   +---Repository
+            |   |   \---Adapter
+            |   +---Store
+            |   |   \---File
+            |   \---Util
+            +---tests
+            |   +---Dotenv
+            |   |   +---Loader
+            |   |   +---Parser
+            |   |   +---Repository
+            |   |   |   \---Adapter
+            |   |   \---Store
+            |   \---fixtures
+            |       \---env
+            \---vendor-bin
+                \---phpstan
