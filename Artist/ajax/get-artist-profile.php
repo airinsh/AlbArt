@@ -1,5 +1,5 @@
 <?php
-require_once '../../includes/auth.php'; // siguro session + $conn
+require_once '../../includes/auth.php'; // sigurohet session dh conn
 header("Content-Type: application/json");
 
 // Lidhja me DB
@@ -39,7 +39,7 @@ $r->execute();
 $ratingRes = $r->get_result()->fetch_assoc();
 $artist['Vleresimi_Total'] = floatval($ratingRes['avg'] ?? 0);
 
-// Produkte
+
 // Produkte me kategori dhe cmim
 $p = $conn->prepare("
     SELECT 
@@ -57,7 +57,7 @@ $p->bind_param("i", $artist_id);
 $p->execute();
 $produkti = $p->get_result()->fetch_all(MYSQLI_ASSOC);
 
-// Reviews
+// Reviewt
 $rev = $conn->prepare("
     SELECT r.Vleresimi, r.Koment, u.name AS klient_emri
     FROM Review r
@@ -69,7 +69,7 @@ $rev->bind_param("i", $artist_id);
 $rev->execute();
 $reviews = $rev->get_result()->fetch_all(MYSQLI_ASSOC);
 
-// JSON
+// jsoni
 echo json_encode([
     "status" => "success",
     "artist" => $artist,

@@ -16,28 +16,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Popullo të dhënat e produktit
+            // popullimi i te dhenave te produktit
             document.getElementById('product-name').textContent = product.Emri;
             document.getElementById('product-img').src = product.Foto_Produktit;
             document.getElementById('product-desc').textContent = product.Pershkrimi;
             document.getElementById('product-category').textContent = product.Kategori_Emri;
             document.getElementById('product-price').textContent = product.Cmimi + " €";
 
-            // Popullo të dhënat e artistit
+            // popullimi i te dhenave te artistit
             document.getElementById('artist-name').textContent = product.Artist_Name + " " + product.Artist_Surname;
-            // Popullo të dhënat e artistit
             document.getElementById('artist-img').src = product.Artist_Foto + "?t=" + new Date().getTime();
 
             document.getElementById('artist-name').textContent = product.Artist_Name + " " + product.Artist_Surname;
 
 
-            // Select butonin Add to Cart
+            // selektimi i butonit add to cart
             const addToCartBtn = document.querySelector('.btn-main');
 
-            // Funksion Toggle Add/Remove
+            // Funksioni Toggle Add/Remove
             addToCartBtn.addEventListener('click', () => {
                 if (addToCartBtn.textContent === "Add to Cart") {
-                    // Shto produktin në shportë
+                    // Shtimi i produktit ne shporte
                     fetch('../ShoppingCart/ajax/add-to-cart.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },

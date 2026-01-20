@@ -3,7 +3,7 @@ require_once '../../includes/auth.php';
 
 header("Content-Type: application/json");
 
-// Kontrollo POST
+// kontroll post
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(["status" => "error", "message" => "POST kerkohet"]);
     exit;
@@ -14,7 +14,7 @@ if (!isset($_FILES['photo']) || $_FILES['photo']['error'] !== 0) {
     exit;
 }
 
-// Lidhja me DB
+// Lidhja me databzen
 $conn = new mysqli("localhost", "root", "", "albart");
 if ($conn->connect_error) {
     echo json_encode(["status" => "error", "message" => "Gabim lidhjeje me DB"]);
@@ -22,13 +22,13 @@ if ($conn->connect_error) {
 }
 $artist_id = getArtistID($conn); // Merr ID nga session
 
-// Folder ku do ruhen fotot
+// Folderi ku do ruhen fotot
 $uploadDir = "../../uploads/";
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0755, true);
 }
 
-// Emri unik i fotos për të mos e mbishkruar
+// Emri unik i fotos qe mos jete duplicate
 $ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
 $filename = "profile_" . $artist_id . "_" . time() . "." . $ext;
 $targetPath = $uploadDir . $filename;
@@ -39,7 +39,7 @@ if (!move_uploaded_file($_FILES['photo']['tmp_name'], $targetPath)) {
     exit;
 }
 
-// Ruaj path-in ne DB (vetem link relativ)
+// Ruajtja e pathit ne db
 $relativePath = "uploads/" . $filename;
 $stmt = $conn->prepare("UPDATE Artisti SET Fotografi = ? WHERE Artist_ID = ?");
 $stmt->bind_param("si", $relativePath, $artist_id);

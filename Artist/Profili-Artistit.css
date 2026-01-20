@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 
-/* HEADER */
+/* headeri */
 .site-header {
     background-color: #a2b5cc;
     color: #fff;
@@ -217,7 +217,7 @@ body {
     background-color: #357ABD;
 }
 
-/* largimi i scroll bar-it */
+/* largimi i scroll barit */
 .works-container::-webkit-scrollbar {
     height: 8px;
 }
@@ -258,14 +258,14 @@ body {
     border-radius: 8px;
     display: block;
 }
-/* Kategoria – me e zbehte */
+/* Kategoria */
 #veprat .category {
     font-size: 13px;
     color: #999;
     margin-bottom: 4px;
 }
 
-/* Çmimi – poshte, i theksuar */
+/* Çmimi */
 #veprat .price {
     margin-top: 8px;
     font-weight: 600;

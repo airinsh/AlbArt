@@ -57,11 +57,11 @@ if (!$klient_id) die("Ky user nuk është klient ose nuk ekziston.");
                     return;
                 }
 
-                // EMRI I KLIENTIT
+                // emri klientit
                 const k = data.klient;
                 document.getElementById("klient-name").innerText = k.name + " " + k.surname;
 
-                // ================= BLERJET =================
+                // blerjet
                 const ordersList = document.getElementById("orders-list");
                 ordersList.innerHTML = "";
                 if(data.blerjet.length > 0){
@@ -78,7 +78,7 @@ if (!$klient_id) die("Ky user nuk është klient ose nuk ekziston.");
                 }
 
 
-                // ================= REVIEWS =================
+                // reviewt
                 const reviewsList = document.getElementById("reviews-list");
                 reviewsList.innerHTML = "";
                 if(data.reviews.length > 0){

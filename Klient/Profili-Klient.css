@@ -10,7 +10,7 @@ body {
     color: #fff;
     text-align: center;
     padding: 20px;
-    position: relative; /* ⬅️ vetëm kjo shtohet */
+    position: relative; /* ⬅️ vetem kjo shtohet */
 }
 
 .profile-page {
@@ -77,7 +77,7 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* ================= VETËM BUTONI HOMEPAGE ================= */
+/* vetem butoni i homepage */
 .homepage-btn {
     position: absolute;
     left: 20px;

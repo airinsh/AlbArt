@@ -15,7 +15,7 @@ if ($conn->connect_error) {
     exit;
 }
 
-// Merr produktet + emrin e kategorisë
+// Merr produktet dhe emrin e kategorise
 $sql = "
     SELECT 
         p.Produkt_ID, 
@@ -29,7 +29,7 @@ $sql = "
 $result = $conn->query($sql);
 
 $products = [];
-$imgFolder = "../uploads/"; // folderi ku janë fotot
+$imgFolder = "../uploads/"; // folderi ku jane fotot
 
 if($result){
     while($row = $result->fetch_assoc()){

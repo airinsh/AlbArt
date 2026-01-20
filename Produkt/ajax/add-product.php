@@ -26,7 +26,7 @@ if (!isset($_FILES['image']) || $_FILES['image']['error'] !== 0) {
     exit;
 }
 
-// Ruaj imazhin
+// Ruajtja e imazhit
 $uploadDir = "../../uploads/";
 if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
 $ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
@@ -37,7 +37,7 @@ if (!move_uploaded_file($_FILES['image']['tmp_name'], $targetPath)) {
     exit;
 }
 
-// Shkruaj produktin në DB (tani me Kategori_ID)
+// futja e produktit ne db
 $stmt = $conn->prepare("INSERT INTO Produkti (Emri, Pershkrimi, Cmimi, Foto_Produktit, Artist_ID, Kategori_ID) VALUES (?,?,?,?,?,?)");
 $stmt->bind_param("ssdsii", $name, $description, $price, $filename, $artist_id, $category_id);
 

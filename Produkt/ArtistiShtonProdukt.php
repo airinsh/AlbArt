@@ -46,7 +46,7 @@ if (!$artist_id) die("Ky user nuk është artist ose nuk ekziston.");
                 </div>
             </div>
 
-            <!-- Përshkrimi -->
+            <!--pershrkimi -->
             <div class="mb-3">
                 <label class="form-label fw-semibold">Përshkrimi</label>
                 <textarea class="form-control" rows="4" id="description" placeholder="Shkruaj përshkrimin e produktit"></textarea>
@@ -58,7 +58,7 @@ if (!$artist_id) die("Ky user nuk është artist ose nuk ekziston.");
                 <input class="form-control" type="file" id="image">
             </div>
 
-            <!-- Çmimi -->
+            <!-- cmimi -->
             <div class="mb-3">
                 <label class="form-label fw-semibold">Çmimi (€)</label>
                 <input type="number" class="form-control" id="price" placeholder="Vendos çmimin e produktit">
@@ -73,7 +73,7 @@ if (!$artist_id) die("Ky user nuk është artist ose nuk ekziston.");
 </div>
 
 <script>
-    // Vetëm një checkbox mund të zgjidhet
+    // mund te zgjidhet vetem nje checkbox
     const checkboxes = document.querySelectorAll('.category');
     checkboxes.forEach(cb => {
         cb.addEventListener('change', () => {

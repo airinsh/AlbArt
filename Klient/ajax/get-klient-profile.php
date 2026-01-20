@@ -14,7 +14,7 @@ if (!$klient_id) {
     exit;
 }
 
-/* ================= KLIENT + USER ================= */
+/* klient dhe user */
 $stmt = $conn->prepare("
     SELECT k.Klient_ID, u.name, u.surname, u.email
     FROM Klient k
@@ -32,7 +32,7 @@ if ($res->num_rows === 0) {
 
 $klient = $res->fetch_assoc();
 
-/* ================= BLERJET ================= */
+/* blerjet */
 $b = $conn->prepare("
     SELECT p.Emri, p.Cmimi,
            u.name AS artist_name, u.surname AS artist_surname
@@ -47,7 +47,7 @@ $b->execute();
 $blerjet = $b->get_result()->fetch_all(MYSQLI_ASSOC);
 
 
-/* ================= REVIEWS ================= */
+/* reviewt */
 $r = $conn->prepare("
     SELECT r.Vleresimi, r.Koment, u.name AS artist_name, u.surname AS artist_surname
     FROM Review r
@@ -59,7 +59,7 @@ $r->bind_param("i", $klient_id);
 $r->execute();
 $reviews = $r->get_result()->fetch_all(MYSQLI_ASSOC);
 
-/* ================= JSON ================= */
+/* json */
 echo json_encode([
     "status" => "success",
     "klient" => $klient,

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const editLink = document.getElementById('edit-photo-link');
     const fileInput = document.getElementById('photo-input');
 
-    // NGARKO FOTO PROFILI
+    // ngarkimi fotos profilit
     editLink.addEventListener('click', e => {
         e.preventDefault();
         fileInput.value = "";
@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const file = fileInput.files[0];
         if (!file) return;
 
-        // Shfaq foto menjehere
+        // Shfaqja e fotos menjehere
         const reader = new FileReader();
         reader.onload = e => profilePhoto.src = e.target.result;
         reader.readAsDataURL(file);
 
-        // POST ne PHP per ruajtje
+        // post ne php per save
         const formData = new FormData();
         formData.append("photo", file);
 
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(err => console.error("Gabim gjate POST foto:", err));
     });
 
-    // FETCH PROFILI I ARTISTIT
+    // fetch profili artistit
     fetch("ajax/get-artist-profile.php")
         .then(res => res.json())
         .then(data => {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Pershkrimi
             document.getElementById("artist-description").innerText = artist.Description;
 
-            // Foto
+            // Fotoja
             if (artist.Fotografi) profilePhoto.src = "../" + artist.Fotografi;
 
             // Rating
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            // EDIT EMRI
+            // editimi emrit
             const editNameBtn = document.getElementById("edit-name-btn");
             const modal = document.getElementById("editNameModal");
             const cancelBtn = document.getElementById("cancel-name-btn");
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     .catch(() => alert("Gabim gjate komunikimit me serverin."));
             });
 
-            // EDIT DESCRIPTION
+            // editimi pershkrimit
             const editDescBtn = document.getElementById("edit-desc-btn");
             const descModal = document.getElementById("editDescModal");
             const cancelDescBtn = document.getElementById("cancel-desc-btn");
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const cancelWorkBtn = document.getElementById("cancel-work-btn");
 
             document.addEventListener("click", e => {
-                // EDIT
+                // Edit
                 if (e.target.classList.contains("edit-work-btn")) {
                     const workDiv = e.target.closest(".work-info");
                     currentWorkId = e.target.dataset.id;
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-            // Ruaj edit work
+            // Ruajtja e edit work
             cancelWorkBtn.addEventListener("click", () => editWorkModal.style.display = "none");
 
             saveWorkBtn.addEventListener("click", () => {

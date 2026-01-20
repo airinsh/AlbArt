@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const k = data.klient;
             document.getElementById("klient-name").innerText = k.name + " " + k.surname;
 
-            // BLERJET
+            // blerjet
             const ordersList = document.getElementById("orders-list");
             ordersList.innerHTML = "";
             if(data.blerjet.length > 0){

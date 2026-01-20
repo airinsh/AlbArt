@@ -3,21 +3,21 @@ header("Content-Type: application/json");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// ==================== Lidhja me DB ====================
+// lidhja me db
 $conn = new mysqli("localhost","root","","albart");
 if($conn->connect_error){
     echo json_encode(["error"=>$conn->connect_error]);
     exit;
 }
 
-// ==================== Kontrolli i ID ====================
+// kontrolli i ID
 if(!isset($_GET['id'])){
     echo json_encode(["error"=>"ID nuk u dërgua"]);
     exit;
 }
 $id = intval($_GET['id']);
 
-// ==================== Marr produktin dhe artistin ====================
+// marrja e produktit dhe artistit
 $sql = "
 SELECT 
     p.Produkt_ID,
@@ -49,11 +49,11 @@ if(!$product){
     exit;
 }
 
-// ==================== FOTO PRODUKTI ====================
+// fotoja e produktit
 $product['Foto_Produktit'] = "../uploads/".$product['Foto_Produktit'];
 
-// ==================== FOTO ARTIST ====================
-// Merr vetëm emrin e skedarit nga DB për të mos bërë path gabim
+// fotoja e artistit
+//merret vetem emri skedarit nga db
 $artistFile = basename($product['Artist_Fotografi']); // p.sh. "profile_28_1768704712.jpeg"
 $artistPathServer = __DIR__ . "/../../uploads/" . $artistFile; // path absolut në server
 $projectRoot = "/AlbArt/"; // path për browser
@@ -61,13 +61,13 @@ $projectRoot = "/AlbArt/"; // path për browser
 if(!empty($artistFile) && file_exists($artistPathServer)){
     $product['Artist_Foto'] = $projectRoot."uploads/".$artistFile;
 } else {
-    // default nëse nuk ka foto
+    // default nqs nuk ka foto
     $product['Artist_Foto'] = $projectRoot."uploads/profile_32_1768705082.jpeg";
 }
 
-// ==================== Kthe JSON ====================
+// ktheht json
 echo json_encode($product, JSON_UNESCAPED_UNICODE);
 
-// ==================== Mbyll lidhjen ====================
+// mbyllet lidhja
 $conn->close();
 ?>

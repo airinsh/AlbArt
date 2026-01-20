@@ -181,3 +181,4 @@ if (!$artist_id) {
 <script src="../Artist/Profili-Artistit.js"></script>
 </body>
 </html>
+

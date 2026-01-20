@@ -18,7 +18,7 @@ $action = $_POST['action'] ?? '';
 $id = intval($_POST['id'] ?? 0);
 $type = $_POST['type'] ?? '';
 
-// VEPRAT
+// Veprat
 
 // Delete
 if ($action === "delete" && $id > 0) {
@@ -47,7 +47,7 @@ if ($action === "edit" && $id > 0) {
     exit;
 }
 
-// EMRI
+// Emri
 if ($type === "name") {
     $name = trim($_POST['name'] ?? '');
     $surname = trim($_POST['surname'] ?? '');
@@ -69,7 +69,7 @@ if ($type === "name") {
     exit;
 }
 
-// PËRSHKRIMI
+// Pershkrimo
 if ($type === "description") {
     $description = trim($_POST['description'] ?? '');
     if (!$description) {
