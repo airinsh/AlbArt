@@ -15,7 +15,7 @@ require_once "../includes/auth.php";
     <div class="logo">AlbArt</div>
     <div class="toolbar">
 
-        <!-- Search me input që shfaqet brenda toolbar-it -->
+        <!-- Search me input qe shfaqet brenda toolbar-it -->
         <div class="toolbar-item search" onclick="toggleSearch(event)">
             Search
             <input type="text" id="searchInput" placeholder="Kërko..." style="display:none;">
@@ -81,13 +81,13 @@ require_once "../includes/auth.php";
         <h2>Vepra</h2>
         <div class="works-container">
 
-            <!-- Kutitë e veprave do të ngarkohen dinamikisht nga HomePage.js -->
+            <!-- Kutite e veprave do te ngarkohen dinamikisht nga HomePage.js -->
         </div>
     </section>
 </main>
 
 <script>
-    // Funksioni për Search input
+    // Funksioni per Search input
     function toggleSearch(event) {
         event.stopPropagation(); // ndalon propagimin te body
         const input = document.getElementById('searchInput');
@@ -99,7 +99,7 @@ require_once "../includes/auth.php";
         }
     }
 
-    // Fsheh input-in nëse klikoj jashtë tij
+    // Fsheh input-in nese klikoj jashte tij
     document.body.addEventListener('click', function(){
         const input = document.getElementById('searchInput');
         input.style.display = 'none';
@@ -125,11 +125,11 @@ require_once "../includes/auth.php";
 </script>
 
 
-<!-- JS që ngarkon produktet nga DB dhe hap DetajeProdukti.php -->
+<!-- JS qe ngarkon produktet nga DB dhe hap DetajeProdukti.php -->
 <script src="HomePage.js"></script>
 
 <script>
-    // Funksioni për Search input
+    // Funksioni per Search input
     function toggleSearch(event) {
         event.stopPropagation(); // ndalon propagimin te body
         const input = document.getElementById('searchInput');
@@ -141,13 +141,13 @@ require_once "../includes/auth.php";
         }
     }
 
-    // Fsheh input-in nëse klikoj jashtë tij
+    // Fsheh input-in nese klikoj jashte tij
     document.body.addEventListener('click', function(){
         const input = document.getElementById('searchInput');
         input.style.display = 'none';
     });
 
-    // Klikimi i ikonës Cart
+    // Klikimi i ikones Cart
     const cartBtn = document.querySelector(".toolbar-item.cart");
     cartBtn.addEventListener("click", () => {
         window.location.href = "../ShoppingCart/ShoppingCart.php"; // redirect te faqja e Cart
@@ -180,7 +180,7 @@ require_once "../includes/auth.php";
     }
     });
 
-        // Klikimi jashtë e mbyll input-in
+        // Klikimi jashte e mbyll input-in
         document.body.addEventListener("click", () => {
         searchInput.style.display = "none";
     });
@@ -190,7 +190,8 @@ require_once "../includes/auth.php";
 
 <script>
     document.getElementById("profileBtn").addEventListener("click", () => {
-        // Thërrasim PHP për të marrë tipin e userit
+
+        // Therrasim PHP per te marrë tipin e userit
         fetch("ajax/get-user-type.php")
             .then(res => res.json())
             .then(data => {

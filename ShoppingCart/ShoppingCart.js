@@ -4,9 +4,9 @@ const worksContainer = document.querySelector(".works-container");
 const totalItemsEl = document.getElementById("total-items");
 const totalPriceEl = document.getElementById("total-price");
 
-let cart = []; // do të mbajmë produktet që ngarkohen nga serveri
+let cart = []; // do te mbajme produktet qe ngarkohen nga serveri
 
-// Përditëson summary (total items & total price)
+// Perditeson summary (total items & total price)
 function updateSummary() {
     const totalItems = cart.length;
     const totalPrice = cart.reduce((sum, p) => sum + parseFloat(p.Cmimi), 0);
@@ -15,7 +15,7 @@ function updateSummary() {
     totalPriceEl.textContent = totalPrice.toFixed(2);
 }
 
-// Krijon HTML për secilën vepër me Delete button
+// Krijon HTML per secilen veper me Delete button
 function createWorkItem(product) {
     const workDiv = document.createElement("div");
     workDiv.classList.add("work-card", "d-flex", "mb-3", "p-3", "shadow-sm", "rounded");
@@ -37,13 +37,13 @@ function createWorkItem(product) {
         </div>
     `;
 
-    // Shto event listener për Delete button
+    // Shto event listener per Delete button
     const deleteBtn = workDiv.querySelector(".delete-btn");
     deleteBtn.addEventListener("click", () => {
         // Confirm për siguri (opsionale)
         if (!confirm("A jeni të sigurt që doni ta fshini këtë produkt nga shporta?")) return;
 
-        // Thirr PHP për të fshirë produktin nga cart
+        // Thirr PHP per te fshire produktin nga cart
         fetch('ajax/remove-from-cart.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -54,7 +54,7 @@ function createWorkItem(product) {
                 if (data.success) {
                     // Fshij div-in nga DOM
                     workDiv.remove();
-                    // Përditëso cart dhe summary
+                    // Perditeso cart dhe summary
                     cart = cart.filter(p => p.Produkt_ID !== product.Produkt_ID);
                     updateSummary();
                 } else {
@@ -67,7 +67,7 @@ function createWorkItem(product) {
     return workDiv;
 }
 
-// Ngarkon produktet nga serveri (checkout: produktet në karte)
+// Ngarkon produktet nga serveri (checkout: produktet ne karte)
 function loadWorks() {
     fetch('ajax/get-details-for-shopping-cart.php') // ky php duhet të kthejë produktet që janë në cart
         .then(res => res.json())
@@ -88,7 +88,7 @@ document.getElementById("returnBtn").addEventListener("click", () => {
     window.location.href = "../HomePage/HomePage.php"; // faqja kryesore
 });
 
-// Load kur DOM është gati
+// Load kur DOM eshte gati
 document.addEventListener("DOMContentLoaded", () => {
     loadWorks();
 });

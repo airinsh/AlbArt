@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(err => console.error("Gabim fetch veprat:", err));
 
-    // NGARKON ARTISTËT
+    // NGARKON ARTISTET
     const artistsContainer = document.querySelector(".artists-container");
 
     fetch('ajax/get-artist-photo.php')
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p>${artist.name} ${artist.surname}</p>
                 `;
 
-                // Klikimi hap faqen e detajeve të artistit
+                // Klikimi hap faqen e detajeve te artistit
                 artistBtn.addEventListener("click", () => {
                     window.location.href = `../Review/KurKlikonArtist.php?id=${artist.Artist_ID}`;
                 });

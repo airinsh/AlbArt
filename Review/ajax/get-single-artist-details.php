@@ -28,7 +28,7 @@ if(isset($_GET['id'])){
 
 $imgFolder = "../uploads/"; // folderi ku ruhen fotot
 
-// Marrim të dhënat e artistit
+// Marrim te dhenat e artistit
 $sql = "
     SELECT 
         a.Artist_ID,
@@ -79,8 +79,8 @@ while($row = $resultReview->fetch_assoc()){
 // Shto reviews në array artist
 $artist['Reviews'] = $reviews;
 
-// --------------------------
-// Opsionale: Merr veprat e artistit
+
+// Merr veprat e artistit
 $sqlVeprat = "
     SELECT p.Emri, p.Pershkrimi, p.Cmimi, p.Foto_Produktit, k.Emri AS Kategoria_Emri
     FROM Produkti p

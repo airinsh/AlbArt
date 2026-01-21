@@ -1,5 +1,5 @@
 <?php
-// Lidhja me databazën
+// Lidhja me databazen
 $servername = "localhost";
 $username = "root";
 $password = ""; // nëse ka password vendos këtu
@@ -19,7 +19,7 @@ if (!isset($_GET['kategori'])) {
 
 $kategori = intval($_GET['kategori']);
 
-// query për produktet
+// query per produktet
 $sql = "
 SELECT 
     p.Produkt_ID,

@@ -2,13 +2,13 @@
 session_start();
 header("Content-Type: application/json");
 
-// Kontrollo nëse përdoruesi është loguar
+// Kontrollo nese perdoruesi eshte loguar
 if(!isset($_SESSION['user_id'])){
     echo json_encode(["success" => false, "error" => "Duhet të jeni të loguar"]);
     exit;
 }
 
-// Merr të dhënat nga JS
+// Merr te dhenat nga JS
 $input = json_decode(file_get_contents("php://input"), true);
 if(!isset($input['Produkt_ID'])){
     echo json_encode(["success" => false, "error" => "Produkt ID nuk u dërgua"]);
@@ -38,21 +38,21 @@ if($result->num_rows === 0){
 $klient = $result->fetch_assoc();
 $klient_id = $klient['Klient_ID'];
 
-// Kontrollo nëse produkti tashmë është në cart
+// Kontrollo nese produkti tashme eshte ne cart
 $check = $conn->query("SELECT * FROM Artikull_Cart WHERE Produkt_ID = $produktId AND Klient_ID = $klient_id");
 if($check->num_rows > 0){
     echo json_encode(["success" => false, "error" => "Produkt tashmë në shportë"]);
     exit;
 }
 
-// Shto në cart (DB)
+// Shto ne cart (DB)
 $stmt = $conn->prepare("INSERT INTO Artikull_Cart (Produkt_ID, Klient_ID, Sasia) VALUES (?, ?, 1)");
 $stmt->bind_param("ii", $produktId, $klient_id);
 $stmt->execute();
 $stmt->close();
 $conn->close();
 
-// Opsionale: ruaj në session gjithashtu
+// ruaj ne session gjithashtu
 if(!isset($_SESSION['cart'])){
     $_SESSION['cart'] = [];
 }

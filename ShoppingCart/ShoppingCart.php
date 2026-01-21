@@ -68,7 +68,7 @@ if(!isset($_SESSION['user_id'])){
             box-shadow: 0 4px 10px rgb(182, 15, 28);
         }
 
-        /* Për butonin Homepage që është gri fillimisht */
+
         #returnBtn {
             background-color: #888888;
             transition: all 0.3s ease;
@@ -91,10 +91,10 @@ if(!isset($_SESSION['user_id'])){
 
 <div class="container my-5">
     <div class="works-container">
-        <!-- Këtu JS do ngarkojë veprat -->
+
     </div>
 
-    <!-- Summary + Checkout + Return -->
+
     <div class="summary-card d-flex justify-content-between align-items-center">
         <button class="checkout-btn" id="returnBtn" style="background-color:#888888;">Homepage</button>
 
@@ -108,13 +108,13 @@ if(!isset($_SESSION['user_id'])){
 
     <script src="ShoppingCart.js"></script>
 <script>
-    // Shto event listener për butonin Checkout
+    // Shto event listener per butonin Checkout
     document.getElementById("checkoutBtn").addEventListener("click", () => {
         if(cart.length === 0){
             alert("Shporta është bosh!");
             return;
         }
-        // Redirekto në faqen e pagesës ose krye Checkout
+        // Redirekto ne faqen e pageses ose krye Checkout
         window.location.href = "../Blerje/Checkout.php"; // ndrysho në faqen reale të pagesës
     });
 </script>

@@ -31,7 +31,7 @@ if($result->num_rows === 0){
 $klient = $result->fetch_assoc();
 $klient_id = $klient['Klient_ID'];
 
-// Merr produktet që janë në shportën e këtij klienti
+// Merr produktet qe jane ne shporten e ketij klienti
 $sql = "
     SELECT 
         p.Produkt_ID, 

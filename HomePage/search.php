@@ -9,7 +9,7 @@ $products = [];
 
 if ($search !== "") {
 
-    //  Kërkimi i artistëve
+    //  Kerkimi i artisteve
     $stmt = $conn->prepare("
     SELECT 
         Users.id, 
@@ -27,7 +27,7 @@ if ($search !== "") {
     $stmt->execute();
     $artists = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-    //  Kërkimi i produkteve
+    //  Kerkimi i produkteve
     $stmt2 = $conn->prepare("
         SELECT Produkt_ID, Emri, Foto_Produktit
         FROM Produkti
@@ -57,7 +57,7 @@ if ($search !== "") {
 <main>
     <h2>Rezultatet për: "<span><?= htmlspecialchars($search) ?></span>"</h2>
 
-    <!-- ================= ARTISTËT ================= -->
+    //Artistet
     <section class="artists-section">
         <h3>Artistë</h3>
         <div class="artists-container">
@@ -79,7 +79,8 @@ if ($search !== "") {
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Gjej të gjithë artistët me class clickable-artist
+
+            // Gjej te gjithe artistet me klasen clickable-artist
             const artistCards = document.querySelectorAll(".clickable-artist");
             artistCards.forEach(card => {
                 card.addEventListener("click", () => {
@@ -94,7 +95,7 @@ if ($search !== "") {
     </script>
 
 
-    <!-- ================= PRODUKTET ================= -->
+    //Produktet
     <section class="works-section">
         <h3>Produkte</h3>
         <div class="works-container">
@@ -116,6 +117,7 @@ if ($search !== "") {
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+
             // Klikimi i produkteve
             const productCards = document.querySelectorAll(".clickable-product");
             productCards.forEach(card => {

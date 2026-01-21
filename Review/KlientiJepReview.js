@@ -1,16 +1,16 @@
-// STAR RATING
+// Star rating
 const stars = document.querySelectorAll(".star");
 let selectedRating = 0;
 
-// Funksioni për të zgjedhur yjet
+// Funksioni per te zgjedhur yjet
 stars.forEach(star => {
     star.addEventListener("click", () => {
         selectedRating = parseInt(star.getAttribute("data-value"));
 
-        // Hiq të gjitha aktivet
+        // Hiq te gjitha aktivet
         stars.forEach(s => s.classList.remove("active"));
 
-        // Vendos aktivet sipas zgjedhjes
+        // Vendos yjet aktive sipas zgjedhjes
         stars.forEach(s => {
             if (parseInt(s.getAttribute("data-value")) <= selectedRating) {
                 s.classList.add("active");
@@ -19,7 +19,7 @@ stars.forEach(star => {
     });
 });
 
-// SEND REVIEW
+// Send review
 function sendReview() {
     const comment = document.getElementById("comment").value.trim();
     const artistIdInput = document.getElementById("Artist_ID");
@@ -72,12 +72,12 @@ function sendReview() {
         });
 }
 
-//FUNKSION PËR MBUSHJE AUTOMATIKE YJESH
+//Funksion per mbushje automatike te yjeve
 document.addEventListener("DOMContentLoaded", () => {
     const artistIdInput = document.getElementById("Artist_ID");
     if (!artistIdInput) return;
 
-    // Merr vleresimin total nga PHP (nëse do ta dërgojmë si data-attribute)
+    // Merr vleresimin total nga PHP
     const ratingTotal = parseInt(artistIdInput.dataset.rating) || 0;
     if (ratingTotal > 0) {
         stars.forEach(s => s.classList.remove("active"));

@@ -8,7 +8,7 @@ if(!isset($_SESSION['user_id'])){
     exit;
 }
 
-// Merr të dhënat nga JS
+// Merr te dhenat nga JS
 $input = json_decode(file_get_contents("php://input"), true);
 if(!isset($input['Produkt_ID'])){
     echo json_encode(["success" => false, "error" => "Produkt ID nuk u dërgua"]);

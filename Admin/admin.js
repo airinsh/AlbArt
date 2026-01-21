@@ -107,6 +107,3 @@ function addUser() {
             loadUsers();
         });
 }
-
-// Load users initially
-//loadUsers();

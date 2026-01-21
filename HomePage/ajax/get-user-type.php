@@ -9,20 +9,20 @@ if($conn->connect_error) {
     exit;
 }
 
-// Kontrollo nëse është artist
+// Kontrollo nese eshte artist
 $artist_id = getArtistID($conn);
 if($artist_id) {
     echo json_encode(["status"=>"success", "type"=>"artist"]);
     exit;
 }
 
-// Kontrollo nëse është klient
+// Kontrollo nese eshte klient
 $klient_id = getKlientID($conn);
 if($klient_id) {
     echo json_encode(["status"=>"success", "type"=>"klient"]);
     exit;
 }
 
-// Nëse nuk është asnjë
+// Nese nuk eshte asnje
 echo json_encode(["status"=>"error", "message"=>"User nuk është i identifikuar"]);
 ?>

@@ -1,14 +1,14 @@
-/* BODY */
+
 body {
     background-color: #f2f2f2;
 }
 
-/* NGJYRA KRYESORE */
+
 .main-color {
     background-color: #a2b5cc !important;
 }
 
-/* FOTO ARTISTI */
+
 .artist-photo {
     width: 120px;
     height: 120px;
@@ -17,7 +17,7 @@ body {
     border: 4px solid #fff;
 }
 
-/* YJET */
+
 .star {
     font-size: 32px;
     color: #ccc;
@@ -34,7 +34,7 @@ body {
     color: gold;
 }
 
-/* BUTON DERGO */
+
 .btn-send {
     background-color: #a2b5cc;
     color: white;

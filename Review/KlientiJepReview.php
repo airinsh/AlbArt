@@ -1,7 +1,7 @@
 <?php
-require_once "../includes/auth.php"; // thjesht require auth.php që bën lidhjen dhe session
+require_once "../includes/auth.php";
 
-// Kontrollo që përdoruesi është loguar
+// Kontrollo qe perdoruesi eshte loguar
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../Login/login.php");
     exit;
@@ -17,7 +17,8 @@ if ($Artist_ID === 0) {
 $conn = new mysqli("localhost", "root", "", "albart");
 if ($conn->connect_error) die("db_error");
 
-// Merr të dhënat e artistit: emri nga Users, foto dhe rating nga Artisti
+
+// Merr te dhenat e artistit: emri nga Users, foto dhe rating nga Artisti
 $stmt = $conn->prepare("
     SELECT u.name, u.surname, a.Fotografi, a.Vleresimi_Total
     FROM Artisti a
@@ -32,12 +33,12 @@ if (!$artist) {
     die("Artist nuk u gjet.");
 }
 
-// Vendos default nëse nuk ka foto
+// Vendos default nese nuk ka foto
 $artistPhoto = $artist['Fotografi'] ? "../" . $artist['Fotografi'] : "../img/default-artist.png";
 $artistName = $artist['name'] . " " . $artist['surname'];
 $artistRating = $artist['Vleresimi_Total'] ?? 0;
 
-// Për AJAX: nëse është klient vendos Klient_ID, nëse jo, vendos 0 ose null
+// Për AJAX: nese eshte klient vendos Klient_ID, nese jo, vendos 0 ose null
 $klient_id = ($_SESSION['role'] ?? '') === 'klient' ? getKlientID($conn) : 0;
 ?>
 <!DOCTYPE html>
@@ -54,7 +55,7 @@ $klient_id = ($_SESSION['role'] ?? '') === 'klient' ? getKlientID($conn) : 0;
 <nav class="navbar navbar-dark main-color px-4 d-flex justify-content-between align-items-center">
     <span class="navbar-brand mb-0 h1">Review</span>
 
-    <!-- Butoni Home -->
+
     <button class="btn btn-light fw-semibold"
             onclick="window.location.href='../HomePage/Homepage.php'">
         Home
@@ -65,13 +66,12 @@ $klient_id = ($_SESSION['role'] ?? '') === 'klient' ? getKlientID($conn) : 0;
 <div class="container my-5">
     <div class="card shadow-lg rounded-4 p-4">
 
-        <!-- ARTIST INFO -->
+
         <div class="text-center mb-4">
             <img src="<?= $artistPhoto ?>" class="artist-photo mb-3" alt="Artist">
             <h3 class="mb-1"><?= $artistName ?></h3>
         </div>
 
-        <!-- VLERËSIMI -->
         <div class="text-center mb-4">
             <p class="fw-semibold mb-2">Vlerësimi</p>
             <div class="d-flex justify-content-center gap-2" id="stars">
@@ -86,20 +86,20 @@ $klient_id = ($_SESSION['role'] ?? '') === 'klient' ? getKlientID($conn) : 0;
             <input type="hidden" id="Klient_ID" value="<?= $klient_id ?>">
         </div>
 
-        <!-- KOMENTE -->
+
         <div class="mb-4">
             <label class="form-label fw-semibold">Komente</label>
             <textarea id="comment" class="form-control" rows="4" placeholder="Shkruaj mendimin tënd këtu..."></textarea>
         </div>
 
-        <!-- BUTON -->
+
         <div class="text-center">
             <button class="btn btn-send px-5 fw-semibold" onclick="sendReview()">
                 Dërgo
             </button>
         </div>
 
-        <!-- MESAZHI PAS DËRGIMIT -->
+
         <div id="successMessage" class="text-center mt-4 d-none">
             <div class="alert alert-success fw-semibold">
                 Review juaj u dërgua ✅

@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Merr të dhënat nga AJAX
+// Merr te dhenat nga AJAX
 $artist_id = $_POST['Artist_ID'] ?? null;
 $vleresimi = $_POST['vleresimi'] ?? null;
 $koment    = trim($_POST['koment'] ?? "");
@@ -29,7 +29,7 @@ if ($vleresimi < 1 || $vleresimi > 5) {
     exit;
 }
 
-// Kontrollo nëse ky user ka bërë review për këtë artist (pa marrë parasysh rolin)
+// Kontrollo nese ky user ka bere review per kete artist (pa marre parasysh rolin)
 $check = $conn->prepare("
     SELECT r.Review_ID
     FROM Review r
@@ -46,7 +46,7 @@ if ($check->num_rows > 0) {
     exit;
 }
 
-// Merr Klient_ID nëse ekziston
+// Merr Klient_ID nese ekziston
 $klient_id = null;
 $stmt = $conn->prepare("SELECT Klient_ID FROM Klient WHERE User_ID = ?");
 $stmt->bind_param("i", $user_id);
@@ -62,6 +62,7 @@ $stmt = $conn->prepare("
 $stmt->bind_param("iiis", $klient_id, $artist_id, $vleresimi, $koment);
 
 if ($stmt->execute()) {
+
     // UPDATE vleresimi total te Artisti
     $update = $conn->prepare("
         UPDATE Artisti

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const artistId = params.get('id');
     if (!artistId) return console.error("ID e artistit nuk u gjet në URL");
 
-    // Selektorët
+    // Selektoret
     const artistPhoto = document.getElementById("artist-photo");
     const artistName = document.getElementById("artist-name");
     const artistDescription = document.getElementById("artist-description");
@@ -23,20 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // =========================
-            // FOTO ARTISTIT
-            // =========================
+
+            // Foto e artistit
             artistPhoto.src = artist.Fotografi ? "../" + artist.Fotografi : "../img/default-artist.png";
 
-            // =========================
-            // EMRI DHE DESCRIPTION
-            // =========================
+
+            // Emri dhe description
             artistName.textContent = artist.Artist_Name + " " + artist.Artist_Surname;
             artistDescription.textContent = artist.Description || "Nuk ka përshkrim.";
 
-            // =========================
-            // RATING – mbush yjet
-            // =========================
+
+            // Rating mbush yjet
             const rating = parseFloat(artist.Vleresimi_Total) || 0;
             ratingNumber.textContent = rating.toFixed(1);
 
@@ -45,12 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const emptyStars = 5 - fullStars - halfStar;
             ratingStars.textContent = "★".repeat(fullStars) + (halfStar ? "½" : "") + "☆".repeat(emptyStars);
 
-            // BUTONI REVIEW
+            // Butoni Review
             reviewBtn.href = `../Review/KlientiJepReview.php?Artist_ID=${artist.Artist_ID}`;
 
-            // =========================
-            // VEPRAT
-            // =========================
+
+            // Veprat
             vepratContainer.innerHTML = "";
             if (artist.veprat && artist.veprat.length) {
                 const row = document.createElement("div");
@@ -78,9 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 vepratContainer.innerHTML = `<p class="placeholder">Nuk ka ende vepra.</p>`;
             }
 
-            // =========================
-            // CERTIFIKIMET
-            // =========================
+
+            // Certifikimet
             certContainer.innerHTML = "";
             if (artist.Certifikime && artist.Certifikime.trim() !== "") {
                 const certs = artist.Certifikime.split(',');
@@ -96,9 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 certContainer.innerHTML = `<p class="placeholder">Nuk ka certifikime të regjistruara.</p>`;
             }
 
-            // =========================
-            // REVIEWS
-            // =========================
+
+            // Review
             reviewsContainer.innerHTML = "";
             if (artist.Reviews && artist.Reviews.length) {
                 artist.Reviews.forEach(r => {
