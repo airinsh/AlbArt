@@ -5,9 +5,9 @@ const confirmBtn = document.getElementById("confirmBtn");
 
 let cart = [];
 
-// ---------------- LOAD CART ----------------
+// LOAD CART
 function loadCheckout() {
-    fetch('ajax/get-details-for-shopping-cart.php')
+    fetch("../ShoppingCart/ajax/get-details-for-shopping-cart.php")
         .then(res => res.json())
         .then(products => {
             cart = products;
@@ -36,14 +36,14 @@ function loadCheckout() {
         .catch(err => console.error("Gabim checkout:", err));
 }
 
-// ---------------- STRIPE SETUP ----------------
+// STRIPE SETUP
 const stripe = Stripe(STRIPE_PUBLISHABLE_KEY); // Publishable Key
 const elements = stripe.elements();
 const cardElement = elements.create("card", { hidePostalCode: true });
 cardElement.mount("#card-element");
 
 
-// ---------------- CONFIRM ORDER ----------------
+// CONFIRM POROSI
 confirmBtn.addEventListener("click", async () => {
     confirmBtn.disabled = true;
 
@@ -92,5 +92,5 @@ confirmBtn.addEventListener("click", async () => {
     }
 });
 
-// ---------------- LOAD ON START ----------------
+// LOAD ON START
 document.addEventListener("DOMContentLoaded", loadCheckout);

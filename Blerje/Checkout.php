@@ -1,9 +1,5 @@
 <?php
-session_start();
-if(!isset($_SESSION['user_id'])){
-    header("Location: ../Login/login.php");
-    exit;
-}
+require_once "../includes/auth.php";
 ?>
 <!DOCTYPE html>
 <html lang="sq">
@@ -72,13 +68,13 @@ if(!isset($_SESSION['user_id'])){
         <!-- ngarkohen nga Checkout.js -->
     </div>
 
-    <!-- TOTAL -->
+    <!-- TOTALI -->
     <div class="card mb-4 p-3 text-end">
         <h5>Total Produkte: <span id="total-items">0</span></h5>
         <h4>Total Cmimi: $<span id="total-price">0.00</span></h4>
     </div>
 
-    <!-- PAYMENT -->
+    <!-- PAGESA -->
     <div class="card p-4">
         <h5 class="mb-3">Payment</h5>
 
@@ -95,28 +91,7 @@ if(!isset($_SESSION['user_id'])){
 
 </div>
 
-<script src="Checkout.js"></script>
-
-<script>
-    document.getElementById("confirmBtn").addEventListener("click", () => {
-        const cardInput = document.getElementById("cardNumber");
-        const cardNumber = cardInput.value.trim();
-
-        // Vetëm 16 shifra
-        const regex = /^\d{16}$/;
-
-        if(!regex.test(cardNumber)){
-            alert("Numri i kartës duhet të ketë saktësisht 16 shifra!");
-            cardInput.focus();
-            return;
-        }
-
-        // Nëse është OK
-        alert("Pagesa u krye me sukses ✅");
-        // këtu mund të bësh redirect ose fetch për pagesën
-        // window.location.href = "Success.php";
-    });
-</script>
+<script src="../Blerje/Checkout.js"></script>
 
 </body>
 </html>

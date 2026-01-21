@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "../../includes/auth.php";
 header("Content-Type: application/json");
 
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -25,14 +26,12 @@ if ($conn->connect_error) {
 }
 
 // Gjej klientin
-$userId = $_SESSION['user_id'];
-$res = $conn->query("SELECT Klient_ID FROM Klient WHERE User_ID = $userId");
-if(!$res || $res->num_rows == 0){
+$klientId = getKlientID($conn);
+
+if (!$klientId) {
     echo json_encode(["error" => "Klienti nuk u gjet"]);
     exit;
 }
-$row = $res->fetch_assoc();
-$klientId = $row['Klient_ID'];
 
 // Verifiko PaymentIntent
 try {
@@ -69,7 +68,7 @@ while($row = $cartRes2->fetch_assoc()){
     $productIds[] = $row['Produkt_ID'];
 }
 
-// INSERT PAYMENT
+// INSERT PAGESA
 $stmt = $conn->prepare("
     INSERT INTO Pagesa (Stripe_PaymentIntent_ID, Shuma, Statusi)
     VALUES (?, ?, 'Paid')
@@ -78,7 +77,7 @@ $stmt->bind_param("sd", $paymentIntentId, $total);
 $stmt->execute();
 $pagesaId = $stmt->insert_id;
 
-// INSERT ORDER
+// INSERT POROSI
 $stmt = $conn->prepare("
     INSERT INTO Porosi (Statusi, Klient_ID, Pagesa_ID)
     VALUES ('Confirmed', ?, ?)
@@ -87,17 +86,17 @@ $stmt->bind_param("ii", $klientId, $pagesaId);
 $stmt->execute();
 $porosiId = $stmt->insert_id;
 
-// UPDATE CART -> ORDER
+// UPDATE CART-POROSI
 $conn->query("
     UPDATE Artikull_Cart
     SET Porosi_ID = $porosiId
     WHERE Klient_ID = $klientId
 ");
 
-// EMPTY CART
+// CLEAR CART
 $conn->query("DELETE FROM Artikull_Cart WHERE Klient_ID = $klientId");
 
-// Fshi produktet e shitura (sepse janë unike)
+// Fshi produktet e shitura (sepse jane unike)
 if (!empty($productIds)) {
     $ids = implode(",", array_map("intval", $productIds));
     $conn->query("DELETE FROM Produkti WHERE Produkt_ID IN ($ids)");
@@ -112,9 +111,9 @@ $stmt = $conn->prepare("
 $userId = $_SESSION['user_id'];
 $paymentIntentId = $paymentIntent->id;
 $status = $paymentIntent->status;
-$amount = $total; // nga totali i shportes
+$amount = $total; // nga totali i cart
 $currency = $paymentIntent->currency;
-$data = json_encode($paymentIntent); // ruaj të gjithë objektin Stripe
+$data = json_encode($paymentIntent); // ruaj te gjithe objektin Stripe
 $error = $paymentIntent->last_payment_error->message ?? null;
 
 

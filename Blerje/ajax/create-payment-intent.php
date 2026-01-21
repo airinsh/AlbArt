@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "../../includes/auth.php";
 header("Content-Type: application/json");
 
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -18,14 +19,13 @@ if ($conn->connect_error) {
 }
 
 // Gjej klientin
-$userId = $_SESSION['user_id'];
-$res = $conn->query("SELECT Klient_ID FROM Klient WHERE User_ID=$userId");
-if(!$res || $res->num_rows == 0){
+$klientId = getKlientID($conn);
+
+if (!$klientId) {
     echo json_encode(["error" => "Klienti nuk u gjet"]);
     exit;
 }
-$row = $res->fetch_assoc();
-$klientId = $row['Klient_ID'];
+
 
 // Llogarit totalin
 $total = 0;

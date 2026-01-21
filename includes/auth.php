@@ -1,5 +1,4 @@
 <?php
-// auth.php
 session_start();
 
 // Lidhja me DB
@@ -8,9 +7,7 @@ if ($conn->connect_error) {
     die("Gabim lidhjeje me DB: " . $conn->connect_error);
 }
 
-// ========================
 // Kontrollo session ose cookie
-// ========================
 if (!isset($_SESSION['user_id'])) {
 
     if (isset($_COOKIE['remember_token'])) {
@@ -26,7 +23,7 @@ if (!isset($_SESSION['user_id'])) {
             $_SESSION['email'] = $user['email'];
             $_SESSION['last_activity'] = time();
 
-            // Vendos rolin në session
+            // Vendos rolin ne session
             if ($conn->query("SELECT 1 FROM Artisti WHERE User_ID=".$user['id'])->num_rows > 0)
                 $_SESSION['role'] = 'artist';
             elseif ($conn->query("SELECT 1 FROM Klient WHERE User_ID=".$user['id'])->num_rows > 0)
@@ -34,21 +31,19 @@ if (!isset($_SESSION['user_id'])) {
             elseif ($conn->query("SELECT 1 FROM Admin WHERE User_ID=".$user['id'])->num_rows > 0)
                 $_SESSION['role'] = 'Admin';
         } else {
-            // Cookie jo e vlefshme -> fshij dhe ridrejto në login
+            // Cookie jo e vlefshme-fshij dhe ridrejto ne login
             setcookie("remember_token", "", time()-3600, "/");
             header("Location: ../Login/login.php");
             exit;
         }
     } else {
-        // As session as cookie -> ridrejto në login
+        // As session as cookie-ridrejto ne login
         header("Location: ../Login/login.php");
         exit;
     }
 }
 
-// ========================
 // Timeout 15 minuta
-// ========================
 if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 900)) {
     session_destroy();
     header("Location: ../Login/login.php?timeout=1");
@@ -57,9 +52,7 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
 
 $_SESSION['last_activity'] = time();
 
-// ========================
-// Funksione ndihmëse
-// ========================
+// Funksione ndihmese
 function getArtistID($conn) {
     if (!isset($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'artist') return null;
     $stmt = $conn->prepare("SELECT Artist_ID FROM Artisti WHERE User_ID=?");
