@@ -3,7 +3,7 @@ session_start();
 $conn = new mysqli("localhost", "root", "", "albart");
 
 if (isset($_SESSION['user_id'])) {
-    header("Location: ../HomePage/HomePage.php");
+    header("Location: HomePage/HomePage.php");
     exit;
 }
 
@@ -18,7 +18,7 @@ if (isset($_COOKIE['remember_token'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['last_activity'] = time();
-        header("Location: ../HomePage/HomePage.php");
+        header("Location: HomePage/HomePage.php");
         exit;
     } else {
         setcookie("remember_token", "", time()-3600, "/");
@@ -31,13 +31,13 @@ if (isset($_COOKIE['remember_token'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlbArt</title>
-    <link rel="stylesheet" href="faqjakryesore.css">
+    <link rel="stylesheet" href="FaqjaKryesore/faqjakryesore.css">
 </head>
 <body>
 <h1>AlbArt</h1>
 <div>
-    <button class="btn" onclick="window.location.href='../Login/login.php'">Log In</button>
-    <button class="btn" onclick="window.location.href='../Signup/signup.php'">Sign Up</button>
+    <button class="btn" onclick="window.location.href='Login/login.php'">Log In</button>
+    <button class="btn" onclick="window.location.href='Signup/signup.php'">Sign Up</button>
 </div>
 </body>
 </html>
